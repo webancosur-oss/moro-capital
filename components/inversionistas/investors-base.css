@@ -1,0 +1,359 @@
+/* ==========================================================
+   MORO CAPITAL · INVERSIONISTAS · BASE
+   Variables, reset, tipografía y utilidades compartidas.
+========================================================== */
+
+:root {
+  --moro-bg: #090c0b;
+  --moro-bg-soft: #0e1210;
+  --moro-surface: #131816;
+  --moro-surface-light: #f1f1ec;
+
+  --moro-text: #f4f5f2;
+  --moro-text-soft: #afb7b1;
+  --moro-text-muted: #747d77;
+
+  --moro-dark: #111512;
+
+  --moro-green: #00ba5f;
+  --moro-green-dark: #068145;
+
+  --moro-line:
+    rgba(255, 255, 255, 0.1);
+
+  --moro-line-dark:
+    rgba(15, 20, 17, 0.12);
+
+  --moro-container: 1220px;
+
+  --moro-nav-height: 76px;
+}
+
+.investorPage,
+.investorPage * {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--moro-bg);
+}
+
+.investorPage {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  overflow-x: clip;
+
+  background:
+    var(--moro-bg);
+
+  color:
+    var(--moro-text);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+.investorPage button,
+.investorPage input,
+.investorPage select,
+.investorPage textarea {
+  font: inherit;
+}
+
+.investorPage a {
+  -webkit-tap-highlight-color:
+    transparent;
+}
+
+.investorContainer {
+  width:
+    min(
+      calc(100% - 56px),
+      var(--moro-container)
+    );
+
+  margin-inline: auto;
+}
+
+.investorEyebrow {
+  margin:
+    0 0 18px;
+
+  color:
+    var(--moro-green);
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.17em;
+
+  line-height:
+    1.4;
+
+  text-transform:
+    uppercase;
+}
+
+.investorSection {
+  position: relative;
+
+  padding:
+    120px 0;
+}
+
+.investorSection h2,
+.investorMoro416 h2,
+.investorFinalCta h2,
+.investorLegal h2 {
+  margin: 0;
+
+  font-size:
+    clamp(
+      40px,
+      5.1vw,
+      70px
+    );
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    -0.055em;
+
+  line-height:
+    0.98;
+}
+
+.investorLead {
+  max-width:
+    590px;
+
+  margin:
+    22px 0 0;
+
+  color:
+    var(--moro-text-soft);
+
+  font-size:
+    14px;
+
+  line-height:
+    1.75;
+}
+
+.investorSectionHeader {
+  max-width:
+    800px;
+
+  margin-bottom:
+    62px;
+}
+
+.investorFinePrint {
+  max-width:
+    900px;
+
+  margin:
+    26px 0 0;
+
+  color:
+    var(--moro-text-muted);
+
+  font-size:
+    10px;
+
+  line-height:
+    1.65;
+}
+
+.investorButton {
+  min-height:
+    43px;
+
+  padding:
+    0 18px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    9px;
+
+  border:
+    1px solid
+    var(--moro-green);
+
+  border-radius:
+    3px;
+
+  background:
+    var(--moro-green);
+
+  color:
+    #03170c;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  text-decoration:
+    none;
+
+  cursor:
+    pointer;
+
+  transition:
+    background 280ms ease,
+    color 280ms ease,
+    transform 280ms ease,
+    border-color 280ms ease;
+}
+
+.investorButton:hover {
+  transform:
+    translateY(-2px);
+
+  background:
+    #09c967;
+
+  border-color:
+    #09c967;
+}
+
+.investorTextButton {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  color:
+    #e3e7e4;
+
+  font-size:
+    11px;
+
+  text-decoration:
+    none;
+
+  transition:
+    color 250ms ease;
+}
+
+.investorTextButton:hover {
+  color:
+    var(--moro-green);
+}
+
+.investorDarkButton {
+  min-height:
+    43px;
+
+  margin-top:
+    30px;
+
+  padding:
+    0 18px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid
+    #161b18;
+
+  border-radius:
+    3px;
+
+  background:
+    #161b18;
+
+  color:
+    white;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  text-decoration:
+    none;
+
+  transition:
+    250ms ease;
+}
+
+.investorDarkButton:hover {
+  transform:
+    translateY(-2px);
+
+  background:
+    #000;
+}
+
+.investorNavbarLogo img,
+.investorFooterBrand img {
+  width:
+    auto;
+
+  height:
+    29px;
+
+  object-fit:
+    contain;
+
+  filter:
+    brightness(0)
+    invert(1);
+}
+
+.investorLight {
+  background:
+    var(--moro-surface-light);
+
+  color:
+    var(--moro-dark);
+}
+
+.investorLight .investorEyebrow {
+  color:
+    var(--moro-green-dark);
+}
+
+.investorLight .investorLead {
+  color:
+    #686f6a;
+}

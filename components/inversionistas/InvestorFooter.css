@@ -1,0 +1,234 @@
+/* ==========================================================
+   InvestorFooter
+   Estilos propios + responsive del componente.
+========================================================== */
+
+.investorFooter {
+  padding:
+    73px 0 32px;
+
+  border-top:
+    1px solid
+    var(--moro-line);
+
+  background:
+    #060908;
+}
+
+.investorFooterTop {
+  display:
+    grid;
+
+  grid-template-columns:
+    1.7fr
+    repeat(
+      3,
+      1fr
+    );
+
+  gap:
+    55px;
+}
+
+.investorFooterBrand p {
+  max-width:
+    270px;
+
+  margin:
+    19px 0 0;
+
+  color:
+    #66706a;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.6;
+}
+
+.investorFooterSocials {
+  margin-top:
+    22px;
+
+  display:
+    flex;
+
+  gap:
+    8px;
+}
+
+.investorFooterSocials a {
+  width:
+    35px;
+
+  height:
+    35px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border:
+    1px solid
+    var(--moro-line);
+
+  color:
+    #909992;
+
+  transition:
+    250ms ease;
+}
+
+.investorFooterSocials a:hover {
+  color:
+    var(--moro-green);
+
+  border-color:
+    var(--moro-green);
+}
+
+.investorFooterColumn {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    flex-start;
+
+  gap:
+    10px;
+}
+
+.investorFooterColumn strong {
+  margin-bottom:
+    8px;
+
+  color:
+    #c4cbc6;
+
+  font-size:
+    10px;
+}
+
+.investorFooterColumn a {
+  color:
+    #68716b;
+
+  font-size:
+    9px;
+
+  text-decoration:
+    none;
+
+  transition:
+    color 250ms ease;
+}
+
+.investorFooterColumn a:hover {
+  color:
+    white;
+}
+
+.investorFooterLegal {
+  margin-top:
+    57px;
+
+  padding-top:
+    24px;
+
+  border-top:
+    1px solid
+    var(--moro-line);
+}
+
+.investorFooterLegal > p {
+  max-width:
+    1000px;
+
+  margin:
+    6px 0;
+
+  color:
+    #4f5852;
+
+  font-size:
+    8px;
+
+  line-height:
+    1.6;
+}
+
+.investorFooterBottom {
+  margin-top:
+    25px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  color:
+    #464e49;
+
+  font-size:
+    8px;
+}
+
+/* Responsive */
+
+@media (
+  max-width: 960px
+) {
+  .investorFooterTop {
+      grid-template-columns:
+        repeat(
+          2,
+          1fr
+        );
+
+      row-gap:
+        45px;
+    }
+}
+
+@media (
+  max-width: 640px
+) {
+  .investorFooter {
+      padding-top:
+        58px;
+    }
+
+  .investorFooterTop {
+      grid-template-columns:
+        1fr;
+
+      gap:
+        35px;
+    }
+
+  .investorFooterLegal {
+      margin-top:
+        40px;
+    }
+
+  .investorFooterBottom {
+      align-items:
+        flex-start;
+
+      flex-direction:
+        column;
+
+      gap:
+        7px;
+    }
+}

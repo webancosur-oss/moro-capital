@@ -1,0 +1,138 @@
+/* ==========================================================
+   InvestorFinalCta
+   Estilos propios + responsive del componente.
+========================================================== */
+
+.investorFinalCta {
+  position:
+    relative;
+
+  min-height:
+    560px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  background:
+    url(
+      "/assets/inversionistas/cta/cta.webp"
+    )
+    center /
+    cover
+    no-repeat;
+}
+
+.investorFinalCtaGradient {
+  position:
+    absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        3,
+        7,
+        5,
+        0.96
+      )
+      0%,
+      rgba(
+        3,
+        7,
+        5,
+        0.78
+      )
+      42%,
+      rgba(
+        3,
+        7,
+        5,
+        0.36
+      )
+      75%,
+      rgba(
+        3,
+        7,
+        5,
+        0.65
+      )
+      100%
+    );
+}
+
+.investorFinalCtaInner {
+  position:
+    relative;
+}
+
+.investorFinalCtaInner > div {
+  max-width:
+    720px;
+}
+
+.investorFinalCta h2 {
+  max-width:
+    690px;
+}
+
+.investorFinalCtaInner > div > p:not(.investorEyebrow) {
+  max-width:
+    530px;
+
+  margin:
+    25px 0 0;
+
+  color:
+    #a1a9a3;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.65;
+}
+
+/* Responsive */
+
+@media (
+  max-width: 640px
+) {
+  .investorFinalCta {
+      min-height:
+        540px;
+
+      align-items:
+        end;
+
+      padding:
+        70px 0;
+    }
+
+  .investorFinalCtaGradient {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(
+            3,
+            7,
+            5,
+            0.25
+          )
+          0%,
+          rgba(
+            3,
+            7,
+            5,
+            0.91
+          )
+          62%,
+          #060908
+          100%
+        );
+    }
+}

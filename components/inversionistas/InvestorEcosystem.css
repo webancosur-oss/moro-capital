@@ -1,0 +1,143 @@
+/* ==========================================================
+   InvestorEcosystem
+   Estilos propios + responsive del componente.
+========================================================== */
+
+.investorEcosystem {
+  background:
+    #151a18;
+}
+
+.investorBrands {
+  margin-top:
+    58px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      1fr
+    );
+
+  border:
+    1px solid
+    var(--moro-line);
+}
+
+.investorBrand {
+  min-height:
+    166px;
+
+  padding:
+    25px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    space-between;
+
+  border-right:
+    1px solid
+    var(--moro-line);
+}
+
+.investorBrand:last-child {
+  border-right: 0;
+}
+
+.investorBrand > span {
+  color:
+    var(--moro-green);
+
+  font-size:
+    9px;
+}
+
+.investorBrand div {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    7px;
+}
+
+.investorBrand strong {
+  font-size:
+    15px;
+
+  font-weight:
+    500;
+}
+
+.investorBrand small {
+  color:
+    #737c76;
+
+  font-size:
+    9px;
+}
+
+/* Responsive */
+
+@media (
+  max-width: 960px
+) {
+  .investorBrands {
+      grid-template-columns:
+        repeat(
+          2,
+          1fr
+        );
+    }
+
+  .investorBrand:nth-child(
+        2
+      ) {
+      border-right: 0;
+    }
+
+  .investorBrand:nth-child(
+        -n + 2
+      ) {
+      border-bottom:
+        1px solid
+        var(
+          --moro-line
+        );
+    }
+}
+
+@media (
+  max-width: 640px
+) {
+  .investorBrands {
+      grid-template-columns:
+        1fr;
+    }
+
+  .investorBrand {
+      min-height:
+        135px;
+
+      border-right: 0;
+
+      border-bottom:
+        1px solid
+        var(
+          --moro-line
+        );
+    }
+
+  .investorBrand:last-child {
+      border-bottom: 0;
+    }
+}

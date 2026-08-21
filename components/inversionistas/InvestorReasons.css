@@ -1,0 +1,85 @@
+/* ==========================================================
+   InvestorReasons
+   Estilos propios + responsive del componente.
+========================================================== */
+
+.investorReasons {
+  background:
+    #090c0b;
+}
+
+.investorReasonsGrid {
+  display:
+    grid;
+
+  grid-template-columns:
+    0.74fr
+    1.26fr;
+
+  gap:
+    100px;
+}
+
+.investorReasonsList {
+  border-top:
+    1px solid
+    var(--moro-line);
+}
+
+.investorReason {
+  min-height:
+    72px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    42px
+    minmax(
+      0,
+      1fr
+    )
+    22px;
+
+  align-items:
+    center;
+
+  gap:
+    15px;
+
+  border-bottom:
+    1px solid
+    var(--moro-line);
+}
+
+.investorReasonNumber {
+  color:
+    var(--moro-green);
+
+  font-size:
+    9px;
+}
+
+.investorReason strong {
+  font-size:
+    12px;
+
+  font-weight:
+    500;
+}
+
+.investorReason svg {
+  color:
+    #666f69;
+}
+
+/* Responsive */
+
+@media (
+  max-width: 640px
+) {
+  .investorReasonsGrid {
+      gap:
+        45px;
+    }
+}

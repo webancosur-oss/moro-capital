@@ -1,0 +1,207 @@
+/* ==========================================================
+   InvestmentProof
+   Estilos propios + responsive del componente.
+========================================================== */
+
+.investorProof {
+  background:
+    var(--moro-bg);
+}
+
+.investorProofGrid {
+  min-height:
+    630px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    0.88fr
+    1.12fr;
+
+  align-items:
+    center;
+
+  gap:
+    80px;
+}
+
+.investorProofContent {
+  max-width:
+    530px;
+}
+
+.investorProofItems {
+  margin-top:
+    36px;
+
+  display:
+    grid;
+
+  gap:
+    14px;
+}
+
+.investorProofItems > div {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    11px;
+
+  color:
+    #b0b8b2;
+
+  font-size:
+    11px;
+}
+
+.investorProofItems svg {
+  color:
+    var(--moro-green);
+}
+
+.investorProofVisual {
+  position:
+    relative;
+
+  height:
+    630px;
+
+  overflow:
+    hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #88a1b7,
+      #e2aca0
+      52%,
+      #738ca1
+    );
+}
+
+.investorProofTower {
+  position:
+    absolute;
+
+  right:
+    5%;
+  bottom: 0;
+
+  width:
+    53%;
+
+  height:
+    95%;
+
+  background:
+    url(
+      "/assets/inversionistas/projects/tower.png"
+    )
+    center bottom /
+    contain
+    no-repeat;
+}
+
+.investorProofCaption {
+  position:
+    absolute;
+
+  bottom:
+    24px;
+  left:
+    25px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    5px;
+}
+
+.investorProofCaption span {
+  color:
+    white;
+
+  font-size:
+    13px;
+
+  letter-spacing:
+    0.08em;
+}
+
+.investorProofCaption small {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.66
+    );
+
+  font-size:
+    8px;
+
+  letter-spacing:
+    0.12em;
+}
+
+/* Responsive */
+
+@media (
+  max-width: 1199px
+) {
+  .investorProofGrid {
+      gap:
+        55px;
+    }
+}
+
+@media (
+  max-width: 960px
+) {
+  .investorProofGrid {
+      grid-template-columns:
+        1fr;
+
+      gap:
+        55px;
+    }
+
+  .investorProofVisual {
+      height:
+        550px;
+    }
+}
+
+@media (
+  max-width: 640px
+) {
+  .investorProofGrid {
+      min-height:
+        auto;
+
+      gap:
+        43px;
+    }
+
+  .investorProofVisual {
+      height:
+        430px;
+    }
+
+  .investorProofTower {
+      right:
+        -3%;
+
+      width:
+        71%;
+    }
+}

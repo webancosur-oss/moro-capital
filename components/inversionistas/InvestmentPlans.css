@@ -1,0 +1,325 @@
+/* ==========================================================
+   InvestmentPlans
+   Estilos propios + responsive del componente.
+========================================================== */
+
+.investorPlansSection {
+  background:
+    #080b0a;
+}
+
+.investorSectionHeaderSplit {
+  max-width: none;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1fr
+    )
+    350px;
+
+  align-items:
+    end;
+
+  gap:
+    90px;
+}
+
+.investorSectionHeaderSplit > p {
+  margin: 0;
+
+  color:
+    #79817c;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.7;
+}
+
+.investorPlansGrid {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  border:
+    1px solid
+    var(--moro-line);
+}
+
+.investorPlanCard {
+  position:
+    relative;
+
+  min-height:
+    326px;
+
+  padding:
+    29px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  background:
+    #0c100e;
+
+  border-right:
+    1px solid
+    var(--moro-line);
+}
+
+.investorPlanCard:last-child {
+  border-right: 0;
+}
+
+.investorPlanCardFeatured {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        0,
+        186,
+        95,
+        0.13
+      ),
+      #0d120f
+      62%
+    );
+}
+
+.investorPlanHeader {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    10px;
+}
+
+.investorPlanHeader > span {
+  color:
+    #969f99;
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.08em;
+
+  text-transform:
+    uppercase;
+}
+
+.investorPlanHeader small {
+  padding:
+    5px 8px;
+
+  border-radius:
+    999px;
+
+  background:
+    var(--moro-green);
+
+  color:
+    #04180c;
+
+  font-size:
+    8px;
+
+  font-weight:
+    700;
+}
+
+.investorPlanRate {
+  margin-top:
+    62px;
+}
+
+.investorPlanRate strong {
+  display: block;
+
+  color:
+    var(--moro-green);
+
+  font-size:
+    64px;
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    -0.065em;
+
+  line-height:
+    0.9;
+}
+
+.investorPlanRate span {
+  display: block;
+
+  margin-top:
+    10px;
+
+  color:
+    #707973;
+
+  font-size:
+    8px;
+
+  letter-spacing:
+    0.1em;
+
+  text-transform:
+    uppercase;
+}
+
+.investorPlanFooter {
+  margin-top:
+    auto;
+
+  display:
+    flex;
+
+  align-items:
+    end;
+
+  justify-content:
+    space-between;
+}
+
+.investorPlanFooter > div {
+  display:
+    flex;
+
+  align-items:
+    baseline;
+
+  gap:
+    5px;
+}
+
+.investorPlanFooter strong {
+  font-size:
+    17px;
+
+  font-weight:
+    400;
+}
+
+.investorPlanFooter span {
+  color:
+    #7a837d;
+
+  font-size:
+    9px;
+}
+
+.investorPlanFooter a {
+  width:
+    39px;
+
+  height:
+    39px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border:
+    1px solid
+    var(--moro-line);
+
+  color:
+    white;
+
+  text-decoration:
+    none;
+
+  transition:
+    250ms ease;
+}
+
+.investorPlanFooter a:hover {
+  background:
+    var(--moro-green);
+
+  color:
+    #07180d;
+}
+
+/* Responsive */
+
+@media (
+  max-width: 960px
+) {
+  .investorSectionHeaderSplit {
+      grid-template-columns:
+        1fr;
+
+      gap:
+        24px;
+    }
+
+  .investorPlansGrid {
+      grid-template-columns:
+        1fr;
+    }
+
+  .investorPlanCard {
+      min-height:
+        270px;
+
+      border-right: 0;
+
+      border-bottom:
+        1px solid
+        var(
+          --moro-line
+        );
+    }
+
+  .investorPlanCard:last-child {
+      border-bottom: 0;
+    }
+}
+
+@media (
+  max-width: 640px
+) {
+  .investorPlanCard {
+      min-height:
+        255px;
+
+      padding:
+        23px 19px;
+    }
+
+  .investorPlanRate {
+      margin-top:
+        48px;
+    }
+
+  .investorPlanRate strong {
+      font-size:
+        54px;
+    }
+}

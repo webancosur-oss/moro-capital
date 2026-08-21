@@ -1,0 +1,188 @@
+/* ==========================================================
+   InvestorStats
+   Estilos propios + responsive del componente.
+========================================================== */
+
+.investorStats {
+  position:
+    relative;
+
+  background:
+    #080b0a;
+
+  border-top:
+    1px solid
+    var(--moro-line);
+
+  border-bottom:
+    1px solid
+    var(--moro-line);
+}
+
+.investorStatsGrid {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      1fr
+    );
+}
+
+.investorStat {
+  min-height:
+    128px;
+
+  padding:
+    27px 30px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    center;
+
+  border-right:
+    1px solid
+    var(--moro-line);
+}
+
+.investorStat:first-child {
+  border-left:
+    1px solid
+    var(--moro-line);
+}
+
+.investorStat strong {
+  font-size:
+    29px;
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    -0.04em;
+}
+
+.investorStat strong small {
+  font-size:
+    14px;
+
+  font-weight:
+    400;
+}
+
+.investorStat > span {
+  margin-top:
+    7px;
+
+  color:
+    #777f7a;
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    0.06em;
+
+  text-transform:
+    uppercase;
+}
+
+/* Responsive */
+
+@media (
+  max-width: 960px
+) {
+  .investorStatsGrid {
+      grid-template-columns:
+        repeat(
+          2,
+          1fr
+        );
+    }
+
+  .investorStat:nth-child(
+        2
+      ) {
+      border-right: 0;
+    }
+
+  .investorStat:nth-child(
+        -n + 2
+      ) {
+      border-bottom:
+        1px solid
+        var(
+          --moro-line
+        );
+    }
+
+  .investorStat:nth-child(
+        3
+      ) {
+      border-left:
+        1px solid
+        var(
+          --moro-line
+        );
+    }
+}
+
+@media (
+  max-width: 640px
+) {
+  .investorStat {
+      min-height:
+        108px;
+
+      padding:
+        18px 15px;
+    }
+
+  .investorStat strong {
+      font-size:
+        23px;
+    }
+
+  .investorStat > span {
+      font-size:
+        7px;
+
+      line-height:
+        1.4;
+    }
+}
+
+@media (
+  max-width: 380px
+) {
+  .investorStatsGrid {
+      grid-template-columns:
+        1fr;
+    }
+
+  .investorStat {
+      border-right:
+        1px solid
+        var(
+          --moro-line
+        ) !important;
+
+      border-bottom:
+        1px solid
+        var(
+          --moro-line
+        ) !important;
+
+      border-left:
+        1px solid
+        var(
+          --moro-line
+        ) !important;
+    }
+}

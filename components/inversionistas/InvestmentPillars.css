@@ -1,0 +1,152 @@
+/* ==========================================================
+   InvestmentPillars
+   Estilos propios + responsive del componente.
+========================================================== */
+
+.investorPillars {
+  background:
+    #080b0a;
+}
+
+.investorPillarsHeader h2 {
+  max-width:
+    850px;
+}
+
+.investorPillarsHeader h2 span {
+  display: block;
+
+  color:
+    #aeb6b0;
+}
+
+.investorPillarsGrid {
+  margin-top:
+    68px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      1fr
+    );
+
+  border:
+    1px solid
+    var(--moro-line);
+}
+
+.investorPillar {
+  min-height:
+    240px;
+
+  padding:
+    27px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    space-between;
+
+  border-right:
+    1px solid
+    var(--moro-line);
+}
+
+.investorPillar:last-child {
+  border-right: 0;
+}
+
+.investorPillarIcon {
+  color:
+    var(--moro-green);
+}
+
+.investorPillar h3 {
+  margin:
+    0 0 11px;
+
+  font-size:
+    14px;
+
+  font-weight:
+    500;
+}
+
+.investorPillar p {
+  margin: 0;
+
+  color:
+    #767f79;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.6;
+}
+
+/* Responsive */
+
+@media (
+  max-width: 960px
+) {
+  .investorPillarsGrid {
+      grid-template-columns:
+        repeat(
+          2,
+          1fr
+        );
+    }
+
+  .investorPillar:nth-child(
+        2
+      ) {
+      border-right: 0;
+    }
+
+  .investorPillar:nth-child(
+        -n + 2
+      ) {
+      border-bottom:
+        1px solid
+        var(
+          --moro-line
+        );
+    }
+}
+
+@media (
+  max-width: 640px
+) {
+  .investorPillarsGrid {
+      margin-top:
+        45px;
+
+      grid-template-columns:
+        1fr;
+    }
+
+  .investorPillar {
+      min-height:
+        180px;
+
+      border-right: 0;
+
+      border-bottom:
+        1px solid
+        var(
+          --moro-line
+        );
+    }
+
+  .investorPillar:last-child {
+      border-bottom: 0;
+    }
+}

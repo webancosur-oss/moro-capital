@@ -1,0 +1,284 @@
+/* ==========================================================
+   InvestorLeadForm
+   Estilos propios + responsive del componente.
+========================================================== */
+
+.investorFormSection {
+  background:
+    #151a18;
+}
+
+.investorFormGrid {
+  display:
+    grid;
+
+  grid-template-columns:
+    0.79fr
+    1.21fr;
+
+  align-items:
+    start;
+
+  gap:
+    110px;
+}
+
+.investorAdvisor {
+  margin-top:
+    42px;
+
+  padding-top:
+    21px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    flex-start;
+
+  border-top:
+    1px solid
+    var(--moro-line);
+}
+
+.investorAdvisor > span {
+  color:
+    #68716b;
+
+  font-size:
+    8px;
+
+  letter-spacing:
+    0.12em;
+}
+
+.investorAdvisor strong {
+  margin-top:
+    12px;
+
+  font-size:
+    17px;
+
+  font-weight:
+    500;
+}
+
+.investorAdvisor p {
+  margin:
+    5px 0 0;
+
+  color:
+    #767f79;
+
+  font-size:
+    9px;
+}
+
+.investorAdvisor a {
+  margin-top:
+    15px;
+
+  color:
+    var(--moro-green);
+
+  font-size:
+    13px;
+
+  text-decoration:
+    none;
+}
+
+.investorForm {
+  padding:
+    31px;
+
+  border:
+    1px solid
+    var(--moro-line);
+
+  background:
+    #0c100e;
+}
+
+.investorFormFields {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      1fr
+    );
+
+  gap:
+    18px 14px;
+}
+
+.investorForm label {
+  display:
+    grid;
+
+  gap:
+    8px;
+}
+
+.investorForm label > span {
+  color:
+    #818a84;
+
+  font-size:
+    9px;
+}
+
+.investorForm input,
+.investorForm select {
+  width:
+    100%;
+
+  min-height:
+    47px;
+
+  padding:
+    0 13px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.11
+    );
+
+  border-radius:
+    0;
+
+  outline: 0;
+
+  background:
+    #111613;
+
+  color:
+    white;
+
+  font-size:
+    11px;
+
+  transition:
+    border-color 250ms ease;
+}
+
+.investorForm input::placeholder {
+  color:
+    #555e58;
+}
+
+.investorForm input:focus,
+.investorForm select:focus {
+  border-color:
+    var(--moro-green);
+}
+
+.investorFormFull {
+  grid-column:
+    1 / -1;
+}
+
+.investorFormConsent {
+  margin-top:
+    20px;
+
+  display:
+    grid !important;
+
+  grid-template-columns:
+    17px
+    minmax(
+      0,
+      1fr
+    );
+
+  align-items:
+    start;
+
+  gap:
+    9px !important;
+}
+
+.investorFormConsent input {
+  width:
+    15px;
+
+  min-height:
+    15px;
+
+  margin:
+    1px 0 0;
+
+  padding: 0;
+
+  accent-color:
+    var(--moro-green);
+}
+
+.investorFormConsent span {
+  line-height:
+    1.5;
+}
+
+.investorFormSubmit {
+  width:
+    100%;
+
+  margin-top:
+    23px;
+}
+
+.investorFormSuccess {
+  margin-top:
+    16px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  color:
+    #9ae8bb;
+
+  font-size:
+    10px;
+}
+
+/* Responsive */
+
+@media (
+  max-width: 640px
+) {
+  .investorFormGrid {
+      gap:
+        45px;
+    }
+
+  .investorForm {
+      padding:
+        22px 16px;
+    }
+
+  .investorFormFields {
+      grid-template-columns:
+        1fr;
+    }
+
+  .investorFormFull {
+      grid-column:
+        auto;
+    }
+}

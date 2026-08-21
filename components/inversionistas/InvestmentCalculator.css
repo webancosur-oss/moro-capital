@@ -1,0 +1,986 @@
+/* ==========================================================
+   INVESTMENT CALCULATOR
+========================================================== */
+
+.investorCalculator {
+  position: relative;
+
+  padding:
+    105px 0;
+
+  background:
+    #151a18;
+
+  overflow:
+    hidden;
+}
+
+/* ==========================================================
+   LAYOUT
+========================================================== */
+
+.investorCalculatorLayout {
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(420px, 1.1fr);
+
+  align-items:
+    center;
+
+  gap:
+    clamp(
+      60px,
+      8vw,
+      125px
+    );
+}
+
+/* ==========================================================
+   LEFT
+========================================================== */
+
+.investorCalculatorIntro {
+  max-width:
+    480px;
+}
+
+.investorCalculatorIntro h2 {
+  max-width:
+    440px;
+
+  margin:
+    0;
+
+  color:
+    #f2f4f1;
+
+  font-size:
+    clamp(
+      37px,
+      4vw,
+      57px
+    );
+
+  font-weight:
+    400;
+
+  line-height:
+    0.98;
+
+  letter-spacing:
+    -0.05em;
+}
+
+/* ==========================================================
+   AMOUNT
+========================================================== */
+
+.investorCalculatorAmountBlock {
+  margin-top:
+    38px;
+}
+
+.investorCalculatorAmountLabel {
+  display:
+    block;
+
+  margin-bottom:
+    9px;
+
+  color:
+    #737c76;
+
+  font-size:
+    8px;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.13em;
+
+  text-transform:
+    uppercase;
+}
+
+.investorCalculatorAmount {
+  display:
+    block;
+
+  color:
+    #f3f5f2;
+
+  font-size:
+    clamp(
+      34px,
+      3.5vw,
+      49px
+    );
+
+  font-weight:
+    400;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -0.055em;
+}
+
+/* ==========================================================
+   RANGE
+========================================================== */
+
+.investorCalculatorRangeWrap {
+  margin-top:
+    24px;
+}
+
+.investorCalculatorRange {
+  --range-progress:
+    0%;
+
+  width:
+    100%;
+
+  height:
+    3px;
+
+  margin: 0;
+
+  display:
+    block;
+
+  border: 0;
+
+  outline: none;
+
+  appearance:
+    none;
+
+  -webkit-appearance:
+    none;
+
+  background:
+    linear-gradient(
+      to right,
+      var(--moro-green)
+        0%,
+      var(--moro-green)
+        var(
+          --range-progress
+        ),
+      rgba(
+          255,
+          255,
+          255,
+          0.13
+        )
+        var(
+          --range-progress
+        ),
+      rgba(
+          255,
+          255,
+          255,
+          0.13
+        )
+        100%
+    );
+
+  cursor:
+    pointer;
+}
+
+/* CHROME / EDGE */
+
+.investorCalculatorRange::-webkit-slider-runnable-track {
+  height:
+    3px;
+
+  border: 0;
+
+  background:
+    transparent;
+}
+
+.investorCalculatorRange::-webkit-slider-thumb {
+  width:
+    12px;
+
+  height:
+    12px;
+
+  margin-top:
+    -4.5px;
+
+  border:
+    2px solid
+    #151a18;
+
+  border-radius:
+    50%;
+
+  appearance:
+    none;
+
+  -webkit-appearance:
+    none;
+
+  background:
+    var(--moro-green);
+
+  box-shadow:
+    0 0 0
+    1px
+    var(--moro-green);
+}
+
+/* FIREFOX */
+
+.investorCalculatorRange::-moz-range-track {
+  height:
+    3px;
+
+  border: 0;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    );
+}
+
+.investorCalculatorRange::-moz-range-progress {
+  height:
+    3px;
+
+  background:
+    var(--moro-green);
+}
+
+.investorCalculatorRange::-moz-range-thumb {
+  width:
+    11px;
+
+  height:
+    11px;
+
+  border:
+    2px solid
+    #151a18;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--moro-green);
+
+  box-shadow:
+    0 0 0
+    1px
+    var(--moro-green);
+}
+
+/* MIN / MAX */
+
+.investorCalculatorRangeValues {
+  margin-top:
+    9px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  color:
+    #5f6862;
+
+  font-size:
+    8px;
+}
+
+/* ==========================================================
+   PLAN BUTTONS
+========================================================== */
+
+.investorCalculatorPlanSelector {
+  margin-top:
+    27px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+}
+
+.investorCalculatorPlanSelector button {
+  min-width:
+    88px;
+
+  min-height:
+    34px;
+
+  padding:
+    0 14px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    4px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.11
+    );
+
+  border-radius:
+    999px;
+
+  background:
+    transparent;
+
+  color:
+    #8b948e;
+
+  cursor:
+    pointer;
+
+  transition:
+    color 220ms ease,
+    background 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+
+.investorCalculatorPlanSelector button:hover {
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.26
+    );
+
+  color:
+    white;
+}
+
+.investorCalculatorPlanSelector button.active {
+  border-color:
+    var(--moro-green);
+
+  background:
+    var(--moro-green);
+
+  color:
+    #05190d;
+}
+
+.investorCalculatorPlanSelector button span {
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+}
+
+.investorCalculatorPlanSelector button small {
+  font-size:
+    8px;
+
+  font-weight:
+    500;
+}
+
+/* ==========================================================
+   PROJECTION CARD
+========================================================== */
+
+.investorProjectionCard {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  padding:
+    29px 31px
+    24px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.07
+    );
+
+  background:
+    #0a0e0c;
+}
+
+/* subtle green top accent */
+
+.investorProjectionCard::before {
+  position:
+    absolute;
+
+  top: 0;
+  left:
+    31px;
+
+  width:
+    38px;
+
+  height:
+    1px;
+
+  content: "";
+
+  background:
+    var(--moro-green);
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.investorProjectionHeader {
+  padding-bottom:
+    24px;
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+  border-bottom:
+    1px solid
+    var(--moro-line);
+}
+
+.investorProjectionEyebrow {
+  display:
+    block;
+
+  color:
+    var(--moro-green);
+
+  font-size:
+    8px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.14em;
+
+  text-transform:
+    uppercase;
+}
+
+.investorProjectionHeader p {
+  margin:
+    7px 0 0;
+
+  color:
+    #777f7a;
+
+  font-size:
+    9px;
+}
+
+.investorProjectionRate {
+  color:
+    var(--moro-green);
+
+  font-size:
+    31px;
+
+  font-weight:
+    400;
+
+  line-height:
+    0.9;
+
+  letter-spacing:
+    -0.05em;
+}
+
+/* ==========================================================
+   METRICS
+========================================================== */
+
+.investorProjectionMetrics {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  border-bottom:
+    1px solid
+    var(--moro-line);
+}
+
+.investorProjectionMetric {
+  min-width: 0;
+
+  padding:
+    22px 18px
+    21px 0;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    7px;
+}
+
+.investorProjectionMetric +
+.investorProjectionMetric {
+  padding-left:
+    18px;
+
+  border-left:
+    1px solid
+    var(--moro-line);
+}
+
+.investorProjectionMetric > span {
+  color:
+    #606963;
+
+  font-size:
+    7px;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.11em;
+
+  text-transform:
+    uppercase;
+}
+
+.investorProjectionMetric strong {
+  overflow:
+    hidden;
+
+  color:
+    #dfe4e0;
+
+  font-size:
+    14px;
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    -0.025em;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+}
+
+.investorProjectionMetric strong small {
+  color:
+    #737b76;
+
+  font-size:
+    8px;
+
+  font-weight:
+    400;
+}
+
+/* ==========================================================
+   TOTAL
+========================================================== */
+
+.investorProjectionTotal {
+  padding:
+    22px 0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+  border-bottom:
+    1px solid
+    var(--moro-line);
+}
+
+.investorProjectionTotal > div {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    7px;
+}
+
+.investorProjectionTotal span {
+  color:
+    #68716b;
+
+  font-size:
+    7px;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.12em;
+
+  text-transform:
+    uppercase;
+}
+
+.investorProjectionTotal strong {
+  color:
+    var(--moro-green);
+
+  font-size:
+    clamp(
+      20px,
+      2vw,
+      26px
+    );
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    -0.04em;
+}
+
+.investorProjectionTotal a {
+  width:
+    38px;
+
+  height:
+    38px;
+
+  flex:
+    0 0 auto;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  border-radius:
+    50%;
+
+  color:
+    #cdd3cf;
+
+  text-decoration:
+    none;
+
+  transition:
+    220ms ease;
+}
+
+.investorProjectionTotal a:hover {
+  border-color:
+    var(--moro-green);
+
+  background:
+    var(--moro-green);
+
+  color:
+    #04170b;
+
+  transform:
+    rotate(4deg);
+}
+
+/* ==========================================================
+   DISCLAIMER
+========================================================== */
+
+.investorProjectionDisclaimer {
+  max-width:
+    560px;
+
+  margin:
+    17px 0 0;
+
+  color:
+    #555e58;
+
+  font-size:
+    8px;
+
+  line-height:
+    1.6;
+}
+
+/* ==========================================================
+   LAPTOP
+========================================================== */
+
+@media (
+  max-width: 1199px
+) {
+  .investorCalculatorLayout {
+    grid-template-columns:
+      minmax(
+        0,
+        0.85fr
+      )
+      minmax(
+        390px,
+        1.15fr
+      );
+
+    gap:
+      65px;
+  }
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (
+  max-width: 960px
+) {
+  .investorCalculator {
+    padding:
+      90px 0;
+  }
+
+  .investorCalculatorLayout {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      48px;
+  }
+
+  .investorCalculatorIntro {
+    max-width:
+      620px;
+  }
+
+  .investorProjectionCard {
+    max-width:
+      680px;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (
+  max-width: 640px
+) {
+  .investorCalculator {
+    padding:
+      72px 0;
+  }
+
+  .investorCalculatorLayout {
+    gap:
+      38px;
+  }
+
+  .investorCalculatorIntro h2 {
+    font-size:
+      39px;
+  }
+
+  .investorCalculatorAmountBlock {
+    margin-top:
+      30px;
+  }
+
+  .investorCalculatorAmount {
+    font-size:
+      37px;
+  }
+
+  .investorCalculatorRangeWrap {
+    margin-top:
+      21px;
+  }
+
+  .investorCalculatorPlanSelector {
+    width:
+      100%;
+
+    gap:
+      6px;
+  }
+
+  .investorCalculatorPlanSelector button {
+    min-width: 0;
+
+    min-height:
+      36px;
+
+    padding:
+      0 8px;
+
+    flex:
+      1;
+  }
+
+  .investorProjectionCard {
+    padding:
+      25px 18px
+      20px;
+  }
+
+  .investorProjectionCard::before {
+    left:
+      18px;
+  }
+
+  .investorProjectionMetrics {
+    grid-template-columns:
+      1fr;
+  }
+
+  .investorProjectionMetric {
+    min-height:
+      63px;
+
+    padding:
+      14px 0;
+
+    justify-content:
+      center;
+  }
+
+  .investorProjectionMetric +
+  .investorProjectionMetric {
+    padding-left: 0;
+
+    border-top:
+      1px solid
+      var(--moro-line);
+
+    border-left: 0;
+  }
+
+  .investorProjectionMetric strong {
+    font-size:
+      15px;
+  }
+
+  .investorProjectionTotal {
+    padding:
+      18px 0;
+  }
+
+  .investorProjectionTotal strong {
+    font-size:
+      24px;
+  }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (
+  max-width: 380px
+) {
+  .investorCalculatorIntro h2 {
+    font-size:
+      35px;
+  }
+
+  .investorCalculatorAmount {
+    font-size:
+      33px;
+  }
+
+  .investorCalculatorPlanSelector button span {
+    font-size:
+      9px;
+  }
+
+  .investorCalculatorPlanSelector button small {
+    font-size:
+      7px;
+  }
+
+  .investorProjectionHeader {
+    gap:
+      12px;
+  }
+
+  .investorProjectionRate {
+    font-size:
+      27px;
+  }
+}
