@@ -125,12 +125,6 @@ export default function InvestorNavbar() {
         </nav>
 
         <div className="investorNavbarActions">
-          <a
-            href="#formulario"
-            className="investorNavbarSecondary"
-          >
-            Descargar dossier
-          </a>
 
           <a
             href={whatsapp}

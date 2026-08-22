@@ -1,15 +1,15 @@
 "use client";
 
+import {
+  ArrowUpRight,
+  MoveHorizontal,
+} from "lucide-react";
+
 import Image from "next/image";
 
 import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-} from "lucide-react";
-
-import {
-  useCallback,
+  type MouseEvent,
+  type PointerEvent,
   useRef,
   useState,
 } from "react";
@@ -20,166 +20,285 @@ import {
 
 import Reveal from "./Reveal";
 
+/* =========================================================
+   TYPES
+========================================================= */
+
+type Project =
+  (typeof PROJECTS)[number];
+
+type DragState = {
+  pressed: boolean;
+  dragging: boolean;
+  moved: boolean;
+  startX: number;
+  scrollLeft: number;
+};
+
+/* =========================================================
+   COMPONENT
+========================================================= */
+
 export default function TrackRecord() {
   const scrollerRef =
     useRef<HTMLDivElement | null>(
-      null
+      null,
     );
+
+  const dragRef =
+    useRef<DragState>({
+      pressed: false,
+      dragging: false,
+      moved: false,
+      startX: 0,
+      scrollLeft: 0,
+    });
 
   const [
-    activeIndex,
-    setActiveIndex,
-  ] = useState(0);
+    isDragging,
+    setIsDragging,
+  ] = useState(false);
 
-  /* ==========================================
-     IR A UN PROYECTO
-  ========================================== */
+  /* =======================================================
+     URL DEL PROYECTO
 
-  const goToProject =
-    useCallback(
-      (index: number) => {
-        const scroller =
-          scrollerRef.current;
+     Usa exactamente project.url de investors.ts.
+     Si no tiene https:// se agrega.
+  ======================================================= */
 
-        if (!scroller) return;
+  const getProjectUrl = (
+    project: Project,
+  ): string => {
+    const url =
+      project.url.trim();
 
-        const cards =
-          scroller.querySelectorAll<HTMLElement>(
-            "[data-track-card]"
-          );
+    if (
+      url.startsWith(
+        "https://",
+      ) ||
+      url.startsWith(
+        "http://",
+      )
+    ) {
+      return url;
+    }
 
-        const card =
-          cards[index];
+    return `https://${url}`;
+  };
 
-        if (!card) return;
+  /* =======================================================
+     POINTER DOWN
+  ======================================================= */
 
-        const targetLeft =
-          card.offsetLeft -
-          scroller.offsetLeft;
+  const handlePointerDown = (
+    event:
+      PointerEvent<HTMLDivElement>,
+  ) => {
+    /*
+     * Mobile/tablet:
+     * no interferimos.
+     * El navegador realiza el swipe.
+     */
+    if (
+      event.pointerType ===
+      "touch"
+    ) {
+      return;
+    }
 
-        scroller.scrollTo({
-          left: targetLeft,
-          behavior: "smooth",
-        });
+    /*
+     * Solo clic izquierdo.
+     */
+    if (
+      event.pointerType ===
+        "mouse" &&
+      event.button !== 0
+    ) {
+      return;
+    }
 
-        setActiveIndex(index);
-      },
-      []
+    const scroller =
+      scrollerRef.current;
+
+    if (!scroller) {
+      return;
+    }
+
+    dragRef.current = {
+      pressed: true,
+      dragging: false,
+      moved: false,
+
+      startX:
+        event.clientX,
+
+      scrollLeft:
+        scroller.scrollLeft,
+    };
+  };
+
+  /* =======================================================
+     POINTER MOVE
+
+     Hasta 8px sigue siendo un clic normal.
+  ======================================================= */
+
+  const handlePointerMove = (
+    event:
+      PointerEvent<HTMLDivElement>,
+  ) => {
+    if (
+      event.pointerType ===
+      "touch"
+    ) {
+      return;
+    }
+
+    if (
+      !dragRef.current
+        .pressed
+    ) {
+      return;
+    }
+
+    const scroller =
+      scrollerRef.current;
+
+    if (!scroller) {
+      return;
+    }
+
+    const deltaX =
+      event.clientX -
+      dragRef.current.startX;
+
+    /*
+     * Todavía es un clic.
+     */
+    if (
+      Math.abs(deltaX) <
+      8
+    ) {
+      return;
+    }
+
+    /*
+     * A partir de aquí
+     * sí comienza el drag.
+     */
+    if (
+      !dragRef.current
+        .dragging
+    ) {
+      dragRef.current.dragging =
+        true;
+
+      dragRef.current.moved =
+        true;
+
+      setIsDragging(
+        true,
+      );
+    }
+
+    /*
+     * Solo bloqueamos comportamiento
+     * por defecto una vez iniciado
+     * el arrastre.
+     */
+    event.preventDefault();
+
+    scroller.scrollLeft =
+      dragRef.current
+        .scrollLeft -
+      deltaX;
+  };
+
+  /* =======================================================
+     POINTER UP
+  ======================================================= */
+
+  const handlePointerUp = (
+    event:
+      PointerEvent<HTMLDivElement>,
+  ) => {
+    if (
+      event.pointerType ===
+      "touch"
+    ) {
+      return;
+    }
+
+    dragRef.current.pressed =
+      false;
+
+    dragRef.current.dragging =
+      false;
+
+    setIsDragging(
+      false,
     );
+  };
 
-  /* ==========================================
-     ANTERIOR
-  ========================================== */
+  /* =======================================================
+     POINTER CANCEL / LEAVE
+  ======================================================= */
 
-  const previousProject =
-    useCallback(() => {
-      const nextIndex =
-        activeIndex === 0
-          ? PROJECTS.length - 1
-          : activeIndex - 1;
+  const cancelDragging =
+    () => {
+      dragRef.current.pressed =
+        false;
 
-      goToProject(
-        nextIndex
+      dragRef.current.dragging =
+        false;
+
+      setIsDragging(
+        false,
       );
-    }, [
-      activeIndex,
-      goToProject,
-    ]);
+    };
 
-  /* ==========================================
-     SIGUIENTE
-  ========================================== */
+  /* =======================================================
+     CLICK DE TARJETA
 
-  const nextProject =
-    useCallback(() => {
-      const nextIndex =
-        activeIndex ===
-        PROJECTS.length - 1
-          ? 0
-          : activeIndex + 1;
+     Si solo hiciste clic:
+     abre project.url.
 
-      goToProject(
-        nextIndex
-      );
-    }, [
-      activeIndex,
-      goToProject,
-    ]);
+     Si arrastraste:
+     cancela únicamente ese clic.
+  ======================================================= */
 
-  /* ==========================================
-     DETECTAR PROYECTO ACTIVO AL HACER SCROLL
-  ========================================== */
+  const handleProjectClick = (
+    event:
+      MouseEvent<HTMLAnchorElement>,
+  ) => {
+    if (
+      dragRef.current.moved
+    ) {
+      event.preventDefault();
 
-  const handleScroll =
-    useCallback(() => {
-      const scroller =
-        scrollerRef.current;
+      dragRef.current.moved =
+        false;
 
-      if (!scroller) return;
+      return;
+    }
 
-      const cards =
-        Array.from(
-          scroller.querySelectorAll<HTMLElement>(
-            "[data-track-card]"
-          )
-        );
-
-      if (!cards.length) {
-        return;
-      }
-
-      const scrollerRect =
-        scroller.getBoundingClientRect();
-
-      const referencePoint =
-        scrollerRect.left +
-        24;
-
-      let closestIndex = 0;
-
-      let closestDistance =
-        Number.POSITIVE_INFINITY;
-
-      cards.forEach(
-        (
-          card,
-          index
-        ) => {
-          const cardRect =
-            card.getBoundingClientRect();
-
-          const distance =
-            Math.abs(
-              cardRect.left -
-              referencePoint
-            );
-
-          if (
-            distance <
-            closestDistance
-          ) {
-            closestDistance =
-              distance;
-
-            closestIndex =
-              index;
-          }
-        }
-      );
-
-      setActiveIndex(
-        closestIndex
-      );
-    }, []);
+    /*
+     * IMPORTANTE:
+     * aquí NO usamos preventDefault.
+     *
+     * El <a href=""> navega
+     * normalmente.
+     */
+  };
 
   return (
     <section
       className="trackRecord"
       id="trayectoria"
     >
-      {/* ======================================
+      {/* ===================================================
           HEADER
-      ======================================= */}
+      ==================================================== */}
 
       <div className="investorContainer">
         <div className="trackRecordHeader">
@@ -191,7 +310,10 @@ export default function TrackRecord() {
             <h2>
               Experiencia que
               <br />
-              se puede medir.
+
+              <span>
+                se puede medir.
+              </span>
             </h2>
           </Reveal>
 
@@ -200,112 +322,96 @@ export default function TrackRecord() {
             delay={0.08}
           >
             <p>
-              Proyectos inmobiliarios
-              de departamentos,
-              lotizaciones y resort
-              club desarrollados
-              dentro del ecosistema
-              del grupo.
+              Proyectos inmobiliarios de
+              departamentos, lotizaciones y
+              resort club desarrollados dentro
+              del ecosistema del grupo.
             </p>
 
-            <div className="trackRecordNavigation">
-              {/* CONTADOR */}
+            <div className="trackRecordDragHint">
+              <MoveHorizontal
+                size={16}
+                strokeWidth={1.6}
+                aria-hidden="true"
+              />
 
-              <div className="trackRecordCounter">
-                <strong>
-                  {String(
-                    activeIndex + 1
-                  ).padStart(
-                    2,
-                    "0"
-                  )}
-                </strong>
+              <span className="trackRecordMouseHint">
+                Arrastra para explorar
+              </span>
 
-                <span />
-
-                <small>
-                  {String(
-                    PROJECTS.length
-                  ).padStart(
-                    2,
-                    "0"
-                  )}
-                </small>
-              </div>
-
-              {/* FLECHAS */}
-
-              <div className="trackRecordArrows">
-                <button
-                  type="button"
-                  onClick={
-                    previousProject
-                  }
-                  aria-label="Proyecto anterior"
-                >
-                  <ArrowLeft
-                    size={17}
-                  />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={
-                    nextProject
-                  }
-                  aria-label="Proyecto siguiente"
-                >
-                  <ArrowRight
-                    size={17}
-                  />
-                </button>
-              </div>
+              <span className="trackRecordTouchHint">
+                Desliza para explorar
+              </span>
             </div>
           </Reveal>
         </div>
       </div>
 
-      {/* ======================================
-          PROJECT SLIDER
-      ======================================= */}
+      {/* ===================================================
+          PROJECTS
+      ==================================================== */}
 
       <div
-        ref={scrollerRef}
-        className="trackRecordScroller"
-        onScroll={
-          handleScroll
+        ref={
+          scrollerRef
         }
+        className={`trackRecordScroller ${
+          isDragging
+            ? "isDragging"
+            : ""
+        }`}
+        onPointerDown={
+          handlePointerDown
+        }
+        onPointerMove={
+          handlePointerMove
+        }
+        onPointerUp={
+          handlePointerUp
+        }
+        onPointerCancel={
+          cancelDragging
+        }
+        onPointerLeave={() => {
+          /*
+           * Solo cancelamos si
+           * realmente estaba arrastrando.
+           */
+          if (
+            dragRef.current
+              .dragging
+          ) {
+            cancelDragging();
+          }
+        }}
       >
         {PROJECTS.map(
-          (
-            project,
-            index
-          ) => {
-            const isActive =
-              index ===
-              activeIndex;
-
-            const href =
-              project.name ===
-              "Moro 416"
-                ? "#moro416"
-                : "#formulario";
+          (project) => {
+            const url =
+              getProjectUrl(
+                project,
+              );
 
             return (
-              <article
+              <a
                 key={
                   project.name
                 }
-                data-track-card
-                className={`trackRecordCard ${
-                  isActive
-                    ? "trackRecordCardActive"
-                    : ""
-                }`}
+                href={
+                  url
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="trackRecordCard"
+                draggable={false}
+                onClick={
+                  handleProjectClick
+                }
+                aria-label={`Ir al proyecto ${project.name}`}
               >
-                {/* ==========================
+                {/* =============================
                     IMAGE
-                =========================== */}
+                ============================== */}
 
                 <div className="trackRecordCardMedia">
                   <Image
@@ -316,64 +422,81 @@ export default function TrackRecord() {
                       project.name
                     }
                     fill
+                    draggable={false}
                     loading="lazy"
-                    sizes="(max-width: 640px) 82vw, (max-width: 960px) 46vw, (max-width: 1300px) 29vw, 355px"
+                    sizes="
+                      (max-width: 640px) 84vw,
+                      (max-width: 960px) 47vw,
+                      (max-width: 1300px) 31vw,
+                      430px
+                    "
                     className="trackRecordCardImage"
                   />
 
-                  <div className="trackRecordCardShade" />
+                  <div
+                    className="trackRecordCardShade"
+                    aria-hidden="true"
+                  />
 
-                  {/* NUMBER */}
+                  {/* ===========================
+                      STATUS
+                  ============================ */}
 
-                  <span className="trackRecordCardNumber">
-                    {String(
-                      index + 1
-                    ).padStart(
-                      2,
-                      "0"
-                    )}
+                  <span className="trackRecordCardStatus">
+                    {
+                      project.stage
+                    }
                   </span>
 
-                  {/* LINK */}
+                  {/* ===========================
+                      LINK
+                  ============================ */}
 
-                  <a
-                    href={href}
+                  <span
                     className="trackRecordCardLink"
-                    aria-label={`Ver ${project.name}`}
+                    aria-hidden="true"
                   >
                     <ArrowUpRight
                       size={18}
+                      strokeWidth={
+                        1.8
+                      }
                     />
-                  </a>
+                  </span>
 
-                  {/* TEXT OVER IMAGE */}
+                  {/* ===========================
+                      INFO
+                  ============================ */}
 
                   <div className="trackRecordCardOverlay">
-                    <div className="trackRecordCardMeta">
-                      <span>
-                        {
-                          project.year
-                        }
-                      </span>
-
-                      <span className="trackRecordCardStatus">
-                        {
-                          project.stage
-                        }
-                      </span>
-                    </div>
+                    <span className="trackRecordCardYear">
+                      {
+                        project.year
+                      }
+                    </span>
 
                     <h3>
                       {
                         project.name
                       }
                     </h3>
+
+                    <span className="trackRecordCardDiscover">
+                      Conocer proyecto
+
+                      <ArrowUpRight
+                        size={13}
+                        strokeWidth={
+                          1.8
+                        }
+                      />
+                    </span>
                   </div>
                 </div>
 
-                {/* ==========================
-                    CARD BOTTOM
-                =========================== */}
+                {/* =============================
+                    PROGRESS
+                ============================== */}
 
                 <div className="trackRecordCardBottom">
                   <div className="trackRecordCardProgressInfo">
@@ -397,55 +520,28 @@ export default function TrackRecord() {
                     />
                   </div>
                 </div>
-              </article>
+              </a>
             );
-          }
+          },
         )}
       </div>
 
-      {/* ======================================
-          SECTION BOTTOM
-      ======================================= */}
+      {/* ===================================================
+          FOOTER
+      ==================================================== */}
 
       <div className="investorContainer">
         <div className="trackRecordFooter">
           <p>
-            Información histórica
-            según presentación
-            corporativa. Las cifras
-            deben validarse antes de
+            Información histórica según
+            presentación corporativa. Las
+            cifras deben validarse antes de
             publicación.
           </p>
 
-          {/* DOTS */}
-
-          <div className="trackRecordDots">
-            {PROJECTS.map(
-              (
-                project,
-                index
-              ) => (
-                <button
-                  key={
-                    project.name
-                  }
-                  type="button"
-                  aria-label={`Ir a ${project.name}`}
-                  className={
-                    index ===
-                    activeIndex
-                      ? "active"
-                      : ""
-                  }
-                  onClick={() =>
-                    goToProject(
-                      index
-                    )
-                  }
-                />
-              )
-            )}
-          </div>
+          <span>
+            {PROJECTS.length} proyectos
+          </span>
         </div>
       </div>
     </section>

@@ -191,6 +191,8 @@ export const PROJECTS = [
     progress: "100%",
     image:
       "/assets/inversionistas/track/terrazas.webp",
+    url:
+      "https://ancosur.com/terrazas-concepcion",
   },
 
   {
@@ -200,6 +202,8 @@ export const PROJECTS = [
     progress: "60%",
     image:
       "/assets/inversionistas/track/colinas.webp",
+    url:
+      "https://ancosur.com/colinas-de-moro",
   },
 
   {
@@ -209,6 +213,8 @@ export const PROJECTS = [
     progress: "62%",
     image:
       "/assets/inversionistas/track/emperatriz.webp",
+    url:
+      "https://ancosur.com/neo-emperatriz",
   },
 
   {
@@ -218,6 +224,8 @@ export const PROJECTS = [
     progress: "37%",
     image:
       "/assets/inversionistas/track/zagari.webp",
+    url:
+      "zagari-resort-production-734a.up.railway.app",
   },
 
   {
@@ -227,6 +235,8 @@ export const PROJECTS = [
     progress: "21%",
     image:
       "/assets/inversionistas/track/camino-real.webp",
+    url:
+      "https://ancosur.com/camino-real",
   },
 
   {
@@ -236,6 +246,8 @@ export const PROJECTS = [
     progress: "58%",
     image:
       "/assets/inversionistas/track/moro416.webp",
+    url:
+      "https://ancosur.com/moro416",
   },
 
   {
@@ -245,8 +257,10 @@ export const PROJECTS = [
     progress: "46%",
     image:
       "/assets/inversionistas/track/origen.webp",
+    url:
+      "https://ancosur.com/neo-origen",
   },
-];
+] as const;
 
 export const MORO_416_STATS = [
   {
