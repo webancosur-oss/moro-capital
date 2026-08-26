@@ -20,7 +20,7 @@ export const HERO = {
   description:
     "Participa en oportunidades privadas de inversión vinculadas al desarrollo de proyectos inmobiliarios respaldados por la experiencia del Grupo Moro Capital.",
 
-  profitability: "Hasta 15% anual",
+  profitability: "Hasta 10% anual",
 
   profitabilityDescription:
     "Rentabilidad estimada según condiciones de inversión y documentación contractual.",
