@@ -132,7 +132,7 @@ export const INVESTMENT_PLANS = [
     id: "basic",
     name: "Básico",
     months: 18,
-    rate: 18,
+    rate: 15,
     featured: false,
   },
 

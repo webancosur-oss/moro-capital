@@ -1,6 +1,4 @@
-import {
-  BRANDS,
-} from "@/data/investors";
+import { BRANDS } from "@/data/investors";
 
 import Reveal from "./Reveal";
 
@@ -8,6 +6,10 @@ export default function InvestorEcosystem() {
   return (
     <section className="investorSection investorEcosystem">
       <div className="investorContainer">
+        {/* =====================================
+            HEADER
+        ===================================== */}
+
         <Reveal className="investorSectionHeader">
           <p className="investorEyebrow">
             GRUPO MORO CAPITAL
@@ -15,56 +17,54 @@ export default function InvestorEcosystem() {
 
           <h2>
             Un ecosistema que
-            desarrolla valor
-            inmobiliario.
+            <span>
+              transforma capital en
+              desarrollo inmobiliario.
+            </span>
           </h2>
 
           <p className="investorLead">
-            Una estructura empresarial
-            vinculada al desarrollo,
-            construcción, vivienda,
-            lotizaciones y proyectos de
-            hospitalidad.
+            Una estructura empresarial que
+            integra distintas especialidades
+            para desarrollar, construir y
+            gestionar oportunidades
+            inmobiliarias en diferentes
+            segmentos.
           </p>
         </Reveal>
 
+        {/* =====================================
+            MARCAS
+        ===================================== */}
+
         <div className="investorBrands">
-          {BRANDS.map(
-            (
-              brand,
-              index
-            ) => (
-              <Reveal
-                key={
-                  brand.name
-                }
-                className="investorBrand"
-                delay={
-                  index *
-                  0.05
-                }
-              >
-                <span>
-                  0
-                  {index + 1}
+          {BRANDS.map((brand, index) => (
+            <Reveal
+              key={brand.name}
+              className="investorBrand"
+              delay={index * 0.05}
+            >
+              <div className="investorBrandTop">
+                <span className="investorBrandNumber">
+                  {String(
+                    index + 1,
+                  ).padStart(2, "0")}
                 </span>
 
-                <div>
-                  <strong>
-                    {
-                      brand.name
-                    }
-                  </strong>
+                <span className="investorBrandLine" />
+              </div>
 
-                  <small>
-                    {
-                      brand.type
-                    }
-                  </small>
-                </div>
-              </Reveal>
-            )
-          )}
+              <div className="investorBrandContent">
+                <strong>
+                  {brand.name}
+                </strong>
+
+                <small>
+                  {brand.type}
+                </small>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

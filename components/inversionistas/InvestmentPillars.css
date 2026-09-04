@@ -1,152 +1,643 @@
 /* ==========================================================
    InvestmentPillars
-   Estilos propios + responsive del componente.
+   Diseño editorial / inversión inmobiliaria
 ========================================================== */
 
 .investorPillars {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #080b0a;
+}
+
+/* ==========================================================
+   LÍNEA SUPERIOR
+========================================================== */
+
+.investorPillars::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
   background:
-    #080b0a;
+    var(--moro-line);
+
+  opacity: 0.55;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.investorPillarsHeader {
+  position: relative;
+
+  max-width: 980px;
 }
 
 .investorPillarsHeader h2 {
-  max-width:
-    850px;
+  max-width: 920px;
+
+  margin: 0;
+
+  font-size:
+    clamp(
+      44px,
+      5.1vw,
+      78px
+    );
+
+  line-height: 0.94;
+
+  letter-spacing: -0.045em;
 }
 
 .investorPillarsHeader h2 span {
   display: block;
 
-  color:
-    #aeb6b0;
+  margin-top: 8px;
+
+  color: #7f8882;
 }
 
-.investorPillarsGrid {
-  margin-top:
-    68px;
+/* ==========================================================
+   GRID
+========================================================== */
 
-  display:
-    grid;
+.investorPillarsGrid {
+  position: relative;
+
+  margin-top: 84px;
+
+  display: grid;
 
   grid-template-columns:
     repeat(
       4,
-      1fr
+      minmax(
+        0,
+        1fr
+      )
     );
 
-  border:
+  border-top:
     1px solid
     var(--moro-line);
 }
 
+/* ==========================================================
+   PILLAR
+========================================================== */
+
 .investorPillar {
-  min-height:
-    240px;
+  position: relative;
+
+  min-height: 310px;
 
   padding:
-    27px;
+    27px
+    28px
+    34px;
 
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  justify-content:
-    space-between;
+  justify-content: space-between;
 
   border-right:
     1px solid
     var(--moro-line);
+
+  background: transparent;
+
+  transition:
+    background 350ms ease;
 }
 
 .investorPillar:last-child {
   border-right: 0;
 }
 
+/* ==========================================================
+   TOP
+========================================================== */
+
+.investorPillarTop {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+}
+
+/* ==========================================================
+   NUMBER
+========================================================== */
+
+.investorPillarNumber {
+  color: #4f5852;
+
+  font-family:
+    var(--font-display),
+    serif;
+
+  font-size: 52px;
+
+  font-weight: 400;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.05em;
+
+  transition:
+    color 300ms ease;
+}
+
+/* ==========================================================
+   ICON
+========================================================== */
+
 .investorPillarIcon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border:
+    1px solid
+    var(--moro-line);
+
   color:
     var(--moro-green);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.015
+    );
+
+  transition:
+    border-color 300ms ease,
+    background 300ms ease,
+    color 300ms ease;
+}
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.investorPillarContent {
+  max-width: 255px;
+
+  margin-top: 40px;
 }
 
 .investorPillar h3 {
   margin:
-    0 0 11px;
+    0 0 13px;
 
-  font-size:
-    14px;
+  color: #f2f5f2;
 
-  font-weight:
-    500;
+  font-size: 15px;
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.01em;
 }
 
 .investorPillar p {
   margin: 0;
 
-  color:
-    #767f79;
+  color: #747d76;
 
-  font-size:
-    10px;
+  font-size: 10.5px;
 
-  line-height:
-    1.6;
+  font-weight: 400;
+
+  line-height: 1.7;
 }
 
-/* Responsive */
+/* ==========================================================
+   LÍNEA DE ÉNFASIS
+========================================================== */
+
+.investorPillarLine {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background:
+    var(--moro-green);
+
+  transition:
+    width 450ms
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.investorPillar:hover {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.025
+    );
+}
+
+.investorPillar:hover
+.investorPillarNumber {
+  color: #8d9890;
+}
+
+.investorPillar:hover
+.investorPillarIcon {
+  border-color:
+    rgba(
+      174,
+      182,
+      176,
+      0.45
+    );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.03
+    );
+
+  color:
+    #d2dbd4;
+}
+
+.investorPillar:hover
+.investorPillarLine {
+  width: 64px;
+}
+
+/* ==========================================================
+   LAPTOP
+========================================================== */
+
+@media (
+  max-width: 1366px
+) {
+  .investorPillarsGrid {
+    margin-top: 70px;
+  }
+
+  .investorPillar {
+    min-height: 285px;
+
+    padding:
+      24px
+      23px
+      30px;
+  }
+
+  .investorPillarNumber {
+    font-size: 46px;
+  }
+
+  .investorPillarContent {
+    margin-top: 32px;
+  }
+
+  .investorPillar h3 {
+    font-size: 14px;
+  }
+
+  .investorPillar p {
+    font-size: 10px;
+  }
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
 
 @media (
   max-width: 960px
 ) {
+  .investorPillarsHeader h2 {
+    max-width: 720px;
+
+    font-size:
+      clamp(
+        40px,
+        6.4vw,
+        62px
+      );
+  }
+
   .investorPillarsGrid {
-      grid-template-columns:
-        repeat(
-          2,
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
           1fr
-        );
-    }
+        )
+      );
 
-  .investorPillar:nth-child(
-        2
-      ) {
-      border-right: 0;
-    }
+    margin-top: 60px;
+  }
 
-  .investorPillar:nth-child(
-        -n + 2
-      ) {
-      border-bottom:
-        1px solid
-        var(
-          --moro-line
-        );
-    }
+  .investorPillar {
+    min-height: 265px;
+
+    padding:
+      24px
+      22px
+      29px;
+  }
+
+  .investorPillar:nth-child(2) {
+    border-right: 0;
+  }
+
+  .investorPillar:nth-child(-n + 2) {
+    border-bottom:
+      1px solid
+      var(--moro-line);
+  }
+
+  .investorPillarNumber {
+    font-size: 44px;
+  }
+
+  .investorPillarIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .investorPillarContent {
+    max-width: 280px;
+
+    margin-top: 34px;
+  }
+
+  .investorPillar h3 {
+    font-size: 14px;
+  }
+
+  .investorPillar p {
+    font-size: 10px;
+
+    line-height: 1.65;
+  }
 }
+
+/* ==========================================================
+   TABLET PEQUEÑA
+========================================================== */
+
+@media (
+  max-width: 760px
+) and (min-width: 641px) {
+  .investorPillarsHeader h2 {
+    font-size:
+      clamp(
+        38px,
+        6.5vw,
+        54px
+      );
+  }
+
+  .investorPillarsGrid {
+    margin-top: 50px;
+  }
+
+  .investorPillar {
+    min-height: 235px;
+
+    padding:
+      21px
+      19px
+      25px;
+  }
+
+  .investorPillarNumber {
+    font-size: 40px;
+  }
+
+  .investorPillarIcon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .investorPillarContent {
+    margin-top: 26px;
+  }
+
+  .investorPillar p {
+    font-size: 9.5px;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
 
 @media (
   max-width: 640px
 ) {
-  .investorPillarsGrid {
-      margin-top:
-        45px;
+  .investorPillarsHeader h2 {
+    max-width: 100%;
 
-      grid-template-columns:
-        1fr;
-    }
+    font-size:
+      clamp(
+        36px,
+        10vw,
+        52px
+      );
+
+    line-height: 0.96;
+
+    letter-spacing: -0.04em;
+  }
+
+  .investorPillarsGrid {
+    margin-top: 44px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-top:
+      1px solid
+      var(--moro-line);
+  }
 
   .investorPillar {
-      min-height:
-        180px;
+    min-height: 205px;
 
-      border-right: 0;
+    padding:
+      20px
+      17px
+      25px;
 
-      border-bottom:
-        1px solid
-        var(
-          --moro-line
-        );
-    }
+    border-right: 0;
+
+    border-bottom:
+      1px solid
+      var(--moro-line);
+  }
 
   .investorPillar:last-child {
-      border-bottom: 0;
-    }
+    border-bottom: 0;
+  }
+
+  .investorPillarTop {
+    align-items: flex-start;
+  }
+
+  .investorPillarNumber {
+    font-size: 38px;
+  }
+
+  .investorPillarIcon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .investorPillarContent {
+    max-width: 100%;
+
+    margin-top: 24px;
+  }
+
+  .investorPillar h3 {
+    margin-bottom: 9px;
+
+    font-size: 14px;
+  }
+
+  .investorPillar p {
+    max-width: 330px;
+
+    font-size: 10px;
+
+    line-height: 1.65;
+  }
+
+  /*
+   * La línea queda visible en mobile
+   * para reforzar visualmente la sección.
+   */
+
+  .investorPillarLine {
+    width: 28px;
+  }
+
+  .investorPillar:hover {
+    background: transparent;
+  }
+
+  .investorPillar:hover
+  .investorPillarLine {
+    width: 42px;
+  }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (
+  max-width: 420px
+) {
+  .investorPillarsHeader h2 {
+    font-size:
+      clamp(
+        34px,
+        10.4vw,
+        46px
+      );
+  }
+
+  .investorPillarsGrid {
+    margin-top: 38px;
+  }
+
+  .investorPillar {
+    min-height: 192px;
+
+    padding:
+      18px
+      15px
+      22px;
+  }
+
+  .investorPillarNumber {
+    font-size: 34px;
+  }
+
+  .investorPillarIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .investorPillarContent {
+    margin-top: 21px;
+  }
+
+  .investorPillar h3 {
+    font-size: 13px;
+  }
+
+  .investorPillar p {
+    font-size: 9.5px;
+
+    line-height: 1.6;
+  }
+
+  .investorPillarLine {
+    width: 26px;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .investorPillar,
+  .investorPillarIcon,
+  .investorPillarNumber,
+  .investorPillarLine {
+    transition: none;
+  }
 }

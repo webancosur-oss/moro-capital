@@ -5,7 +5,6 @@ import {
 
 import {
   CONTACT,
-  HERO,
 } from "@/data/investors";
 
 import Reveal from "./Reveal";
@@ -14,7 +13,7 @@ export default function InvestorHero() {
   const whatsapp = `https://wa.me/${
     CONTACT.phoneWhatsapp
   }?text=${encodeURIComponent(
-    CONTACT.whatsappMessage
+    CONTACT.whatsappMessage,
   )}`;
 
   return (
@@ -22,92 +21,124 @@ export default function InvestorHero() {
       className="investorHero"
       id="oportunidad"
     >
-      <div className="investorHeroBackground" />
+      {/* =====================================
+          FOTO
+      ===================================== */}
 
-      <div className="investorHeroGradient" />
+      <div
+        className="investorHeroBackground"
+        aria-hidden="true"
+      />
+
+      {/* =====================================
+          TRATAMIENTO OSCURO
+      ===================================== */}
+
+      <div
+        className="investorHeroGradient"
+        aria-hidden="true"
+      />
+
+      {/* =====================================
+          CONTENIDO
+      ===================================== */}
 
       <div className="investorContainer investorHeroContent">
         <Reveal className="investorHeroMain">
           <p className="investorEyebrow">
-            {HERO.eyebrow}
+            MORO CAPITAL · INVERSIÓN INMOBILIARIA
           </p>
 
           <h1>
-            {HERO.title}
-
+            Capital que construye.
             <span>
-              {HERO.secondTitle}
+              Inversiones que generan valor.
             </span>
           </h1>
 
           <p className="investorHeroDescription">
-            {HERO.description}
+            Participa en oportunidades
+            privadas de inversión vinculadas
+            al desarrollo de proyectos
+            inmobiliarios respaldados por la
+            experiencia del Grupo Moro Capital.
           </p>
 
-          <div className="investorHeroActions">
-            <a
-              href="#planes"
-              className="investorButton"
-            >
-              Conocer la oportunidad
+          <div className="investorProfitability">
+            <span>
+              Rentabilidad estimada
+            </span>
 
-              <ArrowUpRight
-                size={16}
-              />
-            </a>
+            <strong>
+              Hasta 15% anual
+            </strong>
 
-            <a
-              href={whatsapp}
-              target="_blank"
-              rel="noreferrer"
-              className="investorTextButton"
-            >
-              Hablar con un asesor
-
-              <ArrowUpRight
-                size={16}
-              />
-            </a>
+            <p>
+              Rentabilidad estimada según
+              condiciones de inversión y
+              documentación contractual.
+            </p>
           </div>
 
           <div className="investorHeroDetails">
-            {HERO.details.map(
-              (detail) => (
-                <span key={detail}>
-                  {detail}
-                </span>
-              )
-            )}
+            <span>
+              Inversión privada · Soles · Desde S/ 10,000
+            </span>
           </div>
         </Reveal>
 
+        {/* =====================================
+            ACCIONES
+        ===================================== */}
+
         <Reveal
-          className="investorProfitability"
-          delay={0.15}
+          className="investorHeroActions"
+          delay={0.12}
         >
-          <span>
-            Rentabilidad estimada
-          </span>
+          <a
+            href="#planes"
+            className="investorButton"
+          >
+            Conocer la oportunidad
 
-          <strong>
-            {HERO.profitability}
-          </strong>
+            <ArrowUpRight
+              size={17}
+              strokeWidth={1.7}
+            />
+          </a>
 
-          <p>
-            {
-              HERO.profitabilityDescription
-            }
-          </p>
+          <a
+            href={whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            className="investorTextButton"
+          >
+            Hablar con un asesor
+
+            <ArrowUpRight
+              size={16}
+              strokeWidth={1.5}
+            />
+          </a>
         </Reveal>
       </div>
+
+      {/* =====================================
+          SCROLL
+      ===================================== */}
 
       <a
         href="#indicadores"
         className="investorHeroScroll"
       >
-        <span>Descubrir</span>
+        <span>
+          SCROLL
+        </span>
 
-        <ArrowDown size={15} />
+        <ArrowDown
+          size={15}
+          strokeWidth={1.4}
+        />
       </a>
     </section>
   );

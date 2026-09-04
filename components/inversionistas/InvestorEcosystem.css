@@ -1,16 +1,90 @@
 /* ==========================================================
    InvestorEcosystem
-   Estilos propios + responsive del componente.
+   Ecosistema empresarial / Grupo Moro Capital
 ========================================================== */
 
 .investorEcosystem {
+  position: relative;
+
+  overflow: hidden;
+
   background:
     #151a18;
+
+  color:
+    #f2f4f2;
 }
 
-.investorBrands {
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.investorEcosystem .investorSectionHeader {
+  max-width:
+    920px;
+}
+
+.investorEcosystem .investorSectionHeader h2 {
+  max-width:
+    890px;
+
+  margin:
+    0;
+
+  font-size:
+    clamp(
+      48px,
+      5.3vw,
+      78px
+    );
+
+  line-height:
+    0.94;
+
+  letter-spacing:
+    -0.045em;
+}
+
+.investorEcosystem
+.investorSectionHeader h2
+span {
+  display:
+    block;
+
   margin-top:
-    58px;
+    6px;
+
+  color:
+    #8a938d;
+}
+
+.investorEcosystem .investorLead {
+  max-width:
+    600px;
+
+  margin:
+    30px 0 0;
+
+  color:
+    #7e8781;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.75;
+}
+
+/* ==========================================================
+   BRANDS
+========================================================== */
+
+.investorBrands {
+  position:
+    relative;
+
+  margin-top:
+    76px;
 
   display:
     grid;
@@ -18,20 +92,32 @@
   grid-template-columns:
     repeat(
       4,
-      1fr
+      minmax(
+        0,
+        1fr
+      )
     );
 
-  border:
+  border-top:
     1px solid
     var(--moro-line);
 }
 
+/* ==========================================================
+   BRAND ITEM
+========================================================== */
+
 .investorBrand {
+  position:
+    relative;
+
   min-height:
-    166px;
+    225px;
 
   padding:
-    25px;
+    24px
+    25px
+    27px;
 
   display:
     flex;
@@ -45,21 +131,83 @@
   border-right:
     1px solid
     var(--moro-line);
+
+  background:
+    transparent;
+
+  transition:
+    background 320ms ease;
 }
 
 .investorBrand:last-child {
-  border-right: 0;
+  border-right:
+    0;
 }
 
-.investorBrand > span {
+/* ==========================================================
+   TOP
+========================================================== */
+
+.investorBrandTop {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+}
+
+.investorBrandNumber {
   color:
     var(--moro-green);
 
+  font-family:
+    var(--font-display),
+    serif;
+
   font-size:
-    9px;
+    38px;
+
+  font-weight:
+    400;
+
+  line-height:
+    0.9;
+
+  letter-spacing:
+    -0.035em;
+
+  transition:
+    color 280ms ease;
 }
 
-.investorBrand div {
+.investorBrandLine {
+  width:
+    0;
+
+  height:
+    1px;
+
+  background:
+    var(--moro-green);
+
+  transition:
+    width 400ms
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.investorBrandContent {
   display:
     flex;
 
@@ -67,77 +215,430 @@
     column;
 
   gap:
-    7px;
+    9px;
 }
 
 .investorBrand strong {
+  color:
+    #edf1ed;
+
   font-size:
-    15px;
+    16px;
 
   font-weight:
     500;
+
+  line-height:
+    1.15;
+
+  letter-spacing:
+    0.005em;
+
+  transition:
+    color 250ms ease;
 }
 
 .investorBrand small {
   color:
-    #737c76;
+    #69716b;
 
   font-size:
     9px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.35;
+
+  letter-spacing:
+    0.04em;
+
+  text-transform:
+    uppercase;
+
+  transition:
+    color 250ms ease;
 }
 
-/* Responsive */
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.investorBrand:hover {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.018
+    );
+}
+
+.investorBrand:hover
+.investorBrandNumber {
+  color:
+    #d1ddd4;
+}
+
+.investorBrand:hover
+.investorBrandLine {
+  width:
+    52px;
+}
+
+.investorBrand:hover
+.investorBrand strong {
+  color:
+    #ffffff;
+}
+
+.investorBrand:hover
+.investorBrand small {
+  color:
+    #8b948e;
+}
+
+/* ==========================================================
+   LAPTOP
+========================================================== */
+
+@media (
+  max-width: 1366px
+) {
+  .investorBrands {
+    margin-top:
+      66px;
+  }
+
+  .investorBrand {
+    min-height:
+      205px;
+
+    padding:
+      22px
+      21px
+      24px;
+  }
+
+  .investorBrandNumber {
+    font-size:
+      34px;
+  }
+
+  .investorBrand strong {
+    font-size:
+      14px;
+  }
+
+  .investorBrand small {
+    font-size:
+      8px;
+  }
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
 
 @media (
   max-width: 960px
 ) {
+  .investorEcosystem
+  .investorSectionHeader h2 {
+    max-width:
+      720px;
+
+    font-size:
+      clamp(
+        42px,
+        6.3vw,
+        62px
+      );
+  }
+
+  .investorEcosystem
+  .investorLead {
+    max-width:
+      520px;
+
+    font-size:
+      11px;
+  }
+
   .investorBrands {
-      grid-template-columns:
-        repeat(
-          2,
+    margin-top:
+      55px;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
           1fr
-        );
-    }
+        )
+      );
+  }
 
-  .investorBrand:nth-child(
-        2
-      ) {
-      border-right: 0;
-    }
+  .investorBrand {
+    min-height:
+      205px;
 
-  .investorBrand:nth-child(
-        -n + 2
-      ) {
-      border-bottom:
-        1px solid
-        var(
-          --moro-line
-        );
-    }
+    padding:
+      22px
+      21px
+      25px;
+  }
+
+  .investorBrand:nth-child(2) {
+    border-right:
+      0;
+  }
+
+  .investorBrand:nth-child(-n + 2) {
+    border-bottom:
+      1px solid
+      var(--moro-line);
+  }
 }
+
+/* ==========================================================
+   TABLET PEQUEÑA
+========================================================== */
+
+@media (
+  max-width: 760px
+) and (min-width: 641px) {
+  .investorEcosystem
+  .investorSectionHeader h2 {
+    font-size:
+      clamp(
+        40px,
+        6.5vw,
+        54px
+      );
+  }
+
+  .investorBrands {
+    margin-top:
+      48px;
+  }
+
+  .investorBrand {
+    min-height:
+      190px;
+
+    padding:
+      19px
+      18px
+      22px;
+  }
+
+  .investorBrandNumber {
+    font-size:
+      31px;
+  }
+
+  .investorBrand strong {
+    font-size:
+      13px;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
 
 @media (
   max-width: 640px
 ) {
+  .investorEcosystem
+  .investorSectionHeader h2 {
+    max-width:
+      100%;
+
+    font-size:
+      clamp(
+        36px,
+        10.2vw,
+        50px
+      );
+
+    line-height:
+      0.96;
+  }
+
+  .investorEcosystem
+  .investorSectionHeader h2
+  span {
+    margin-top:
+      5px;
+  }
+
+  .investorEcosystem
+  .investorLead {
+    margin-top:
+      23px;
+
+    max-width:
+      100%;
+
+    font-size:
+      10px;
+
+    line-height:
+      1.7;
+  }
+
   .investorBrands {
-      grid-template-columns:
-        1fr;
-    }
+    margin-top:
+      43px;
+
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    border-top:
+      1px solid
+      var(--moro-line);
+  }
 
   .investorBrand {
-      min-height:
-        135px;
+    min-height:
+      170px;
 
-      border-right: 0;
+    padding:
+      19px
+      16px
+      22px;
 
-      border-bottom:
-        1px solid
-        var(
-          --moro-line
-        );
-    }
+    border-right:
+      0;
+
+    border-bottom:
+      1px solid
+      var(--moro-line);
+  }
 
   .investorBrand:last-child {
-      border-bottom: 0;
-    }
+    border-bottom:
+      0;
+  }
+
+  /*
+   * En mobile la línea permanece visible
+   * como elemento editorial.
+   */
+
+  .investorBrandLine {
+    width:
+      30px;
+
+    opacity:
+      0.6;
+  }
+
+  .investorBrandNumber {
+    font-size:
+      32px;
+  }
+
+  .investorBrandContent {
+    gap:
+      7px;
+  }
+
+  .investorBrand strong {
+    font-size:
+      13px;
+  }
+
+  .investorBrand small {
+    font-size:
+      7.5px;
+  }
+
+  .investorBrand:hover {
+    background:
+      transparent;
+  }
+
+  .investorBrand:hover
+  .investorBrandLine {
+    width:
+      42px;
+  }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (
+  max-width: 420px
+) {
+  .investorEcosystem
+  .investorSectionHeader h2 {
+    font-size:
+      clamp(
+        34px,
+        10.7vw,
+        45px
+      );
+  }
+
+  .investorEcosystem
+  .investorLead {
+    font-size:
+      9.5px;
+  }
+
+  .investorBrands {
+    margin-top:
+      37px;
+  }
+
+  .investorBrand {
+    min-height:
+      155px;
+
+    padding:
+      17px
+      15px
+      20px;
+  }
+
+  .investorBrandNumber {
+    font-size:
+      29px;
+  }
+
+  .investorBrand strong {
+    font-size:
+      12.5px;
+  }
+
+  .investorBrand small {
+    font-size:
+      7px;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .investorBrand,
+  .investorBrandNumber,
+  .investorBrandLine,
+  .investorBrand strong,
+  .investorBrand small {
+    transition:
+      none;
+  }
 }

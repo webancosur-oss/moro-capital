@@ -10,67 +10,100 @@ export default function InvestmentProof() {
   return (
     <section className="investorSection investorProof">
       <div className="investorContainer investorProofGrid">
+        {/* =====================================
+            CONTENIDO
+        ===================================== */}
+
         <Reveal className="investorProofContent">
           <p className="investorEyebrow">
             INVERSIÓN INMOBILIARIA
           </p>
 
           <h2>
-            Proyectos que
+            Invierte en
             <br />
-            puedes ver.
+            proyectos reales.
           </h2>
 
           <p className="investorLead">
-            Tu capital participa en
-            proyectos reales de
-            desarrollo inmobiliario,
-            dentro de una estructura
-            enfocada en crecimiento,
-            ejecución y generación de
-            valor.
+            Una oportunidad para participar
+            en el desarrollo de activos
+            inmobiliarios respaldados por
+            proyectos, ejecución y una
+            estrategia orientada a la
+            generación de valor.
           </p>
 
           <div className="investorProofItems">
-            <div>
-              <Building2
-                size={18}
-              />
+            <div className="investorProofItem">
+              <div className="investorProofItemIcon">
+                <Building2
+                  size={18}
+                  strokeWidth={1.5}
+                />
+              </div>
 
-              <span>
-                Activos
-                inmobiliarios
-              </span>
+              <div className="investorProofItemText">
+                <span>
+                  Activos inmobiliarios
+                </span>
+
+                <small>
+                  Proyectos tangibles
+                </small>
+              </div>
             </div>
 
-            <div>
-              <Landmark
-                size={18}
-              />
+            <div className="investorProofItem">
+              <div className="investorProofItemIcon">
+                <Landmark
+                  size={18}
+                  strokeWidth={1.5}
+                />
+              </div>
 
-              <span>
-                Desarrollo de
-                proyectos
-              </span>
+              <div className="investorProofItemText">
+                <span>
+                  Desarrollo de proyectos
+                </span>
+
+                <small>
+                  Ejecución y crecimiento
+                </small>
+              </div>
             </div>
 
-            <div>
-              <ChartNoAxesCombined
-                size={18}
-              />
+            <div className="investorProofItem">
+              <div className="investorProofItemIcon">
+                <ChartNoAxesCombined
+                  size={18}
+                  strokeWidth={1.5}
+                />
+              </div>
 
-              <span>
-                Estrategia de
-                renta fija
-              </span>
+              <div className="investorProofItemText">
+                <span>
+                  Gestión y estrategia
+                </span>
+
+                <small>
+                  Visión orientada a valor
+                </small>
+              </div>
             </div>
           </div>
         </Reveal>
+
+        {/* =====================================
+            VISUAL
+        ===================================== */}
 
         <Reveal
           className="investorProofVisual"
           delay={0.1}
         >
+          <div className="investorProofGlow" />
+
           <div className="investorProofTower" />
 
           <div className="investorProofCaption">

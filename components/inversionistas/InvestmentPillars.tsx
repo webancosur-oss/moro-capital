@@ -5,23 +5,15 @@ import {
   CircleDollarSign,
 } from "lucide-react";
 
-import {
-  PILLARS,
-} from "@/data/investors";
+import { PILLARS } from "@/data/investors";
 
 import Reveal from "./Reveal";
 
 const icons = {
   group: Building2,
-
-  fixed:
-    CircleDollarSign,
-
-  management:
-    ChartNoAxesCombined,
-
-  assets:
-    BadgeCheck,
+  fixed: CircleDollarSign,
+  management: ChartNoAxesCombined,
+  assets: BadgeCheck,
 };
 
 export default function InvestmentPillars() {
@@ -34,61 +26,56 @@ export default function InvestmentPillars() {
           </p>
 
           <h2>
-            No invertimos en promesas.
+            Invertimos en oportunidades.
             <span>
-              Invertimos en desarrollo.
+              Construimos valor.
             </span>
           </h2>
         </Reveal>
 
         <div className="investorPillarsGrid">
-          {PILLARS.map(
-            (
-              pillar,
-              index
-            ) => {
-              const Icon =
-                icons[
-                  pillar.id as keyof typeof icons
-                ];
+          {PILLARS.map((pillar, index) => {
+            const Icon =
+              icons[
+                pillar.id as keyof typeof icons
+              ];
 
-              return (
-                <Reveal
-                  key={
-                    pillar.id
-                  }
-                  className="investorPillar"
-                  delay={
-                    index *
-                    0.05
-                  }
-                >
+            return (
+              <Reveal
+                key={pillar.id}
+                className="investorPillar"
+                delay={index * 0.05}
+              >
+                <div className="investorPillarTop">
+                  <span className="investorPillarNumber">
+                    0{index + 1}
+                  </span>
+
                   <div className="investorPillarIcon">
                     <Icon
-                      size={20}
-                      strokeWidth={
-                        1.5
-                      }
+                      size={19}
+                      strokeWidth={1.4}
                     />
                   </div>
+                </div>
 
-                  <div>
-                    <h3>
-                      {
-                        pillar.title
-                      }
-                    </h3>
+                <div className="investorPillarContent">
+                  <h3>
+                    {pillar.title}
+                  </h3>
 
-                    <p>
-                      {
-                        pillar.description
-                      }
-                    </p>
-                  </div>
-                </Reveal>
-              );
-            }
-          )}
+                  <p>
+                    {pillar.description}
+                  </p>
+                </div>
+
+                <span
+                  className="investorPillarLine"
+                  aria-hidden="true"
+                />
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

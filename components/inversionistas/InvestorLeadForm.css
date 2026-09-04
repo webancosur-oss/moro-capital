@@ -1,35 +1,157 @@
 /* ==========================================================
    InvestorLeadForm
-   Estilos propios + responsive del componente.
+   Captación de inversionistas
 ========================================================== */
 
 .investorFormSection {
+  position: relative;
+
+  overflow: hidden;
+
   background:
     #151a18;
+
+  color:
+    #f2f4f2;
 }
 
+/* ==========================================================
+   GRID
+========================================================== */
+
 .investorFormGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      0.8fr
+    )
+    minmax(
+      0,
+      1.2fr
+    );
+
+  align-items: start;
+
+  gap: 100px;
+}
+
+/* ==========================================================
+   INTRO
+========================================================== */
+
+.investorFormIntro {
+  max-width:
+    520px;
+}
+
+.investorFormIntro h2 {
+  max-width:
+    500px;
+
+  margin:
+    0;
+
+  font-size:
+    clamp(
+      50px,
+      5vw,
+      76px
+    );
+
+  font-weight:
+    400;
+
+  line-height:
+    0.93;
+
+  letter-spacing:
+    -0.05em;
+}
+
+.investorFormIntro .investorLead {
+  max-width:
+    475px;
+
+  margin:
+    30px 0 0;
+
+  color:
+    #828b85;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.75;
+}
+
+/* ==========================================================
+   CONTACT BLOCK
+========================================================== */
+
+.investorContactBlock {
+  margin-top:
+    44px;
+
+  padding-top:
+    22px;
+
   display:
     grid;
 
   grid-template-columns:
-    0.79fr
-    1.21fr;
-
-  align-items:
-    start;
+    42px
+    minmax(
+      0,
+      1fr
+    );
 
   gap:
-    110px;
+    15px;
+
+  max-width:
+    430px;
+
+  border-top:
+    1px solid
+    var(--moro-line);
 }
 
-.investorAdvisor {
-  margin-top:
-    42px;
+.investorContactIcon {
+  display:
+    flex;
 
-  padding-top:
-    21px;
+  align-items:
+    center;
 
+  justify-content:
+    center;
+
+  width:
+    36px;
+
+  height:
+    36px;
+
+  border:
+    1px solid
+    var(--moro-line);
+
+  color:
+    var(--moro-green);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.02
+    );
+}
+
+.investorContactContent {
   display:
     flex;
 
@@ -39,61 +161,93 @@
   align-items:
     flex-start;
 
-  border-top:
-    1px solid
-    var(--moro-line);
+  gap:
+    6px;
 }
 
-.investorAdvisor > span {
+.investorContactContent > span {
   color:
-    #68716b;
+    #69726c;
 
   font-size:
     8px;
 
+  font-weight:
+    700;
+
+  line-height:
+    1;
+
   letter-spacing:
-    0.12em;
+    0.15em;
 }
 
-.investorAdvisor strong {
+.investorContactContent strong {
   margin-top:
-    12px;
+    5px;
+
+  color:
+    #e6ebe7;
 
   font-size:
-    17px;
+    14px;
 
   font-weight:
     500;
+
+  line-height:
+    1.25;
 }
 
-.investorAdvisor p {
+.investorContactContent p {
+  max-width:
+    330px;
+
   margin:
-    5px 0 0;
+    0;
 
   color:
-    #767f79;
+    #737c76;
 
   font-size:
     9px;
+
+  line-height:
+    1.55;
 }
 
-.investorAdvisor a {
+.investorContactContent a {
   margin-top:
-    15px;
+    6px;
 
   color:
     var(--moro-green);
 
   font-size:
-    13px;
+    12px;
 
   text-decoration:
     none;
+
+  transition:
+    color 220ms ease;
 }
 
+.investorContactContent a:hover {
+  color:
+    #d8e1db;
+}
+
+/* ==========================================================
+   FORM
+========================================================== */
+
 .investorForm {
+  width:
+    100%;
+
   padding:
-    31px;
+    34px;
 
   border:
     1px solid
@@ -103,6 +257,60 @@
     #0c100e;
 }
 
+/* ==========================================================
+   FORM HEADER
+========================================================== */
+
+.investorFormHeading {
+  margin-bottom:
+    30px;
+
+  padding-bottom:
+    21px;
+
+  border-bottom:
+    1px solid
+    var(--moro-line);
+}
+
+.investorFormHeading span {
+  display:
+    block;
+
+  color:
+    var(--moro-green);
+
+  font-size:
+    8px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.18em;
+}
+
+.investorFormHeading p {
+  margin:
+    9px 0 0;
+
+  color:
+    #6f7872;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.5;
+}
+
+/* ==========================================================
+   FIELDS
+========================================================== */
+
 .investorFormFields {
   display:
     grid;
@@ -110,14 +318,17 @@
   grid-template-columns:
     repeat(
       2,
-      1fr
+      minmax(
+        0,
+        1fr
+      )
     );
 
   gap:
-    18px 14px;
+    20px 14px;
 }
 
-.investorForm label {
+.investorForm label:not(.investorFormConsent) {
   display:
     grid;
 
@@ -127,22 +338,34 @@
 
 .investorForm label > span {
   color:
-    #818a84;
+    #858e88;
 
   font-size:
     9px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.2;
 }
 
-.investorForm input,
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.investorForm input:not(
+    [type="checkbox"]
+  ),
 .investorForm select {
   width:
     100%;
 
   min-height:
-    47px;
+    49px;
 
   padding:
-    0 13px;
+    0 14px;
 
   border:
     1px solid
@@ -150,52 +373,114 @@
       255,
       255,
       255,
-      0.11
+      0.12
     );
 
   border-radius:
     0;
 
-  outline: 0;
+  outline:
+    none;
+
+  appearance:
+    none;
 
   background:
     #111613;
 
   color:
-    white;
+    #edf1ee;
+
+  font-family:
+    inherit;
 
   font-size:
     11px;
 
+  line-height:
+    1;
+
   transition:
-    border-color 250ms ease;
+    border-color 220ms ease,
+    background 220ms ease;
 }
 
 .investorForm input::placeholder {
   color:
-    #555e58;
+    #515a54;
+}
+
+.investorForm input:hover,
+.investorForm select:hover {
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.2
+    );
 }
 
 .investorForm input:focus,
 .investorForm select:focus {
   border-color:
     var(--moro-green);
+
+  background:
+    #121815;
 }
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+.investorForm select {
+  background:
+    #111613
+    url(
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2379857f' stroke-width='1.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"
+    )
+    right 14px center /
+    12px
+    no-repeat;
+
+  padding-right:
+    38px;
+
+  cursor:
+    pointer;
+}
+
+.investorForm select option {
+  background:
+    #111613;
+
+  color:
+    #ffffff;
+}
+
+/* ==========================================================
+   FULL WIDTH
+========================================================== */
 
 .investorFormFull {
   grid-column:
     1 / -1;
 }
 
+/* ==========================================================
+   CONSENT
+========================================================== */
+
 .investorFormConsent {
   margin-top:
-    20px;
+    23px;
 
   display:
     grid !important;
 
   grid-template-columns:
-    17px
+    16px
     minmax(
       0,
       1fr
@@ -212,34 +497,91 @@
   width:
     15px;
 
+  height:
+    15px;
+
   min-height:
     15px;
 
   margin:
     1px 0 0;
 
-  padding: 0;
+  padding:
+    0;
 
   accent-color:
     var(--moro-green);
+
+  cursor:
+    pointer;
 }
 
 .investorFormConsent span {
+  color:
+    #59625d !important;
+
+  font-size:
+    8px !important;
+
   line-height:
-    1.5;
+    1.55 !important;
 }
+
+/* ==========================================================
+   SUBMIT
+========================================================== */
 
 .investorFormSubmit {
   width:
     100%;
 
+  min-height:
+    52px;
+
   margin-top:
     23px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    13px;
+
+  border:
+    0;
+
+  border-radius:
+    999px;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform 250ms ease,
+    background 250ms ease;
 }
+
+.investorFormSubmit:hover {
+  transform:
+    translateY(-2px);
+}
+
+/* ==========================================================
+   SUCCESS
+========================================================== */
 
 .investorFormSuccess {
   margin-top:
-    16px;
+    17px;
+
+  padding:
+    12px 13px;
 
   display:
     flex;
@@ -248,37 +590,378 @@
     center;
 
   gap:
-    8px;
+    9px;
+
+  border:
+    1px solid
+    rgba(
+      68,
+      213,
+      131,
+      0.2
+    );
+
+  background:
+    rgba(
+      68,
+      213,
+      131,
+      0.035
+    );
 
   color:
-    #9ae8bb;
+    #9bdab5;
 
   font-size:
-    10px;
+    9px;
+
+  line-height:
+    1.45;
 }
 
-/* Responsive */
+/* ==========================================================
+   LARGE LAPTOP
+========================================================== */
+
+@media (
+  max-width: 1366px
+) {
+  .investorFormGrid {
+    gap:
+      65px;
+  }
+
+  .investorFormIntro h2 {
+    font-size:
+      clamp(
+        46px,
+        5vw,
+        68px
+      );
+  }
+
+  .investorForm {
+    padding:
+      29px;
+  }
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (
+  max-width: 960px
+) {
+  .investorFormGrid {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      55px;
+  }
+
+  .investorFormIntro {
+    max-width:
+      700px;
+  }
+
+  .investorFormIntro h2 {
+    max-width:
+      600px;
+
+    font-size:
+      clamp(
+        44px,
+        7vw,
+        62px
+      );
+  }
+
+  .investorFormIntro .investorLead {
+    max-width:
+      570px;
+  }
+
+  .investorContactBlock {
+    max-width:
+      500px;
+  }
+
+  .investorForm {
+    max-width:
+      720px;
+  }
+}
+
+/* ==========================================================
+   TABLET PEQUEÑA
+========================================================== */
+
+@media (
+  max-width: 760px
+) and (min-width: 641px) {
+  .investorForm {
+    padding:
+      26px;
+  }
+
+  .investorFormFields {
+    gap:
+      17px
+      12px;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
 
 @media (
   max-width: 640px
 ) {
   .investorFormGrid {
-      gap:
-        45px;
-    }
+    gap:
+      43px;
+  }
+
+  .investorFormIntro {
+    max-width:
+      100%;
+  }
+
+  .investorFormIntro h2 {
+    font-size:
+      clamp(
+        38px,
+        10.5vw,
+        52px
+      );
+
+    line-height:
+      0.96;
+  }
+
+  .investorFormIntro .investorLead {
+    margin-top:
+      23px;
+
+    font-size:
+      10px;
+
+    line-height:
+      1.7;
+  }
+
+  .investorContactBlock {
+    margin-top:
+      32px;
+
+    padding-top:
+      18px;
+
+    grid-template-columns:
+      38px
+      minmax(
+        0,
+        1fr
+      );
+
+    gap:
+      12px;
+  }
+
+  .investorContactIcon {
+    width:
+      34px;
+
+    height:
+      34px;
+  }
+
+  .investorContactContent strong {
+    font-size:
+      12px;
+  }
+
+  .investorContactContent p {
+    font-size:
+      8px;
+  }
+
+  .investorContactContent a {
+    font-size:
+      11px;
+  }
+
+  /* FORM */
 
   .investorForm {
-      padding:
-        22px 16px;
-    }
+    padding:
+      22px
+      16px;
+
+    max-width:
+      none;
+  }
+
+  .investorFormHeading {
+    margin-bottom:
+      24px;
+
+    padding-bottom:
+      17px;
+  }
 
   .investorFormFields {
-      grid-template-columns:
-        1fr;
-    }
+    grid-template-columns:
+      1fr;
+
+    gap:
+      16px;
+  }
 
   .investorFormFull {
-      grid-column:
-        auto;
-    }
+    grid-column:
+      auto;
+  }
+
+  .investorForm input:not(
+      [type="checkbox"]
+    ),
+  .investorForm select {
+    min-height:
+      48px;
+
+    font-size:
+      10px;
+  }
+
+  .investorFormConsent {
+    margin-top:
+      19px;
+  }
+
+  .investorFormSubmit {
+    min-height:
+      50px;
+
+    margin-top:
+      20px;
+
+    font-size:
+      10px;
+  }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (
+  max-width: 420px
+) {
+  .investorFormGrid {
+    gap:
+      36px;
+  }
+
+  .investorFormIntro h2 {
+    font-size:
+      clamp(
+        35px,
+        10.8vw,
+        46px
+      );
+  }
+
+  .investorFormIntro .investorLead {
+    font-size:
+      9.5px;
+  }
+
+  .investorContactBlock {
+    margin-top:
+      28px;
+  }
+
+  .investorContactContent strong {
+    font-size:
+      11px;
+  }
+
+  .investorForm {
+    padding:
+      20px
+      14px;
+  }
+
+  .investorFormHeading p {
+    font-size:
+      9px;
+  }
+
+  .investorForm input:not(
+      [type="checkbox"]
+    ),
+  .investorForm select {
+    min-height:
+      46px;
+
+    padding-left:
+      12px;
+
+    font-size:
+      9.5px;
+  }
+
+  .investorForm label > span {
+    font-size:
+      8px;
+  }
+
+  .investorFormConsent span {
+    font-size:
+      7.5px !important;
+  }
+
+  .investorFormSubmit {
+    min-height:
+      48px;
+
+    font-size:
+      9.5px;
+  }
+}
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+.investorForm input:focus-visible,
+.investorForm select:focus-visible,
+.investorFormSubmit:focus-visible,
+.investorContactContent a:focus-visible {
+  outline:
+    1px solid
+    var(--moro-green);
+
+  outline-offset:
+    3px;
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .investorForm input,
+  .investorForm select,
+  .investorFormSubmit,
+  .investorContactContent a {
+    transition:
+      none;
+  }
 }
