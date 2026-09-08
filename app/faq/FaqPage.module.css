@@ -1,0 +1,837 @@
+.page {
+  width: 100%;
+  overflow: hidden;
+  background: var(--moro-ivory);
+  color: var(--moro-text);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  background: var(--moro-forest);
+  color: var(--moro-ivory);
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  right: -250px;
+  top: -330px;
+
+  border-radius: 50%;
+
+  background: var(--moro-olive);
+
+  opacity: 0.08;
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: rgba(247, 245, 239, 0.1);
+}
+
+/* =========================================
+   HERO INNER
+========================================= */
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+
+  /*
+    Reserva el espacio ocupado por el navbar.
+    Evita que el contenido quede debajo del menú.
+  */
+  padding-top: calc(var(--moro-nav-height) + 30px);
+  padding-bottom: 110px;
+}
+
+/* =========================================
+   BACK HOME
+========================================= */
+
+.back {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
+  gap: 10px;
+
+  padding: 7px 0 9px;
+
+  color: rgba(247, 245, 239, 0.52);
+
+  text-decoration: none;
+
+  transition:
+    color 300ms ease,
+    gap 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.back::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: var(--moro-olive);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition:
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.back svg {
+  flex: 0 0 auto;
+
+  transition:
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.back:hover {
+  gap: 14px;
+  color: var(--moro-ivory);
+}
+
+.back:hover::after {
+  transform: scaleX(1);
+}
+
+.back:hover svg {
+  transform: translateX(-3px);
+}
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.heroContent {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(300px, 0.5fr);
+
+  align-items: end;
+
+  gap: 100px;
+
+  margin-top: 95px;
+}
+
+.heroMain {
+  min-width: 0;
+  max-width: 760px;
+}
+
+.label {
+  display: block;
+
+  margin-bottom: 22px;
+
+  color: var(--moro-olive);
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heroMain h1 {
+  margin: 0;
+
+  color: var(--moro-ivory);
+}
+
+.heroLead {
+  max-width: 430px;
+
+  margin: 0 0 5px;
+
+  color: rgba(247, 245, 239, 0.58);
+
+  line-height: 1.75;
+}
+
+/* =========================================
+   FAQ SECTION
+========================================= */
+
+.faqSection {
+  width: 100%;
+
+  background: var(--moro-ivory);
+}
+
+.faqLayout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(240px, 0.55fr)
+    minmax(0, 1.45fr);
+
+  align-items: start;
+
+  gap: 110px;
+
+  padding: 120px 0 125px;
+}
+
+/* =========================================
+   SIDE
+========================================= */
+
+.side {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding-top: 4px;
+}
+
+.sideNumber {
+  color: var(--moro-olive-dark);
+
+  letter-spacing: 0.1em;
+}
+
+.sideContent {
+  max-width: 320px;
+
+  margin-top: 75px;
+}
+
+.sideContent strong {
+  display: block;
+
+  color: var(--moro-forest);
+
+  line-height: 1.35;
+}
+
+.sideContent p {
+  margin: 18px 0 0;
+
+  color: var(--moro-text-secondary);
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   FAQ LIST
+========================================= */
+
+.list {
+  min-width: 0;
+
+  border-top: 1px solid var(--moro-line);
+}
+
+.item {
+  position: relative;
+
+  border-bottom: 1px solid var(--moro-line);
+
+  transition:
+    background-color 350ms ease;
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.itemOpen {
+  background: var(--moro-white);
+}
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.question {
+  position: relative;
+
+  width: 100%;
+  min-height: 94px;
+
+  display: grid;
+
+  grid-template-columns:
+    48px
+    minmax(0, 1fr)
+    40px;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 22px;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: var(--moro-text);
+
+  font: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  appearance: none;
+}
+
+.question:focus-visible {
+  outline: 1px solid var(--moro-olive);
+  outline-offset: -1px;
+}
+
+.number {
+  color: var(--moro-olive-dark);
+
+  letter-spacing: 0.08em;
+
+  user-select: none;
+}
+
+.questionText {
+  min-width: 0;
+
+  color: var(--moro-forest);
+
+  line-height: 1.45;
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.icon {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--moro-text-secondary);
+
+  border: 1px solid var(--moro-line);
+
+  border-radius: 50%;
+
+  transition:
+    color 300ms ease,
+    background-color 300ms ease,
+    border-color 300ms ease,
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.itemOpen .icon {
+  color: var(--moro-white);
+
+  background: var(--moro-olive);
+
+  border-color: var(--moro-olive);
+
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   ANSWER
+========================================= */
+
+.answer {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  overflow: hidden;
+
+  transition:
+    grid-template-rows 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.itemOpen .answer {
+  grid-template-rows: 1fr;
+}
+
+.answerInner {
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+.answerInner p {
+  max-width: 720px;
+
+  margin: 0;
+
+  padding:
+    0
+    22px
+    32px
+    90px;
+
+  color: var(--moro-text-secondary);
+
+  line-height: 1.75;
+
+  opacity: 0;
+
+  transform: translateY(-8px);
+
+  transition:
+    opacity 280ms ease 80ms,
+    transform 400ms ease 80ms;
+}
+
+.itemOpen .answerInner p {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* =========================================
+   CTA
+========================================= */
+
+.ctaSection {
+  width: 100%;
+
+  background: var(--moro-sand);
+}
+
+.ctaCard {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(300px, 0.65fr);
+
+  align-items: end;
+
+  gap: 90px;
+
+  padding: 90px 0 85px;
+}
+
+.ctaMain {
+  min-width: 0;
+}
+
+.ctaLabel {
+  display: block;
+
+  margin-bottom: 22px;
+
+  color: var(--moro-olive-dark);
+
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.ctaMain h2 {
+  margin: 0;
+
+  color: var(--moro-forest);
+}
+
+.ctaAside {
+  max-width: 440px;
+}
+
+.ctaAside p {
+  margin: 0;
+
+  color: var(--moro-text-secondary);
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   CTA LINK
+========================================= */
+
+.ctaButton {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  margin-top: 30px;
+
+  padding: 13px 0;
+
+  color: var(--moro-forest);
+
+  border-bottom: 1px solid var(--moro-olive-dark);
+
+  text-decoration: none;
+
+  transition:
+    gap 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease;
+}
+
+.ctaButton svg {
+  transition:
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ctaButton:hover {
+  gap: 16px;
+
+  color: var(--moro-olive-dark);
+
+  border-color: var(--moro-olive);
+}
+
+.ctaButton:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  display: grid;
+
+  grid-template-columns:
+    145px
+    minmax(0, 1fr);
+
+  gap: 28px;
+
+  padding: 26px 0 35px;
+
+  border-top:
+    1px solid rgba(32, 37, 31, 0.13);
+}
+
+.footer > span {
+  color: var(--moro-olive-dark);
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.footer p {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: var(--moro-text-muted);
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   LARGE TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .heroContent {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(260px, 0.55fr);
+
+    gap: 65px;
+  }
+
+  .faqLayout {
+    grid-template-columns:
+      minmax(220px, 0.5fr)
+      minmax(0, 1.5fr);
+
+    gap: 70px;
+  }
+
+  .ctaCard {
+    gap: 65px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+  .heroInner {
+    padding-top: calc(var(--moro-nav-height) + 25px);
+    padding-bottom: 85px;
+  }
+
+  .heroContent {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+
+    margin-top: 70px;
+  }
+
+  .heroLead {
+    max-width: 620px;
+  }
+
+  .faqLayout {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+
+    padding: 90px 0 95px;
+  }
+
+  .side {
+    max-width: 650px;
+  }
+
+  .sideContent {
+    max-width: 600px;
+
+    margin-top: 25px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+
+    padding: 75px 0 70px;
+  }
+
+  .ctaAside {
+    max-width: 620px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+  .heroInner {
+    padding-top: calc(var(--moro-nav-height) + 18px);
+    padding-bottom: 65px;
+  }
+
+  .back {
+    gap: 8px;
+
+    padding: 6px 0 8px;
+  }
+
+  .heroContent {
+    gap: 22px;
+
+    margin-top: 55px;
+  }
+
+  .label {
+    margin-bottom: 17px;
+  }
+
+  .heroLead {
+    line-height: 1.65;
+  }
+
+  .faqLayout {
+    gap: 42px;
+
+    padding: 70px 0 75px;
+  }
+
+  .sideContent {
+    margin-top: 20px;
+  }
+
+  .question {
+    grid-template-columns:
+      27px
+      minmax(0, 1fr)
+      32px;
+
+    gap: 11px;
+
+    min-height: 76px;
+
+    padding: 17px 12px;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .answerInner p {
+    padding:
+      0
+      12px
+      25px
+      50px;
+
+    line-height: 1.65;
+  }
+
+  .ctaCard {
+    gap: 38px;
+
+    padding: 65px 0 58px;
+  }
+
+  .ctaButton {
+    margin-top: 25px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+
+    padding: 23px 0 30px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 390px) {
+  .heroInner {
+    padding-top: calc(var(--moro-nav-height) + 15px);
+    padding-bottom: 58px;
+  }
+
+  .heroContent {
+    margin-top: 48px;
+  }
+
+  .faqLayout {
+    padding-top: 60px;
+  }
+
+  .question {
+    grid-template-columns:
+      24px
+      minmax(0, 1fr)
+      29px;
+
+    gap: 9px;
+
+    padding-inline: 10px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .answerInner p {
+    padding-left: 43px;
+    padding-right: 10px;
+  }
+}
+
+/* =========================================
+   TOUCH
+========================================= */
+
+@media (hover: none) {
+  .item:hover {
+    background: transparent;
+  }
+
+  .itemOpen {
+    background: var(--moro-white);
+  }
+
+  .back:hover {
+    gap: 8px;
+    color: rgba(247, 245, 239, 0.52);
+  }
+
+  .back:hover::after {
+    transform: scaleX(0);
+  }
+
+  .back:hover svg {
+    transform: none;
+  }
+
+  .ctaButton:hover {
+    gap: 11px;
+  }
+
+  .ctaButton:hover svg {
+    transform: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .back,
+  .back::after,
+  .back svg,
+  .item,
+  .icon,
+  .answer,
+  .answerInner p,
+  .ctaButton,
+  .ctaButton svg {
+    transition: none;
+  }
+
+  .back:hover {
+    gap: initial;
+  }
+
+  .back:hover::after {
+    transform: none;
+  }
+
+  .back:hover svg,
+  .ctaButton:hover svg {
+    transform: none;
+  }
+}

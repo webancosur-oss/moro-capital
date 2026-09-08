@@ -1,0 +1,666 @@
+.section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  background: var(--moro-forest);
+  color: var(--moro-ivory);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.48fr);
+  align-items: end;
+  gap: 100px;
+
+  padding: 120px 0 82px;
+}
+
+.headerMain {
+  min-width: 0;
+  max-width: 760px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 22px;
+
+  color: var(--moro-olive);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.headerMain h2 {
+  margin: 0;
+  color: var(--moro-ivory);
+}
+
+.headerMain h2 span {
+  display: block;
+  color: var(--moro-olive);
+}
+
+.lead {
+  max-width: 430px;
+  margin: 0 0 4px;
+
+  color: rgba(247, 245, 239, 0.58);
+  line-height: 1.75;
+}
+
+/* =========================================
+   FLOW
+========================================= */
+
+.flow {
+  position: relative;
+  padding-bottom: 105px;
+}
+
+/* =========================================
+   HOLDING — MORO CAPITAL
+========================================= */
+
+.holding {
+  position: relative;
+
+  width: min(430px, 100%);
+  margin-inline: auto;
+
+  padding: 25px 28px 27px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247, 245, 239, 0.075),
+      rgba(247, 245, 239, 0.025)
+    );
+
+  border: 1px solid rgba(247, 245, 239, 0.15);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 350ms ease,
+    background-color 350ms ease;
+}
+
+.holding:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(125, 135, 104, 0.45);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(125, 135, 104, 0.13),
+      rgba(247, 245, 239, 0.035)
+    );
+}
+
+.holdingLabel {
+  margin-bottom: 18px;
+
+  color: rgba(247, 245, 239, 0.36);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.holdingMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.holdingBrand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.holdingBrand img {
+  display: block;
+
+  width: auto;
+  max-width: 175px;
+  height: 42px;
+
+  object-fit: contain;
+
+  /* opacity: 0.92; */
+}
+
+.holdingBrand strong {
+  color: var(--moro-ivory);
+}
+
+.holdingMain > span {
+  flex: 0 0 auto;
+
+  color: var(--moro-olive);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   HOLDING CONNECTOR
+========================================= */
+
+.holdingConnector {
+  position: absolute;
+
+  left: 50%;
+  bottom: -41px;
+
+  width: 1px;
+  height: 41px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(125, 135, 104, 0.75),
+      rgba(125, 135, 104, 0.2)
+    );
+
+  transform: translateX(-50%);
+}
+
+/* =========================================
+   HORIZONTAL CONNECTOR
+========================================= */
+
+.flowConnector {
+  position: relative;
+
+  height: 80px;
+  margin-inline: 12%;
+
+  pointer-events: none;
+}
+
+.flowConnector span {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(125, 135, 104, 0),
+      rgba(125, 135, 104, 0.48) 8%,
+      rgba(125, 135, 104, 0.48) 92%,
+      rgba(125, 135, 104, 0)
+    );
+}
+
+/* =========================================
+   BRANDS
+========================================= */
+
+.brands {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.brand {
+  position: relative;
+  min-width: 0;
+}
+
+.brandConnector {
+  position: absolute;
+
+  top: -40px;
+  left: 50%;
+
+  width: 1px;
+  height: 40px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(125, 135, 104, 0.1),
+      rgba(125, 135, 104, 0.52)
+    );
+
+  transform: translateX(-50%);
+}
+
+/* =========================================
+   BRAND CARD
+========================================= */
+
+.brandCard {
+  position: relative;
+
+  min-height: 265px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 22px 22px 24px;
+
+  overflow: hidden;
+
+  background: rgba(247, 245, 239, 0.045);
+
+  border: 1px solid rgba(247, 245, 239, 0.1);
+
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 400ms ease,
+    border-color 350ms ease,
+    box-shadow 400ms ease;
+}
+
+.brandCard::before {
+  content: "";
+
+  position: absolute;
+
+  right: -90px;
+  bottom: -100px;
+
+  width: 190px;
+  height: 190px;
+
+  border-radius: 50%;
+
+  background: var(--moro-olive);
+
+  opacity: 0;
+  filter: blur(60px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 450ms ease,
+    transform 500ms ease;
+}
+
+.brandCard::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--moro-olive);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition:
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand:hover .brandCard {
+  transform: translateY(-7px);
+
+  background: rgba(247, 245, 239, 0.075);
+
+  border-color: rgba(125, 135, 104, 0.38);
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.14);
+}
+
+.brand:hover .brandCard::before {
+  opacity: 0.13;
+  transform: translate(-12px, -10px);
+}
+
+.brand:hover .brandCard::after {
+  transform: scaleX(1);
+}
+
+/* =========================================
+   CARD TOP
+========================================= */
+
+.brandTop {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.brandNumber {
+  color: var(--moro-olive);
+  letter-spacing: 0.1em;
+}
+
+.brandLine {
+  width: 35px;
+  height: 1px;
+
+  background: rgba(247, 245, 239, 0.16);
+
+  transition:
+    width 350ms ease,
+    background-color 350ms ease;
+}
+
+.brand:hover .brandLine {
+  width: 60px;
+  background: var(--moro-olive);
+}
+
+/* =========================================
+   BRAND IMAGE
+========================================= */
+
+.brandImage {
+  position: relative;
+  z-index: 1;
+
+  min-height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+
+  border-bottom: 1px solid rgba(247, 245, 239, 0.08);
+}
+
+.brandImage img {
+  display: block;
+
+  width: 100%;
+  max-width: 165px;
+  height: 72px;
+
+  object-fit: contain;
+
+  opacity: 0.84;
+
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 350ms ease;
+}
+
+.brand:hover .brandImage img {
+  transform: scale(1.045);
+  opacity: 1;
+}
+
+.brandFallback {
+  max-width: 150px;
+
+  color: var(--moro-ivory);
+
+  text-align: center;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.brandContent {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.brandContent strong {
+  color: var(--moro-ivory);
+  line-height: 1.25;
+}
+
+.brandContent small {
+  color: rgba(247, 245, 239, 0.4);
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   LARGE TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .header {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+    gap: 60px;
+  }
+
+  .flowConnector {
+    margin-inline: 8%;
+  }
+
+  .brands {
+    gap: 12px;
+  }
+
+  .brandCard {
+    min-height: 245px;
+    padding-inline: 18px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+
+    padding: 90px 0 65px;
+  }
+
+  .lead {
+    max-width: 650px;
+  }
+
+  .flow {
+    padding-bottom: 85px;
+  }
+
+  .flowConnector {
+    margin-inline: 10%;
+  }
+
+  .brands {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 38px 14px;
+  }
+
+  .brandCard {
+    min-height: 240px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+  .header {
+    gap: 22px;
+    padding: 70px 0 52px;
+  }
+
+  .label {
+    margin-bottom: 17px;
+  }
+
+  .flow {
+    padding-bottom: 65px;
+  }
+
+  .holding {
+    width: 100%;
+    padding: 22px 20px 23px;
+  }
+
+  .holdingMain {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .holdingBrand img {
+    max-width: 160px;
+    height: 38px;
+  }
+
+  .holdingConnector {
+    bottom: -32px;
+    height: 32px;
+  }
+
+  .flowConnector {
+    height: 65px;
+    margin-inline: 5%;
+  }
+
+  .brands {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .brand {
+    padding-top: 34px;
+  }
+
+  .brandConnector {
+    top: 0;
+    height: 34px;
+  }
+
+  .brandCard {
+    min-height: 215px;
+    padding: 20px 19px 22px;
+  }
+
+  .brandTop {
+    margin-bottom: 18px;
+  }
+
+  .brandImage {
+    min-height: 85px;
+  }
+
+  .brandImage img {
+    height: 60px;
+  }
+
+  .brandContent {
+    padding-top: 17px;
+  }
+
+  .brand:hover .brandCard {
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 390px) {
+  .holding {
+    padding-inline: 17px;
+  }
+
+  .brandCard {
+    padding-inline: 17px;
+  }
+
+  .flowConnector {
+    margin-inline: 2%;
+  }
+}
+
+/* =========================================
+   TOUCH
+========================================= */
+
+@media (hover: none) {
+  .holding:hover {
+    transform: none;
+    border-color: rgba(247, 245, 239, 0.15);
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(247, 245, 239, 0.075),
+        rgba(247, 245, 239, 0.025)
+      );
+  }
+
+  .brand:hover .brandCard {
+    transform: none;
+    background: rgba(247, 245, 239, 0.045);
+    border-color: rgba(247, 245, 239, 0.1);
+    box-shadow: none;
+  }
+
+  .brand:hover .brandCard::before {
+    opacity: 0;
+  }
+
+  .brand:hover .brandCard::after {
+    transform: scaleX(0);
+  }
+
+  .brand:hover .brandImage img {
+    transform: none;
+    opacity: 0.84;
+  }
+
+  .brand:hover .brandLine {
+    width: 35px;
+    background: rgba(247, 245, 239, 0.16);
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .holding,
+  .brandCard,
+  .brandCard::before,
+  .brandCard::after,
+  .brandLine,
+  .brandImage img {
+    transition: none;
+  }
+
+  .holding:hover,
+  .brand:hover .brandCard {
+    transform: none;
+  }
+}

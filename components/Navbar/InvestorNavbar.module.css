@@ -1,0 +1,652 @@
+/* =========================================================
+   INVESTOR NAVBAR
+   Desktop / Tablet / Mobile
+   ========================================================= */
+
+.investorNavbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: var(--moro-nav-height);
+
+  background: rgba(247, 245, 239, 0.96);
+  border-bottom: 1px solid transparent;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    height 0.3s ease;
+}
+
+/* =========================================================
+   NAVBAR SCROLLED
+   ========================================================= */
+
+.investorNavbarScrolled {
+  background: rgba(247, 245, 239, 0.94);
+  border-bottom-color: var(--moro-line);
+
+  box-shadow:
+    0 8px 30px rgba(32, 37, 31, 0.06);
+}
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.investorContainer {
+  width: min(
+    calc(100% - 64px),
+    var(--moro-container)
+  );
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+   INNER
+   ========================================================= */
+
+.investorNavbarInner {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.investorNavbarLogo {
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.investorNavbarLogo:hover {
+  opacity: 0.82;
+}
+
+.investorNavbarLogo:focus-visible {
+  outline: 2px solid var(--moro-olive);
+  outline-offset: 5px;
+}
+
+.investorNavbarLogo img {
+  display: block;
+
+  width: 150px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   DESKTOP NAVIGATION
+   ========================================================= */
+
+.investorNavbarLinks {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(22px, 2.2vw, 38px);
+}
+
+.investorNavbarLinks a {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  height: 82px;
+
+  color: var(--moro-text-secondary);
+
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+
+  letter-spacing: 0.01em;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    color 0.25s ease;
+}
+
+.investorNavbarLinks a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: 24px;
+
+  width: 100%;
+  height: 1px;
+
+  background: var(--moro-olive);
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.investorNavbarLinks a:hover {
+  color: var(--moro-text);
+}
+
+.investorNavbarLinks a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.investorNavbarLinks a:focus-visible {
+  outline: 2px solid var(--moro-olive);
+  outline-offset: 5px;
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.investorNavbarActions {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.investorButton {
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 20px;
+
+  border: 1px solid var(--moro-forest);
+  border-radius: var(--radius-small);
+
+  background: var(--moro-forest);
+  color: var(--moro-ivory);
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+
+  letter-spacing: 0.02em;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.investorButton:hover {
+  background: var(--moro-olive-dark);
+  border-color: var(--moro-olive-dark);
+
+  color: var(--moro-white);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 22px rgba(32, 37, 31, 0.12);
+}
+
+.investorButton:active {
+  transform: translateY(0);
+}
+
+.investorButton:focus-visible {
+  outline: 2px solid var(--moro-olive);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.investorMenuButton {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid var(--moro-line);
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--moro-text);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.investorMenuButton:hover {
+  background: var(--moro-forest);
+  border-color: var(--moro-forest);
+  color: var(--moro-ivory);
+}
+
+.investorMenuButton:active {
+  transform: scale(0.96);
+}
+
+.investorMenuButton:focus-visible {
+  outline: 2px solid var(--moro-olive);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.investorMobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: rgba(247, 245, 239, 0.98);
+  border-top: 1px solid var(--moro-line);
+  border-bottom: 1px solid var(--moro-line);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-10px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease;
+}
+
+.investorMobileMenuOpen {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+/* =========================================================
+   MOBILE MENU INNER
+   ========================================================= */
+
+.investorMobileMenuInner {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+
+.investorMobileMenuInner a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 52px;
+
+  padding: 0 4px;
+
+  color: var(--moro-text-secondary);
+
+  border-bottom: 1px solid var(--moro-line-light);
+
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.25s ease;
+}
+
+.investorMobileMenuInner a:hover {
+  color: var(--moro-text);
+
+  padding-left: 8px;
+}
+
+.investorMobileMenuInner a:last-child {
+  border-bottom: 0;
+}
+
+/* =========================================================
+   MOBILE CONTACT
+   ========================================================= */
+
+.investorMobileMenuContact {
+  justify-content: center;
+
+  margin-top: 14px;
+
+  min-height: 48px !important;
+
+  padding: 0 18px !important;
+
+  border: 1px solid var(--moro-forest) !important;
+  border-radius: var(--radius-small);
+
+  background: var(--moro-forest);
+
+  color: var(--moro-ivory) !important;
+
+  font-size: 12px !important;
+  font-weight: 600 !important;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease !important;
+}
+
+.investorMobileMenuContact:hover {
+  padding-left: 18px !important;
+
+  background: var(--moro-olive-dark);
+
+  border-color: var(--moro-olive-dark) !important;
+
+  color: var(--moro-white) !important;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.investorMobileMenuInner a:focus-visible {
+  outline: 2px solid var(--moro-olive);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   TABLET
+   1199px
+   ========================================================= */
+
+@media (max-width: 1199px) {
+  .investorContainer {
+    width: min(
+      calc(100% - 48px),
+      var(--moro-container)
+    );
+  }
+
+  .investorNavbarInner {
+    gap: 24px;
+  }
+
+  .investorNavbarLinks {
+    gap: 20px;
+  }
+
+  .investorNavbarLinks a {
+    font-size: 12px;
+  }
+
+  .investorNavbarLogo img {
+    width: 138px;
+  }
+
+  .investorButton {
+    padding: 0 17px;
+
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   TABLET
+   960px
+   ========================================================= */
+
+@media (max-width: 960px) {
+  .investorNavbar {
+    height: 74px;
+  }
+
+  .investorNavbarInner {
+    gap: 20px;
+  }
+
+  .investorNavbarLinks {
+    gap: 15px;
+  }
+
+  .investorNavbarLinks a {
+    font-size: 11px;
+  }
+
+  .investorNavbarLinks a::after {
+    bottom: 21px;
+  }
+
+  .investorNavbarLogo img {
+    width: 128px;
+  }
+
+  .investorButton {
+    min-height: 40px;
+
+    padding: 0 15px;
+
+    font-size: 10.5px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .investorNavbar {
+    height: 70px;
+  }
+
+  .investorContainer {
+    width: calc(100% - 40px);
+  }
+
+  .investorNavbarInner {
+    gap: 0;
+  }
+
+  .investorNavbarLogo img {
+    width: 128px;
+  }
+
+  /* Ocultar navegación desktop */
+  .investorNavbarLinks {
+    display: none;
+  }
+
+  /* Ocultar CTA desktop */
+  .investorNavbarActions {
+    display: none;
+  }
+
+  /* Mostrar menú */
+  .investorMenuButton {
+    display: inline-flex;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   640px
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .investorNavbar {
+    height: 68px;
+  }
+
+  .investorContainer {
+    width: calc(100% - 32px);
+  }
+
+  .investorNavbarLogo img {
+    width: 122px;
+  }
+
+  .investorMenuButton {
+    width: 42px;
+    height: 42px;
+  }
+
+  .investorMobileMenuInner {
+    padding-top: 8px;
+    padding-bottom: 18px;
+  }
+
+  .investorMobileMenuInner a {
+    min-height: 50px;
+
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .investorNavbar {
+    height: 64px;
+  }
+
+  .investorContainer {
+    width: calc(100% - 28px);
+  }
+
+  .investorNavbarLogo img {
+    width: 112px;
+  }
+
+  .investorMenuButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .investorMobileMenuInner {
+    padding-bottom: 16px;
+  }
+
+  .investorMobileMenuInner a {
+    min-height: 48px;
+
+    font-size: 13px;
+  }
+
+  .investorMobileMenuContact {
+    min-height: 46px !important;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .investorContainer {
+    width: calc(100% - 24px);
+  }
+
+  .investorNavbarLogo img {
+    width: 104px;
+  }
+
+  .investorMenuButton {
+    width: 38px;
+    height: 38px;
+  }
+
+  .investorMobileMenuInner a {
+    min-height: 46px;
+
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .investorNavbar,
+  .investorNavbarLogo,
+  .investorNavbarLinks a,
+  .investorNavbarLinks a::after,
+  .investorButton,
+  .investorMenuButton,
+  .investorMobileMenu,
+  .investorMobileMenuInner a,
+  .investorMobileMenuContact {
+    transition: none;
+  }
+}

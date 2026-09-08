@@ -343,23 +343,80 @@ export const REASONS = [
 
 export const BRANDS = [
   {
-    name: "MORO CAPITAL",
-    type: "Holding inmobiliario",
-  },
-
-  {
-    name: "STRATON",
-    type: "Construcción",
+    name: "Moro Capital",
+    type: "Holding de inversión inmobiliaria",
+    image: "/assets/holding/moro-capital.svg",
+    description:
+      "Holding enfocado en inversión y gestión de proyectos inmobiliarios que transforman capital en desarrollo.",
+    metrics: [
+      {
+        value: "+10MM",
+        label: "DE INVERSIÓN CAPTADA",
+      },
+      {
+        value: "+50",
+        label: "INVERSIONISTAS",
+      },
+    ],
   },
 
   {
     name: "ANCOSUR",
     type: "Desarrollo inmobiliario",
+    image: "/assets/holding/ancosur-logo.svg",
+    description:
+      "Con más de 10 años de experiencia en el sector inmobiliario, desarrolla proyectos innovadores y sostenibles.",
+    metrics: [
+      {
+        value: "+500",
+        label: "HOGARES ENTREGADOS",
+      },
+      {
+        value: "+300mil",
+        label: "M² DESARROLLADOS",
+      },
+    ],
+  },
+
+  {
+    name: "STRATON",
+    type: "Construcción",
+    image: "/assets/holding/straton.svg",
+    description:
+      "Constructora con más de 10 años de experiencia desarrollando y ejecutando proyectos en la ciudad.",
+    metrics: [
+      {
+        value: "+300mil",
+        label: "M² EN CONSTRUCCIÓN",
+      },
+    ],
   },
 
   {
     name: "ZAGARI",
-    type: "Resort Club",
+    type: "Resort inmobiliario",
+    image: "/assets/holding/zagari.svg",
+    description:
+      "Un exclusivo Resort Club en la Selva Central que integra naturaleza, descanso y experiencias.",
+    metrics: [],
+  },
+
+  {
+    name: "SULLPA",
+    type: "Bienestar y lifestyle",
+    image: "/assets/holding/sulpaa.svg",
+    description:
+      "Una propuesta orientada al bienestar y a experiencias que complementan el estilo de vida.",
+    metrics: [],
+  },
+
+  {
+    name: "3ER ESPACIO",
+    type: "Espacios y experiencias",
+    image: "/assets/holding/tercer-espacio.svg",
+    description:
+      "Una propuesta que amplía el ecosistema hacia nuevos espacios, experiencias y oportunidades.",
+    metrics: [],
   },
 ];
 

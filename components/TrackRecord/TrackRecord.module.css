@@ -1,0 +1,1283 @@
+/* ==========================================================
+   TRACK RECORD
+   Moro Capital · Premium Portfolio
+   ========================================================== */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 120px 0 110px;
+
+  background:
+    var(--background);
+
+  color:
+    var(--moro-text);
+
+  overflow: hidden;
+}
+
+.container {
+  width: min(
+    calc(100% - 48px),
+    var(--moro-container)
+  );
+
+  margin-inline: auto;
+}
+
+
+/* ==========================================================
+   DECORATIVE BACKGROUND
+   ========================================================== */
+
+.section::before {
+  content: "";
+
+  position: absolute;
+
+  top: -220px;
+  right: -220px;
+
+  width: 620px;
+  height: 620px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(125, 135, 104, 0.10) 0%,
+      rgba(125, 135, 104, 0.035) 42%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+}
+
+.section::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 1px;
+
+  background:
+    var(--moro-line);
+
+  pointer-events: none;
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.header {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(300px, 0.75fr);
+
+  align-items: end;
+
+  gap: 90px;
+
+  margin-bottom: 60px;
+}
+
+.headerMain {
+  position: relative;
+
+  min-width: 0;
+
+  z-index: 1;
+}
+
+.headerMain h2 {
+  max-width: 790px;
+
+  margin: 0;
+
+  color:
+    var(--moro-text);
+
+  text-wrap: balance;
+}
+
+.headerMain h2 span {
+  display: block;
+
+  margin-top: 4px;
+
+  color:
+    var(--moro-olive);
+}
+
+.headerSide {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 25px;
+
+  max-width: 420px;
+
+  margin-left: auto;
+
+  z-index: 1;
+}
+
+.headerSide p {
+  max-width: 410px;
+
+  margin: 0;
+
+  color:
+    var(--moro-text-secondary);
+
+  line-height: 1.65;
+}
+
+
+/* ==========================================================
+   DRAG INDICATOR
+   ========================================================== */
+
+.dragHint {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  color:
+    var(--moro-olive-dark);
+
+  transition:
+    color 300ms ease;
+}
+
+.dragHint svg {
+  flex-shrink: 0;
+
+  transition:
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dragHint:hover {
+  color:
+    var(--moro-olive);
+}
+
+.dragHint:hover svg {
+  transform:
+    translateX(4px);
+}
+
+.touchHint {
+  display: none;
+}
+
+
+/* ==========================================================
+   SCROLLER
+   ========================================================== */
+
+.scroller {
+  position: relative;
+
+  display: flex;
+
+  gap: 18px;
+
+  width: 100%;
+
+  padding:
+    8px
+    max(
+      24px,
+      calc((100vw - var(--moro-container)) / 2)
+    )
+    28px;
+
+  overflow-x: auto;
+  overflow-y: visible;
+
+  scrollbar-width: none;
+
+  scroll-snap-type: x proximity;
+
+  cursor: grab;
+
+  touch-action: pan-x;
+
+  overscroll-behavior-x: contain;
+
+  user-select: none;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller.isDragging {
+  cursor: grabbing;
+}
+
+
+/* ==========================================================
+   CARD
+   ========================================================== */
+
+.card {
+  position: relative;
+
+  flex:
+    0 0
+    430px;
+
+  width: 430px;
+  min-width: 430px;
+
+  scroll-snap-align: start;
+
+  background:
+    var(--moro-white);
+
+  border:
+    1px solid
+    var(--moro-line);
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 24px
+    rgba(32, 37, 31, 0.035);
+
+  transform:
+    translate3d(0, 0, 0);
+
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 400ms ease,
+    box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover {
+  z-index: 3;
+
+  transform:
+    translate3d(0, -8px, 0);
+
+  border-color:
+    rgba(125, 135, 104, 0.45);
+
+  box-shadow:
+    0 32px 70px
+    rgba(32, 37, 31, 0.13),
+
+    0 10px 30px
+    rgba(125, 135, 104, 0.08);
+}
+
+
+/* ==========================================================
+   MEDIA
+   ========================================================== */
+
+.media {
+  position: relative;
+
+  aspect-ratio:
+    1 / 1.02;
+
+  overflow: hidden;
+
+  background:
+    var(--moro-forest);
+}
+
+.image {
+  object-fit: cover;
+
+  transform:
+    scale(1.001);
+
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 700ms ease;
+}
+
+.card:hover .image {
+  transform:
+    scale(1.065);
+
+  filter:
+    saturate(1.04);
+}
+
+
+/* ==========================================================
+   IMAGE GRADIENT
+   ========================================================== */
+
+.shade {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18, 25, 20, 0.08) 0%,
+      rgba(18, 25, 20, 0.02) 38%,
+      rgba(18, 25, 20, 0.20) 58%,
+      rgba(18, 25, 20, 0.88) 100%
+    );
+
+  pointer-events: none;
+
+  transition:
+    opacity 500ms ease;
+}
+
+.card:hover .shade {
+  opacity:
+    0.94;
+}
+
+
+/* ==========================================================
+   TOP STATUS
+   ========================================================== */
+
+.status {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  z-index: 4;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 30px;
+
+  padding:
+    7px 12px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.30);
+
+  background:
+    rgba(29, 38, 31, 0.48);
+
+  color:
+    var(--moro-white);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 5px 18px
+    rgba(0, 0, 0, 0.08);
+
+  transition:
+    background-color 350ms ease,
+    border-color 350ms ease,
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .status {
+  transform:
+    translateY(-2px);
+
+  background:
+    rgba(125, 135, 104, 0.78);
+
+  border-color:
+    rgba(255, 255, 255, 0.42);
+}
+
+
+/* ==========================================================
+   TOP RIGHT
+   ========================================================== */
+
+.mediaTop {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  z-index: 4;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.year {
+  color:
+    rgba(255, 255, 255, 0.88);
+
+  transition:
+    color 300ms ease;
+}
+
+.card:hover .year {
+  color:
+    var(--moro-white);
+}
+
+.iconButton {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.32);
+
+  background:
+    rgba(29, 38, 31, 0.38);
+
+  color:
+    var(--moro-white);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  transition:
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 350ms ease,
+    border-color 350ms ease;
+}
+
+.card:hover .iconButton {
+  transform:
+    translate3d(2px, -2px, 0);
+
+  background:
+    var(--moro-olive);
+
+  border-color:
+    var(--moro-olive);
+}
+
+
+/* ==========================================================
+   OVERLAY
+   ========================================================== */
+
+.overlay {
+  position: absolute;
+
+  left: 27px;
+  right: 27px;
+  bottom: 27px;
+
+  z-index: 4;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 18px;
+}
+
+.overlay h3 {
+  max-width: 85%;
+
+  margin: 0;
+
+  color:
+    var(--moro-white);
+
+  text-shadow:
+    0 3px 20px
+    rgba(0, 0, 0, 0.20);
+}
+
+
+/* ==========================================================
+   PROJECT BUTTON
+   ========================================================== */
+
+.projectButton {
+  min-height: 46px;
+
+  pointer-events: auto;
+
+  user-select: auto;
+}
+
+.projectButton:focus-visible {
+  outline:
+    2px solid
+    var(--moro-white);
+
+  outline-offset:
+    4px;
+}
+
+
+/* ==========================================================
+   CARD BOTTOM
+   ========================================================== */
+
+.cardBottom {
+  position: relative;
+
+  padding:
+    20px 26px 24px;
+
+  background:
+    var(--moro-white);
+}
+
+
+/* ==========================================================
+   PROGRESS HEADER
+   ========================================================== */
+
+.progressHeader {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 11px;
+}
+
+.progressHeader span {
+  color:
+    var(--moro-text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-weight: 500;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+.progressHeader strong {
+  color:
+    var(--moro-text);
+
+  font-weight: 500;
+
+  line-height: 1.3;
+}
+
+
+/* ==========================================================
+   PROGRESS
+   ========================================================== */
+
+.progress {
+  position: relative;
+
+  width: 100%;
+  height: 3px;
+
+  overflow: hidden;
+
+  background:
+    var(--moro-sand);
+}
+
+.progress::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.60),
+      transparent
+    );
+
+  transform:
+    translateX(-100%);
+
+  transition:
+    transform 700ms ease;
+}
+
+.progress span {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  height: 100%;
+
+  width: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--moro-olive-dark),
+      var(--moro-olive)
+    );
+
+  transition:
+    width 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .progress::before {
+  transform:
+    translateX(100%);
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.footer {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 32px;
+
+  margin-top: 30px;
+
+  padding-top: 23px;
+
+  border-top:
+    1px solid
+    var(--moro-line);
+}
+
+.footer p {
+  max-width: 760px;
+
+  margin: 0;
+
+  color:
+    var(--moro-text-muted);
+
+  line-height: 1.6;
+}
+
+.footer span {
+  flex-shrink: 0;
+
+  color:
+    var(--moro-olive-dark);
+
+  font-family:
+    var(--font-mono);
+
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   LARGE DESKTOP
+   ========================================================== */
+
+@media (max-width: 1200px) {
+  .section {
+    padding:
+      100px 0
+      95px;
+  }
+
+  .header {
+    gap: 65px;
+
+    margin-bottom: 52px;
+  }
+
+  .card {
+    flex-basis: 400px;
+
+    width: 400px;
+
+    min-width: 400px;
+  }
+
+  .scroller {
+    gap: 16px;
+  }
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 960px) {
+  .section {
+    padding:
+      88px 0
+      85px;
+  }
+
+  .container {
+    width:
+      calc(100% - 40px);
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 45px;
+  }
+
+  .headerSide {
+    max-width: 620px;
+
+    margin-left: 0;
+  }
+
+  .headerSide p {
+    max-width: 600px;
+  }
+
+  .scroller {
+    gap: 14px;
+
+    padding-left:
+      20px;
+
+    padding-right:
+      20px;
+  }
+
+  .card {
+    flex-basis: 370px;
+
+    width: 370px;
+
+    min-width: 370px;
+  }
+
+  .media {
+    aspect-ratio:
+      1 / 1.04;
+  }
+
+  .overlay {
+    left: 23px;
+    right: 23px;
+    bottom: 23px;
+  }
+
+  .cardBottom {
+    padding:
+      19px 22px 22px;
+  }
+
+  .footer {
+    margin-top: 26px;
+  }
+}
+
+
+/* ==========================================================
+   TABLET SMALL
+   ========================================================== */
+
+@media (max-width: 760px) {
+  .section {
+    padding:
+      78px 0
+      75px;
+  }
+
+  .container {
+    width:
+      calc(100% - 32px);
+  }
+
+  .header {
+    gap: 22px;
+
+    margin-bottom: 38px;
+  }
+
+  .headerSide {
+    gap: 21px;
+  }
+
+  .mouseHint {
+    display: none;
+  }
+
+  .touchHint {
+    display: inline;
+  }
+
+  .scroller {
+    gap: 13px;
+
+    padding:
+      6px
+      20px
+      20px;
+  }
+
+  .card {
+    flex-basis: 72vw;
+
+    width: 72vw;
+
+    min-width: 72vw;
+  }
+
+  .status {
+    top: 17px;
+    left: 17px;
+  }
+
+  .mediaTop {
+    top: 17px;
+    right: 17px;
+  }
+
+  .overlay {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .cardBottom {
+    padding:
+      18px 20px 21px;
+  }
+
+  .footer {
+    flex-direction: column;
+
+    gap: 12px;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+  .section {
+    padding:
+      70px 0
+      68px;
+  }
+
+  .container {
+    width:
+      calc(100% - 30px);
+  }
+
+  .header {
+    margin-bottom: 34px;
+  }
+
+  .headerSide {
+    max-width: 100%;
+
+    gap: 20px;
+  }
+
+  .dragHint {
+    gap: 9px;
+  }
+
+  .scroller {
+    gap: 12px;
+
+    padding:
+      5px
+      15px
+      18px;
+  }
+
+  .card {
+    flex-basis: 84vw;
+
+    width: 84vw;
+
+    min-width: 84vw;
+
+    box-shadow:
+      0 7px 24px
+      rgba(32, 37, 31, 0.05);
+  }
+
+  .media {
+    aspect-ratio:
+      1 / 1.08;
+  }
+
+  .status {
+    top: 15px;
+    left: 15px;
+  }
+
+  .mediaTop {
+    top: 15px;
+    right: 15px;
+  }
+
+  .iconButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .overlay {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+
+    gap: 15px;
+  }
+
+  .overlay h3 {
+    max-width: 90%;
+  }
+
+  .projectButton {
+    min-height: 46px;
+  }
+
+  .cardBottom {
+    padding:
+      17px 18px 20px;
+  }
+
+  .progressHeader {
+    gap: 14px;
+
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    margin-top: 23px;
+
+    padding-top: 19px;
+  }
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   ========================================================== */
+
+@media (max-width: 480px) {
+  .section {
+    padding:
+      62px 0
+      60px;
+  }
+
+  .container {
+    width:
+      calc(100% - 26px);
+  }
+
+  .scroller {
+    padding-left:
+      13px;
+
+    padding-right:
+      13px;
+  }
+
+  .card {
+    flex-basis: 86vw;
+
+    width: 86vw;
+
+    min-width: 86vw;
+  }
+
+  .media {
+    aspect-ratio:
+      1 / 1.1;
+  }
+
+  .status {
+    top: 13px;
+    left: 13px;
+  }
+
+  .mediaTop {
+    top: 13px;
+    right: 13px;
+  }
+
+  .iconButton {
+    width: 38px;
+    height: 38px;
+  }
+
+  .overlay {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+
+    gap: 14px;
+  }
+
+  .cardBottom {
+    padding:
+      16px 16px 19px;
+  }
+
+  .footer {
+    margin-top: 21px;
+  }
+}
+
+
+/* ==========================================================
+   VERY SMALL MOBILE
+   ========================================================== */
+
+@media (max-width: 380px) {
+  .section {
+    padding:
+      55px 0
+      54px;
+  }
+
+  .container {
+    width:
+      calc(100% - 22px);
+  }
+
+  .scroller {
+    gap: 10px;
+
+    padding-left:
+      11px;
+
+    padding-right:
+      11px;
+  }
+
+  .card {
+    flex-basis: 88vw;
+
+    width: 88vw;
+
+    min-width: 88vw;
+  }
+
+  .overlay {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .cardBottom {
+    padding:
+      15px 14px 17px;
+  }
+}
+
+
+/* ==========================================================
+   KEYBOARD / ACCESSIBILITY
+   ========================================================== */
+
+.card:focus-within {
+  border-color:
+    var(--moro-olive);
+
+  box-shadow:
+    0 24px 55px
+    rgba(32, 37, 31, 0.12),
+
+    0 8px 24px
+    rgba(125, 135, 104, 0.08);
+}
+
+.card:focus-within .image {
+  transform:
+    scale(1.045);
+}
+
+.projectButton:focus-visible {
+  outline:
+    2px solid
+    var(--moro-white);
+
+  outline-offset:
+    4px;
+}
+
+
+/* ==========================================================
+   TOUCH DEVICES
+   ========================================================== */
+
+@media (hover: none) {
+  .card:hover {
+    transform:
+      translate3d(0, 0, 0);
+
+    border-color:
+      var(--moro-line);
+
+    box-shadow:
+      0 8px 24px
+      rgba(32, 37, 31, 0.05);
+  }
+
+  .card:hover .image {
+    transform:
+      scale(1.001);
+
+    filter:
+      none;
+  }
+
+  .card:hover .shade {
+    opacity:
+      1;
+  }
+
+  .card:hover .status {
+    transform:
+      none;
+
+    background:
+      rgba(29, 38, 31, 0.48);
+
+    border-color:
+      rgba(255, 255, 255, 0.30);
+  }
+
+  .card:hover .iconButton {
+    transform:
+      none;
+
+    background:
+      rgba(29, 38, 31, 0.38);
+
+    border-color:
+      rgba(255, 255, 255, 0.32);
+  }
+
+  .dragHint:hover {
+    color:
+      var(--moro-olive-dark);
+  }
+
+  .dragHint:hover svg {
+    transform:
+      none;
+  }
+
+  .card:hover .progress::before {
+    transform:
+      translateX(-100%);
+  }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .image,
+  .shade,
+  .status,
+  .iconButton,
+  .dragHint,
+  .dragHint svg,
+  .progress span,
+  .progress::before {
+    transition:
+      none !important;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform:
+      none;
+  }
+
+  .card:hover .image,
+  .card:focus-within .image {
+    transform:
+      none;
+  }
+
+  .card:hover .iconButton {
+    transform:
+      none;
+  }
+
+  .card:hover .status {
+    transform:
+      none;
+  }
+
+  .progress::before {
+    display:
+      none;
+  }
+}

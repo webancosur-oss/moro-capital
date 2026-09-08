@@ -1,0 +1,592 @@
+/* ==========================================================
+   INVESTOR STATS
+   Indicadores / métricas
+   Desktop / Tablet / Mobile
+========================================================== */
+
+
+/* ==========================================================
+   SECTION
+========================================================== */
+
+.investorStats {
+  position: relative;
+
+  width: 100%;
+
+  background: var(--moro-forest-dark);
+
+  border-top: 1px solid rgba(247, 245, 239, 0.10);
+  border-bottom: 1px solid rgba(247, 245, 239, 0.10);
+
+  overflow: hidden;
+}
+
+
+/* ==========================================================
+   SUBTLE BACKGROUND DETAIL
+========================================================== */
+
+.investorStats::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(125, 135, 104, 0.10),
+      transparent 55%
+    );
+}
+
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.investorContainer {
+  width: min(
+    calc(100% - 64px),
+    var(--moro-container)
+  );
+
+  margin: 0 auto;
+}
+
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.investorStatsGrid {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+}
+
+
+/* ==========================================================
+   STAT
+========================================================== */
+
+.investorStat {
+  position: relative;
+
+  min-height: 142px;
+
+  padding:
+    28px
+    32px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  border-right:
+    1px solid
+    rgba(247, 245, 239, 0.10);
+}
+
+
+/* Primera columna */
+
+.investorStat:first-child {
+  border-left:
+    1px solid
+    rgba(247, 245, 239, 0.10);
+}
+
+
+/* ==========================================================
+   VALUE
+========================================================== */
+
+.investorStatValue {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 4px;
+
+  color: var(--moro-ivory);
+
+  font-family: var(--font-body);
+
+  font-size: clamp(
+    28px,
+    2.5vw,
+    38px
+  );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+
+  white-space: nowrap;
+}
+
+
+/* ==========================================================
+   SUFFIX
+========================================================== */
+
+.investorStatValue small {
+  color: var(--moro-olive);
+
+  font-family: var(--font-body);
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -0.01em;
+}
+
+
+/* ==========================================================
+   LABEL
+========================================================== */
+
+.investorStatLabel {
+  display: block;
+
+  max-width: 210px;
+
+  margin-top: 11px;
+
+  color: rgba(
+    247,
+    245,
+    239,
+    0.52
+  );
+
+  font-family: var(--font-body);
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.10em;
+
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.investorStat {
+  transition:
+    background 0.3s ease;
+}
+
+.investorStat:hover {
+  background:
+    rgba(
+      125,
+      135,
+      104,
+      0.055
+    );
+}
+
+
+/* ==========================================================
+   DECORATIVE TOP LINE
+========================================================== */
+
+.investorStat::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 32px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--moro-olive);
+
+  opacity: 0;
+
+  transition:
+    width 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.investorStat:hover::before {
+  width: 36px;
+
+  opacity: 1;
+}
+
+
+/* ==========================================================
+   TABLET
+   1200px
+========================================================== */
+
+@media (max-width: 1199px) {
+
+  .investorContainer {
+    width: min(
+      calc(100% - 48px),
+      var(--moro-container)
+    );
+  }
+
+  .investorStat {
+    min-height: 132px;
+
+    padding:
+      26px
+      24px;
+  }
+
+  .investorStatValue {
+    font-size: 31px;
+  }
+
+  .investorStatValue small {
+    font-size: 13px;
+  }
+
+  .investorStatLabel {
+    font-size: 8.5px;
+  }
+
+  .investorStat::before {
+    left: 24px;
+  }
+}
+
+
+/* ==========================================================
+   TABLET
+   960px
+========================================================== */
+
+@media (max-width: 960px) {
+
+  .investorStatsGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  /* Vertical separation */
+
+  .investorStat:nth-child(2) {
+    border-right: 0;
+  }
+
+  .investorStat:nth-child(3) {
+    border-left:
+      1px solid
+      rgba(
+        247,
+        245,
+        239,
+        0.10
+      );
+  }
+
+
+  /* Horizontal separation */
+
+  .investorStat:nth-child(1),
+  .investorStat:nth-child(2) {
+    border-bottom:
+      1px solid
+      rgba(
+        247,
+        245,
+        239,
+        0.10
+      );
+  }
+
+
+  .investorStat {
+    min-height: 126px;
+
+    padding:
+      24px
+      26px;
+  }
+
+
+  .investorStatValue {
+    font-size: 29px;
+  }
+
+
+  .investorStatLabel {
+    max-width: 180px;
+
+    margin-top: 9px;
+  }
+
+
+  .investorStat::before {
+    left: 26px;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   768px
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .investorContainer {
+    width: calc(100% - 40px);
+  }
+
+
+  .investorStat {
+    min-height: 116px;
+
+    padding:
+      21px
+      20px;
+  }
+
+
+  .investorStatValue {
+    font-size: 26px;
+
+    letter-spacing: -0.04em;
+  }
+
+
+  .investorStatValue small {
+    font-size: 12px;
+  }
+
+
+  .investorStatLabel {
+    margin-top: 8px;
+
+    font-size: 8px;
+
+    line-height: 1.45;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  .investorStat::before {
+    left: 20px;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   640px
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .investorContainer {
+    width: calc(100% - 32px);
+  }
+
+
+  .investorStatsGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .investorStat {
+    min-height: 108px;
+
+    padding:
+      19px
+      16px;
+  }
+
+
+  .investorStatValue {
+    font-size: 23px;
+  }
+
+
+  .investorStatValue small {
+    font-size: 11px;
+  }
+
+
+  .investorStatLabel {
+    max-width: 150px;
+
+    margin-top: 7px;
+
+    font-size: 7.5px;
+
+    letter-spacing: 0.07em;
+  }
+
+
+  .investorStat::before {
+    left: 16px;
+  }
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   480px
+========================================================== */
+
+@media (max-width: 480px) {
+
+  .investorContainer {
+    width: calc(100% - 28px);
+  }
+
+
+  .investorStat {
+    min-height: 102px;
+
+    padding:
+      17px
+      13px;
+  }
+
+
+  .investorStatValue {
+    font-size: 21px;
+  }
+
+
+  .investorStatValue small {
+    font-size: 10px;
+  }
+
+
+  .investorStatLabel {
+    max-width: 130px;
+
+    font-size: 7px;
+
+    line-height: 1.4;
+  }
+
+
+  .investorStat::before {
+    left: 13px;
+  }
+}
+
+
+/* ==========================================================
+   EXTRA SMALL MOBILE
+   380px
+========================================================== */
+
+@media (max-width: 380px) {
+
+  .investorContainer {
+    width: calc(100% - 24px);
+  }
+
+
+  .investorStatsGrid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .investorStat {
+    min-height: 92px;
+
+    padding:
+      18px
+      20px;
+
+    border-left:
+      1px solid
+      rgba(
+        247,
+        245,
+        239,
+        0.10
+      ) !important;
+
+    border-right:
+      1px solid
+      rgba(
+        247,
+        245,
+        239,
+        0.10
+      ) !important;
+
+    border-bottom:
+      1px solid
+      rgba(
+        247,
+        245,
+        239,
+        0.10
+      );
+  }
+
+
+  .investorStat:last-child {
+    border-bottom: 0;
+  }
+
+
+  .investorStatValue {
+    font-size: 24px;
+  }
+
+
+  .investorStatLabel {
+    max-width: none;
+
+    font-size: 7.5px;
+  }
+
+
+  .investorStat::before {
+    left: 20px;
+  }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .investorStat,
+  .investorStat::before {
+    transition: none;
+  }
+}

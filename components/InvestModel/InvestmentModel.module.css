@@ -1,0 +1,1143 @@
+/* ==========================================================
+   INVESTMENT MODEL
+   Moro Capital
+   Editorial 12-column Mosaic
+   ========================================================== */
+
+.investmentModel {
+  width: 100%;
+  padding: clamp(48px, 5vw, 76px) 0;
+
+  background: var(--background);
+  color: var(--moro-text);
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+.container {
+  width: min(
+    calc(100% - 48px),
+    var(--moro-container)
+  );
+
+  margin-inline: auto;
+
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   MOSAICO
+   ========================================================== */
+
+.mosaic {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(12, minmax(0, 1fr));
+
+  grid-template-rows:
+    250px
+    250px;
+
+  gap: 14px;
+
+  width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   INTRO
+   ========================================================== */
+
+.intro {
+  position: relative;
+
+  grid-column: 1 / 5;
+  grid-row: 1;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 2px 18px 0 0;
+
+  box-sizing: border-box;
+
+  z-index: 5;
+}
+
+.introInner {
+  width: 100%;
+  max-width: 470px;
+
+  box-sizing: border-box;
+}
+
+.intro h2 {
+  width: 100%;
+  max-width: 460px;
+
+  margin: 0;
+
+  color: var(--moro-text);
+
+  font-family: var(--font-body);
+
+  font-size: clamp(
+    48px,
+    4.65vw,
+    72px
+  );
+
+  font-weight: 400;
+
+  line-height: 0.93;
+
+  letter-spacing: -0.066em;
+
+  text-align: left;
+
+  white-space: normal;
+
+  overflow-wrap: normal;
+  word-break: normal;
+
+  text-wrap: balance;
+}
+
+.intro p {
+  width: 100%;
+  max-width: 390px;
+
+  margin: 20px 0 0;
+
+  color: var(--moro-text-secondary);
+
+  font-size: 11.5px;
+
+  line-height: 1.46;
+
+  text-align: left;
+
+  white-space: normal;
+
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================
+   CARD BASE
+   ========================================================== */
+
+.card {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(
+    32,
+    37,
+    31,
+    0.045
+  );
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  isolation: isolate;
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-soft);
+}
+
+/* ==========================================================
+   CARD INNER
+   ========================================================== */
+
+.cardInner {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-width: 0;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+/* ==========================================================
+   TOP
+   ========================================================== */
+
+.cardTop {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-width: 0;
+
+  flex: 0 0 auto;
+}
+
+.cardIcon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  flex: 0 0 auto;
+
+  color: var(--moro-text);
+}
+
+.cardIcon svg {
+  display: block;
+
+  width: 18px;
+  height: 18px;
+
+  flex: 0 0 auto;
+}
+
+.cardLabel {
+  display: block;
+
+  max-width: 100%;
+
+  color: var(--moro-text-secondary);
+
+  font-family: var(--font-mono);
+
+  font-size: 7px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   CARD CONTENT
+   ========================================================== */
+
+.cardContent {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-width: 0;
+
+  margin-top: 18px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+.card h3 {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-width: 0;
+
+  margin: 0;
+
+  color: var(--moro-text);
+
+  font-family: var(--font-body);
+
+  font-size: clamp(
+    26px,
+    2.25vw,
+    36px
+  );
+
+  font-weight: 400;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.052em;
+
+  text-align: center;
+
+  white-space: normal;
+
+  overflow-wrap: break-word;
+
+  word-break: normal;
+
+  text-wrap: balance;
+}
+
+.card p {
+  width: 100%;
+  max-width: 440px;
+
+  min-width: 0;
+
+  margin: 9px auto 0;
+
+  color: var(--moro-text-secondary);
+
+  font-size: 9.2px;
+
+  line-height: 1.42;
+
+  text-align: center;
+
+  white-space: normal;
+
+  overflow-wrap: break-word;
+
+  text-wrap: pretty;
+}
+
+/* ==========================================================
+   CAPITAL
+   ========================================================== */
+
+.cardCapital {
+  grid-column: 5 / 11;
+  grid-row: 1;
+
+  background: var(--moro-sand);
+}
+
+.cardCapital .cardInner {
+  max-width: 760px;
+}
+
+.cardCapital h3 {
+  max-width: 700px;
+
+  font-size: clamp(
+    31px,
+    2.75vw,
+    42px
+  );
+}
+
+.cardCapital p {
+  max-width: 480px;
+}
+
+/* ==========================================================
+   GESTIÓN
+   ========================================================== */
+
+.cardManagement {
+  grid-column: 11 / 13;
+  grid-row: 1;
+
+  background: var(--moro-ivory);
+}
+
+.cardManagement .cardInner {
+  padding-inline: 18px;
+
+  max-width: 210px;
+}
+
+.cardManagement .cardContent {
+  max-width: 180px;
+}
+
+.cardManagement h3 {
+  max-width: 180px;
+
+  font-size: clamp(
+    23px,
+    1.85vw,
+    30px
+  );
+
+  line-height: 1.03;
+}
+
+.cardManagement p {
+  max-width: 170px;
+
+  font-size: 8.7px;
+
+  line-height: 1.4;
+}
+
+/* ==========================================================
+   RESULTADO
+   ========================================================== */
+
+.cardResult {
+  grid-column: 1 / 4;
+  grid-row: 2;
+
+  background: var(--moro-ivory);
+}
+
+.cardResult .cardInner {
+  max-width: 280px;
+}
+
+.cardResult h3 {
+  max-width: 230px;
+
+  font-size: clamp(
+    28px,
+    2.2vw,
+    35px
+  );
+}
+
+.cardResult p {
+  max-width: 230px;
+
+  font-size: 9px;
+}
+
+/* ==========================================================
+   ESTRUCTURACIÓN
+   ========================================================== */
+
+.cardStructure {
+  grid-column: 4 / 7;
+  grid-row: 2;
+
+  background: var(--moro-olive);
+}
+
+.cardStructure .cardInner {
+  max-width: 330px;
+
+  padding-inline: 20px;
+}
+
+.cardStructure .cardIcon,
+.cardStructure .cardLabel,
+.cardStructure p {
+  color: rgba(
+    247,
+    245,
+    239,
+    0.92
+  );
+}
+
+.cardStructure .cardContent {
+  max-width: 280px;
+}
+
+.cardStructure h3 {
+  width: 100%;
+  max-width: 280px;
+
+  color: var(--moro-white);
+
+  font-size: clamp(
+    27px,
+    2.35vw,
+    37px
+  );
+
+  line-height: 1.02;
+
+  letter-spacing: -0.055em;
+
+  text-wrap: balance;
+}
+
+.cardStructure p {
+  max-width: 245px;
+
+  margin-top: 10px;
+
+  font-size: 9px;
+
+  line-height: 1.42;
+}
+
+/* ==========================================================
+   DESARROLLO
+   ========================================================== */
+
+.cardDevelopment {
+  grid-column: 7 / 13;
+  grid-row: 2;
+
+  background: var(--moro-taupe);
+}
+
+.cardDevelopment .cardInner {
+  max-width: 760px;
+}
+
+.cardDevelopment h3 {
+  max-width: 680px;
+
+  font-size: clamp(
+    30px,
+    2.7vw,
+    41px
+  );
+}
+
+.cardDevelopment p {
+  max-width: 460px;
+}
+
+/* ==========================================================
+   DECORACIÓN
+   ========================================================== */
+
+.decor {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+.decorBlocks {
+  position: absolute;
+
+  left: -3px;
+  bottom: -4px;
+
+  display: grid;
+
+  grid-template-columns:
+    29px 29px;
+
+  grid-template-rows:
+    29px 29px;
+
+  gap: 5px;
+}
+
+.decorBlocks i {
+  display: block;
+
+  width: 29px;
+  height: 29px;
+
+  background:
+    rgba(
+      170,
+      165,
+      148,
+      0.13
+    );
+
+  border-radius: 8px;
+}
+
+.decorOrganicTop {
+  position: absolute;
+
+  top: -18px;
+  right: -15px;
+
+  width: 115px;
+  height: 92px;
+
+  background:
+    rgba(
+      170,
+      165,
+      148,
+      0.07
+    );
+
+  border-radius:
+    30px 46px 14px 52px;
+}
+
+.decorOrganicBottom {
+  position: absolute;
+
+  right: 27%;
+  bottom: -28px;
+
+  width: 120px;
+  height: 75px;
+
+  background:
+    rgba(
+      170,
+      165,
+      148,
+      0.055
+    );
+
+  border-radius:
+    48% 52% 20% 20%;
+}
+
+/* ==========================================================
+   LARGE DESKTOP
+   ========================================================== */
+
+@media (min-width: 1280px) {
+  .container {
+    width: min(
+      calc(100% - 64px),
+      var(--moro-container)
+    );
+  }
+
+  .mosaic {
+    grid-template-rows:
+      250px
+      250px;
+
+    gap: 15px;
+  }
+
+  .cardInner {
+    padding: 32px;
+  }
+
+  .intro h2 {
+    font-size: clamp(
+      50px,
+      4.6vw,
+      74px
+    );
+  }
+
+  .cardCapital h3 {
+    font-size: clamp(
+      32px,
+      2.65vw,
+      42px
+    );
+  }
+
+  .cardStructure h3 {
+    font-size: clamp(
+      29px,
+      2.35vw,
+      38px
+    );
+  }
+
+  .cardDevelopment h3 {
+    font-size: clamp(
+      31px,
+      2.65vw,
+      42px
+    );
+  }
+}
+
+/* ==========================================================
+   TABLET HORIZONTAL
+   ========================================================== */
+
+@media (max-width: 1100px) {
+  .container {
+    width: calc(100% - 30px);
+  }
+
+  .mosaic {
+    grid-template-columns:
+      repeat(12, minmax(0, 1fr));
+
+    grid-template-rows:
+      205px
+      205px;
+
+    gap: 10px;
+  }
+
+  .intro {
+    grid-column: 1 / 5;
+  }
+
+  .intro h2 {
+    font-size: clamp(
+      40px,
+      5.4vw,
+      55px
+    );
+  }
+
+  .intro p {
+    max-width: 310px;
+
+    font-size: 10px;
+  }
+
+  .cardCapital {
+    grid-column: 5 / 11;
+  }
+
+  .cardManagement {
+    grid-column: 11 / 13;
+  }
+
+  .cardResult {
+    grid-column: 1 / 4;
+  }
+
+  .cardStructure {
+    grid-column: 4 / 7;
+  }
+
+  .cardDevelopment {
+    grid-column: 7 / 13;
+  }
+
+  .cardInner {
+    padding: 20px 15px;
+  }
+
+  .cardCapital h3 {
+    font-size: clamp(
+      25px,
+      3vw,
+      34px
+    );
+  }
+
+  .cardStructure h3 {
+    font-size: clamp(
+      24px,
+      2.8vw,
+      32px
+    );
+  }
+
+  .cardDevelopment h3 {
+    font-size: clamp(
+      25px,
+      3vw,
+      34px
+    );
+  }
+
+  .cardManagement h3 {
+    font-size: 22px;
+  }
+
+  .cardResult h3 {
+    font-size: 24px;
+  }
+}
+
+/* ==========================================================
+   TABLET VERTICAL
+   ========================================================== */
+
+@media (max-width: 780px) {
+  .mosaic {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    grid-template-rows:
+      auto
+      190px
+      190px
+      190px;
+
+    gap: 9px;
+  }
+
+  /* INTRO */
+
+  .intro {
+    grid-column: 1 / 3;
+    grid-row: 1;
+
+    padding: 0 0 14px;
+  }
+
+  .introInner {
+    max-width: 650px;
+  }
+
+  .intro h2 {
+    max-width: 620px;
+
+    font-size: clamp(
+      43px,
+      7.1vw,
+      58px
+    );
+  }
+
+  .intro p {
+    max-width: 500px;
+
+    font-size: 10.5px;
+  }
+
+  /* CAPITAL */
+
+  .cardCapital {
+    grid-column: 1 / 3;
+    grid-row: 2;
+  }
+
+  /* ESTRUCTURACIÓN */
+
+  .cardStructure {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  /* GESTIÓN */
+
+  .cardManagement {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  /* DESARROLLO */
+
+  .cardDevelopment {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  /* RESULTADO */
+
+  .cardResult {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .card {
+    width: 100%;
+    height: 100%;
+  }
+
+  .cardInner {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 20px;
+  }
+
+  .cardStructure .cardInner,
+  .cardDevelopment .cardInner,
+  .cardCapital .cardInner,
+  .cardResult .cardInner,
+  .cardManagement .cardInner {
+    max-width: 100%;
+  }
+
+  .cardContent,
+  .card h3,
+  .card p {
+    max-width: 100%;
+  }
+
+  .decor {
+    display: none;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 560px) {
+  .investmentModel {
+    padding: 42px 0;
+  }
+
+  .container {
+    width: calc(100% - 20px);
+  }
+
+  .mosaic {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    width: 100%;
+  }
+
+  /* ========================================================
+     INTRO
+     ======================================================== */
+
+  .intro {
+    order: 0;
+
+    width: 100%;
+
+    padding: 0 0 16px;
+  }
+
+  .introInner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .intro h2 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(
+      38px,
+      11.8vw,
+      51px
+    );
+
+    line-height: 0.95;
+
+    letter-spacing: -0.06em;
+  }
+
+  .intro p {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 16px;
+
+    font-size: 10.5px;
+
+    line-height: 1.45;
+  }
+
+  /* ========================================================
+     TODAS LAS CARDS
+     ======================================================== */
+
+  .card,
+  .cardCapital,
+  .cardStructure,
+  .cardDevelopment,
+  .cardManagement,
+  .cardResult {
+    position: relative;
+
+    grid-column: auto;
+    grid-row: auto;
+
+    width: 100%;
+    height: auto;
+
+    min-height: 195px;
+
+    margin: 0;
+
+    box-sizing: border-box;
+
+    border-radius: 13px;
+  }
+
+  .cardManagement,
+  .cardResult {
+    min-height: 175px;
+  }
+
+  .cardInner {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 22px 18px;
+
+    box-sizing: border-box;
+  }
+
+  .cardTop {
+    width: 100%;
+    max-width: 100%;
+
+    gap: 9px;
+  }
+
+  .cardContent {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 14px;
+  }
+
+  .card h3,
+  .cardCapital h3,
+  .cardStructure h3,
+  .cardDevelopment h3,
+  .cardManagement h3,
+  .cardResult h3 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(
+      27px,
+      8.2vw,
+      36px
+    );
+
+    line-height: 1;
+
+    letter-spacing: -0.05em;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
+
+    word-break: normal;
+
+    text-wrap: balance;
+  }
+
+  .card p,
+  .cardCapital p,
+  .cardStructure p,
+  .cardDevelopment p,
+  .cardManagement p,
+  .cardResult p {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 8px;
+
+    font-size: 9.4px;
+
+    line-height: 1.42;
+  }
+
+  .card:hover {
+    transform: none;
+
+    box-shadow: none;
+  }
+
+  .decor {
+    display: none;
+  }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+   ========================================================== */
+
+@media (max-width: 380px) {
+  .investmentModel {
+    padding: 36px 0;
+  }
+
+  .container {
+    width: calc(100% - 14px);
+  }
+
+  .intro {
+    padding-bottom: 13px;
+  }
+
+  .intro h2 {
+    font-size: 35px;
+  }
+
+  .intro p {
+    font-size: 10px;
+  }
+
+  .cardInner {
+    padding: 20px 16px;
+  }
+
+  .card,
+  .cardCapital,
+  .cardStructure,
+  .cardDevelopment {
+    min-height: 180px;
+  }
+
+  .cardManagement,
+  .cardResult {
+    min-height: 168px;
+  }
+
+  .card h3,
+  .cardCapital h3,
+  .cardStructure h3,
+  .cardDevelopment h3,
+  .cardManagement h3,
+  .cardResult h3 {
+    font-size: 25px;
+  }
+
+  .card p,
+  .cardCapital p,
+  .cardStructure p,
+  .cardDevelopment p,
+  .cardManagement p,
+  .cardResult p {
+    font-size: 8.8px;
+  }
+}

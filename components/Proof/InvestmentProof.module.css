@@ -1,0 +1,1092 @@
+/* ==========================================================
+   SECTION
+========================================================== */
+
+.investorProof {
+  position: relative;
+
+  width: 100%;
+
+  /*
+    El Navbar está fixed.
+    El bloque comienza exactamente debajo.
+  */
+  margin-top: var(--moro-nav-height);
+
+  min-height:
+    calc(
+      100svh - var(--moro-nav-height)
+    );
+
+  overflow: hidden;
+
+  background:
+    var(--moro-forest-dark);
+
+  color:
+    var(--moro-ivory);
+}
+
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.investorContainer {
+  position: relative;
+
+  width:
+    min(
+      calc(100% - 64px),
+      var(--moro-container)
+    );
+
+  height: 100%;
+
+  margin: 0 auto;
+}
+
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.investorProofGrid {
+  position: relative;
+
+  min-height:
+    calc(
+      100svh - var(--moro-nav-height)
+    );
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(0, 1.12fr);
+
+  align-items: stretch;
+
+  gap: 20px;
+}
+
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.investorProofContent {
+  position: relative;
+
+  z-index: 10;
+
+  align-self: center;
+
+  width: 100%;
+
+  max-width: 560px;
+
+  padding:
+    20px 0;
+}
+
+
+/* ==========================================================
+   EYEBROW
+========================================================== */
+
+.investorEyebrow {
+  margin:
+    0 0 24px;
+
+  color:
+    var(--moro-olive);
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    10px;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.2;
+
+  letter-spacing:
+    0.15em;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.investorProofTitle {
+  margin:
+    0;
+
+  color:
+    var(--moro-ivory);
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    clamp(
+      50px,
+      5vw,
+      76px
+    );
+
+  font-weight:
+    300;
+
+  line-height:
+    0.95;
+
+  letter-spacing:
+    -0.06em;
+}
+
+
+/* ==========================================================
+   LEAD
+========================================================== */
+
+.investorLead {
+  max-width:
+    500px;
+
+  margin:
+    32px 0 0;
+
+  color:
+    rgba(
+      247,
+      245,
+      239,
+      0.62
+    );
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    13px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.85;
+
+  letter-spacing:
+    -0.005em;
+}
+
+
+/* ==========================================================
+   ITEMS
+========================================================== */
+
+.investorProofItems {
+  margin-top:
+    36px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    15px;
+}
+
+
+/* ==========================================================
+   ITEM
+========================================================== */
+
+.investorProofItem {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  min-height:
+    24px;
+}
+
+
+/* ==========================================================
+   ICON
+========================================================== */
+
+.investorProofItemIcon {
+  flex:
+    0 0 21px;
+
+  width:
+    21px;
+
+  height:
+    21px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  color:
+    var(--moro-olive);
+
+  opacity:
+    0.9;
+}
+
+
+/* ==========================================================
+   ITEM TEXT
+========================================================== */
+
+.investorProofItemText {
+  display:
+    flex;
+
+  align-items:
+    baseline;
+
+  gap:
+    9px;
+}
+
+.investorProofItemText span {
+  color:
+    rgba(
+      247,
+      245,
+      239,
+      0.72
+    );
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    10px;
+
+  font-weight:
+    500;
+
+  line-height:
+    1.3;
+}
+
+.investorProofItemText small {
+  color:
+    rgba(
+      247,
+      245,
+      239,
+      0.38
+    );
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    9px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.3;
+}
+
+
+/* ==========================================================
+   VISUAL
+========================================================== */
+
+.investorProofVisual {
+  position:
+    relative;
+
+  align-self:
+    stretch;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    calc(
+      100svh - var(--moro-nav-height)
+    );
+
+  height:
+    calc(
+      100svh - var(--moro-nav-height)
+    );
+
+  overflow:
+    visible;
+}
+
+
+/* ==========================================================
+   GLOW
+========================================================== */
+
+.investorProofGlow {
+  position:
+    absolute;
+
+  z-index:
+    0;
+
+  top:
+    5%;
+
+  right:
+    -15%;
+
+  width:
+    105%;
+
+  height:
+    90%;
+
+  pointer-events:
+    none;
+
+  background:
+    radial-gradient(
+      ellipse 58% 58% at 48% 48%,
+      rgba(
+        174,
+        139,
+        101,
+        0.13
+      ) 0%,
+
+      rgba(
+        174,
+        139,
+        101,
+        0.055
+      ) 38%,
+
+      transparent 72%
+    );
+
+  filter:
+    blur(65px);
+}
+
+
+/* ==========================================================
+   TOWER
+   IMPORTANTE:
+   La torre NO puede superar el 100% de altura.
+========================================================== */
+
+.investorProofTower {
+  position:
+    absolute;
+
+  z-index:
+    2;
+
+  /*
+    Pegada al borde inferior.
+  */
+  right:
+    -8%;
+
+  bottom:
+    0;
+
+  /*
+    Exactamente el alto disponible.
+    Esto evita que se meta detrás del Navbar.
+  */
+  width:
+    105%;
+
+  height:
+    100%;
+
+  background-image:
+    url(
+      "/assets/inversionistas/projects/tower.png"
+    );
+
+  background-position:
+    center bottom;
+
+  background-repeat:
+    no-repeat;
+
+  /*
+    La altura manda.
+    La imagen queda completa verticalmente.
+  */
+  background-size:
+    auto 100%;
+
+  pointer-events:
+    none;
+}
+
+
+/* ==========================================================
+   CAPTION
+========================================================== */
+
+.investorProofCaption {
+  position:
+    absolute;
+
+  z-index:
+    5;
+
+  left:
+    8px;
+
+  bottom:
+    28px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    5px;
+}
+
+.investorProofCaption span {
+  color:
+    rgba(
+      247,
+      245,
+      239,
+      0.82
+    );
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    11px;
+
+  font-weight:
+    500;
+
+  line-height:
+    1.2;
+
+  letter-spacing:
+    0.10em;
+}
+
+.investorProofCaption small {
+  color:
+    rgba(
+      247,
+      245,
+      239,
+      0.42
+    );
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    7px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.2;
+
+  letter-spacing:
+    0.14em;
+}
+
+
+/* ==========================================================
+   LARGE DESKTOP
+   1440px+
+========================================================== */
+
+@media (min-width: 1440px) {
+
+  .investorProofTitle {
+    font-size:
+      clamp(
+        64px,
+        5vw,
+        82px
+      );
+  }
+
+  .investorProofContent {
+    max-width:
+      590px;
+  }
+
+  .investorLead {
+    font-size:
+      14px;
+  }
+
+  .investorProofTower {
+    right:
+      -8%;
+
+    width:
+      108%;
+
+    height:
+      100%;
+
+    background-size:
+      auto 100%;
+  }
+}
+
+
+/* ==========================================================
+   DESKTOP
+   1200px – 1439px
+========================================================== */
+
+@media (max-width: 1439px) {
+
+  .investorProofTower {
+    right:
+      -7%;
+
+    width:
+      106%;
+
+    height:
+      100%;
+
+    background-size:
+      auto 100%;
+  }
+}
+
+
+/* ==========================================================
+   TABLET GRANDE
+   1199px
+========================================================== */
+
+@media (max-width: 1199px) {
+
+  .investorContainer {
+    width:
+      min(
+        calc(100% - 48px),
+        var(--moro-container)
+      );
+  }
+
+  .investorProofTitle {
+    font-size:
+      clamp(
+        46px,
+        5.3vw,
+        64px
+      );
+  }
+
+  .investorLead {
+    max-width:
+      450px;
+
+    font-size:
+      12px;
+  }
+
+  .investorProofTower {
+    right:
+      -8%;
+
+    width:
+      110%;
+
+    height:
+      100%;
+
+    background-size:
+      auto 100%;
+  }
+}
+
+
+/* ==========================================================
+   TABLET
+   960px
+========================================================== */
+
+@media (max-width: 960px) {
+
+  .investorProof {
+    min-height:
+      auto;
+  }
+
+  .investorContainer {
+    min-height:
+      auto;
+  }
+
+  .investorProofGrid {
+    min-height:
+      auto;
+
+    grid-template-columns:
+      1fr;
+
+    align-items:
+      stretch;
+
+    gap:
+      0;
+
+    padding-top:
+      85px;
+  }
+
+  .investorProofContent {
+    max-width:
+      680px;
+
+    padding:
+      0;
+  }
+
+  .investorProofTitle {
+    font-size:
+      clamp(
+        46px,
+        7vw,
+        64px
+      );
+  }
+
+  .investorLead {
+    max-width:
+      590px;
+
+    font-size:
+      13px;
+  }
+
+  .investorProofVisual {
+    width:
+      100%;
+
+    height:
+      560px;
+
+    min-height:
+      560px;
+
+    margin-top:
+      15px;
+  }
+
+  .investorProofTower {
+    right:
+      0;
+
+    width:
+      100%;
+
+    height:
+      100%;
+
+    background-size:
+      auto 100%;
+
+    background-position:
+      center bottom;
+  }
+}
+
+
+/* ==========================================================
+   TABLET PEQUEÑA
+   768px
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .investorContainer {
+    width:
+      calc(
+        100% - 40px
+      );
+  }
+
+  .investorProofGrid {
+    padding-top:
+      72px;
+  }
+
+  .investorEyebrow {
+    margin-bottom:
+      18px;
+
+    font-size:
+      9px;
+  }
+
+  .investorProofTitle {
+    font-size:
+      clamp(
+        40px,
+        9vw,
+        56px
+      );
+
+    line-height:
+      0.97;
+  }
+
+  .investorLead {
+    margin-top:
+      24px;
+
+    font-size:
+      12.5px;
+
+    line-height:
+      1.75;
+  }
+
+  .investorProofItems {
+    margin-top:
+      30px;
+  }
+
+  .investorProofVisual {
+    height:
+      500px;
+
+    min-height:
+      500px;
+  }
+
+  .investorProofTower {
+    right:
+      -5%;
+
+    width:
+      108%;
+
+    height:
+      100%;
+
+    background-size:
+      auto 100%;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   640px
+========================================================== */
+
+@media (max-width: 640px) {
+
+  .investorContainer {
+    width:
+      calc(
+        100% - 32px
+      );
+  }
+
+  .investorProofGrid {
+    padding-top:
+      62px;
+  }
+
+  .investorProofTitle {
+    font-size:
+      clamp(
+        36px,
+        10vw,
+        48px
+      );
+  }
+
+  .investorLead {
+    max-width:
+      100%;
+
+    margin-top:
+      21px;
+
+    font-size:
+      12px;
+
+    line-height:
+      1.7;
+  }
+
+  .investorProofItems {
+    margin-top:
+      27px;
+
+    gap:
+      12px;
+  }
+
+  .investorProofItem {
+    gap:
+      9px;
+  }
+
+  .investorProofItemText {
+    gap:
+      7px;
+  }
+
+  .investorProofItemText span {
+    font-size:
+      9px;
+  }
+
+  .investorProofItemText small {
+    font-size:
+      8px;
+  }
+
+  .investorProofVisual {
+    height:
+      430px;
+
+    min-height:
+      430px;
+  }
+
+  .investorProofTower {
+    right:
+      -12%;
+
+    width:
+      125%;
+
+    height:
+      100%;
+
+    background-size:
+      auto 100%;
+
+    background-position:
+      center bottom;
+  }
+
+  .investorProofCaption {
+    left:
+      4px;
+
+    bottom:
+      18px;
+  }
+
+  .investorProofCaption span {
+    font-size:
+      10px;
+  }
+
+  .investorProofCaption small {
+    font-size:
+      6px;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE PEQUEÑO
+   480px
+========================================================== */
+
+@media (max-width: 480px) {
+
+  .investorContainer {
+    width:
+      calc(
+        100% - 28px
+      );
+  }
+
+  .investorProofGrid {
+    padding-top:
+      54px;
+  }
+
+  .investorEyebrow {
+    margin-bottom:
+      15px;
+
+    font-size:
+      8px;
+  }
+
+  .investorProofTitle {
+    font-size:
+      clamp(
+        33px,
+        10.5vw,
+        43px
+      );
+  }
+
+  .investorLead {
+    font-size:
+      11.5px;
+  }
+
+  .investorProofItems {
+    margin-top:
+      24px;
+  }
+
+  .investorProofItemText {
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+    gap:
+      2px;
+  }
+
+  .investorProofItemText span {
+    font-size:
+      9px;
+  }
+
+  .investorProofItemText small {
+    font-size:
+      7.5px;
+  }
+
+  .investorProofVisual {
+    height:
+      370px;
+
+    min-height:
+      370px;
+  }
+
+  .investorProofTower {
+    right:
+      -20%;
+
+    width:
+      145%;
+
+    height:
+      100%;
+
+    background-size:
+      auto 100%;
+  }
+}
+
+
+/* ==========================================================
+   EXTRA SMALL
+   380px
+========================================================== */
+
+@media (max-width: 380px) {
+
+  .investorContainer {
+    width:
+      calc(
+        100% - 24px
+      );
+  }
+
+  .investorProofGrid {
+    padding-top:
+      48px;
+  }
+
+  .investorProofTitle {
+    font-size:
+      31px;
+  }
+
+  .investorLead {
+    font-size:
+      11px;
+  }
+
+  .investorProofVisual {
+    height:
+      330px;
+
+    min-height:
+      330px;
+  }
+
+  .investorProofTower {
+    right:
+      -25%;
+
+    width:
+      160%;
+
+    height:
+      100%;
+
+    background-size:
+      auto 100%;
+  }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .investorProofTower,
+  .investorProofItem {
+    transition:
+      none;
+  }
+}

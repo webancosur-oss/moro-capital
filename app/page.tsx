@@ -1,25 +1,20 @@
+import InvestmentCalculator from "@/components/Calculator/InvestmentCalculator";
+import InvestmentPillars from "@/components/InvestmentPillars/InvestmentPillars";
+import InvestmentPlans from "@/components/InvestmentPlans/InvestmentPlans";
+import InvestmentSecurity from "@/components/InvestmentSecurity/InvestmentSecurity";
+import InvestmentModel from "@/components/InvestModel/InvestmentModel";
+import InvestorEcosystem from "@/components/InvestorEcosystem/InvestorEcosystem";
+import InvestorFaq from "@/components/InvestorFaq/InvestorFaq";
+import InvestorFooter from "@/components/InvestorFooter/InvestorFooter";
+import InvestorLeadForm from "@/components/InvestorLeadForm/InvestorLeadForm";
+import Moro416 from "@/components/Moro416/Moro416";
+import InvestmentProof from "@/components/Proof/InvestmentProof";
+import InvestorStats from "@/components/Status/InvestorStats";
+import TrackRecord from "@/components/TrackRecord/TrackRecord";
 import type { Metadata } from "next";
 
-import InvestorNavbar from "@/components/inversionistas/InvestorNavbar";
-import InvestorHero from "@/components/inversionistas/InvestorHero";
-import InvestorStats from "@/components/inversionistas/InvestorStats";
-import InvestmentProof from "@/components/inversionistas/InvestmentProof";
-import InvestmentModel from "@/components/inversionistas/InvestmentModel";
-import InvestmentPlans from "@/components/inversionistas/InvestmentPlans";
-import InvestmentCalculator from "@/components/inversionistas/InvestmentCalculator";
-import InvestmentPillars from "@/components/inversionistas/InvestmentPillars";
-import TrackRecord from "@/components/inversionistas/TrackRecord";
-import Moro416 from "@/components/inversionistas/Moro416";
-import InvestmentSecurity from "@/components/inversionistas/InvestmentSecurity";
-import InvestorLegal from "@/components/inversionistas/InvestorLegal";
-import InvestorReasons from "@/components/inversionistas/InvestorReasons";
-import InvestorEcosystem from "@/components/inversionistas/InvestorEcosystem";
-import InvestorFaq from "@/components/inversionistas/InvestorFaq";
-import InvestorFinalCta from "@/components/inversionistas/InvestorFinalCta";
-import InvestorLeadForm from "@/components/inversionistas/InvestorLeadForm";
-import InvestorFooter from "@/components/inversionistas/InvestorFooter";
 
-import "@/components/inversionistas/investors.css";
+
 
 export const metadata: Metadata = {
   title: "Inversionistas | Moro Capital",
@@ -30,13 +25,10 @@ export const metadata: Metadata = {
 export default function InversionistasPage() {
   return (
     <main className="investorPage">
-      <InvestorNavbar />
-
-      <InvestorHero />
-
-      <InvestorStats />
 
       <InvestmentProof />
+
+     <InvestorStats />
 
       <InvestmentModel />
 
@@ -52,19 +44,14 @@ export default function InversionistasPage() {
 
       <InvestmentSecurity />
 
-      <InvestorLegal />
-
-      <InvestorReasons />
-
       <InvestorEcosystem />
 
       <InvestorFaq />
 
-      <InvestorFinalCta />
-
       <InvestorLeadForm />
 
       <InvestorFooter />
+      
     </main>
   );
 }

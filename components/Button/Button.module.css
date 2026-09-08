@@ -1,0 +1,420 @@
+/* ==========================================================
+   MORO CAPITAL
+   REUSABLE BUTTON
+   ========================================================== */
+
+.button {
+  --button-width: auto;
+  --button-height: 42px;
+
+  --button-color: var(--moro-white);
+  --button-background: var(--moro-olive);
+  --button-border: var(--moro-olive);
+
+  --button-hover-color: var(--moro-white);
+  --button-hover-background: var(--moro-olive-dark);
+  --button-hover-border: var(--moro-olive-dark);
+
+  --button-icon-size: 16px;
+
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: var(--button-width);
+  min-width: max-content;
+  height: var(--button-height);
+  min-height: var(--button-height);
+
+  padding: 0 16px;
+
+  gap: 9px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--button-border);
+
+  border-radius: var(--radius-small);
+
+  background: var(--button-background);
+  color: var(--button-color);
+
+  font-family: var(--font-body);
+
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+
+  letter-spacing: 0.01em;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    color 260ms ease,
+    background-color 260ms ease,
+    border-color 260ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================
+   CONTENT
+   ========================================================== */
+
+.text,
+.icon {
+  position: relative;
+
+  z-index: 2;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  transform: translateZ(0);
+
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.icon {
+  width: var(--button-icon-size);
+  height: var(--button-icon-size);
+
+  flex: 0 0 var(--button-icon-size);
+
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.icon svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================
+   WARM HOVER GLOW
+   ========================================================== */
+
+.hoverGlow {
+  position: absolute;
+
+  z-index: 1;
+
+  top: 50%;
+  left: 50%;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0.08) 32%,
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.5);
+
+  transition:
+    opacity 320ms ease,
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================
+   SIZES
+   ========================================================== */
+
+.xs {
+  --button-height: 34px;
+
+  padding-inline: 11px;
+
+  gap: 7px;
+
+  font-size: 7px;
+}
+
+.sm {
+  --button-height: 38px;
+
+  padding-inline: 13px;
+
+  gap: 8px;
+
+  font-size: 8px;
+}
+
+.md {
+  --button-height: 42px;
+
+  padding-inline: 16px;
+
+  gap: 9px;
+
+  font-size: 9px;
+}
+
+.lg {
+  --button-height: 48px;
+
+  padding-inline: 20px;
+
+  gap: 10px;
+
+  font-size: 10px;
+}
+
+/* ==========================================================
+   OLIVE
+   ========================================================== */
+
+.olive {
+  --button-color: var(--moro-white);
+  --button-background: var(--moro-olive);
+  --button-border: var(--moro-olive);
+
+  --button-hover-color: var(--moro-white);
+  --button-hover-background: var(--moro-olive-dark);
+  --button-hover-border: var(--moro-olive-dark);
+}
+
+/* ==========================================================
+   DARK
+   ========================================================== */
+
+.dark {
+  --button-color: var(--moro-white);
+  --button-background: var(--moro-forest);
+  --button-border: var(--moro-forest);
+
+  --button-hover-color: var(--moro-white);
+  --button-hover-background: var(--moro-forest-dark);
+  --button-hover-border: var(--moro-forest-dark);
+}
+
+/* ==========================================================
+   LIGHT
+   ========================================================== */
+
+.light {
+  --button-color: var(--moro-olive-dark);
+  --button-background: var(--moro-white);
+  --button-border: var(--moro-white);
+
+  --button-hover-color: var(--moro-forest);
+  --button-hover-background: var(--moro-ivory);
+  --button-hover-border: var(--moro-ivory);
+}
+
+.light .hoverGlow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(125, 135, 104, 0.16) 0%,
+      rgba(125, 135, 104, 0.05) 35%,
+      transparent 70%
+    );
+}
+
+/* ==========================================================
+   OUTLINE
+   ========================================================== */
+
+.outline {
+  --button-color: var(--moro-text);
+  --button-background: transparent;
+  --button-border: var(--moro-line);
+
+  --button-hover-color: var(--moro-white);
+  --button-hover-background: var(--moro-olive);
+  --button-hover-border: var(--moro-olive);
+}
+
+/* ==========================================================
+   GHOST
+   ========================================================== */
+
+.ghost {
+  --button-color: var(--moro-text-secondary);
+  --button-background: transparent;
+  --button-border: transparent;
+
+  --button-hover-color: var(--moro-olive-dark);
+  --button-hover-background: rgba(125, 135, 104, 0.08);
+  --button-hover-border: transparent;
+}
+
+/* ==========================================================
+   CUSTOM
+   ========================================================== */
+
+.custom {
+  /* Values supplied through CSS variables */
+}
+
+/* ==========================================================
+   FULL WIDTH
+   ========================================================== */
+
+.fullWidth {
+  width: 100%;
+  min-width: 0;
+}
+
+/* ==========================================================
+   HOVER
+   ========================================================== */
+
+.button:hover:not(:disabled) {
+  color: var(--button-hover-color);
+
+  background: var(--button-hover-background);
+
+  border-color: var(--button-hover-border);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(32, 37, 31, 0.10);
+}
+
+.button:hover:not(:disabled) .hoverGlow {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+}
+
+.button:hover:not(:disabled) .text {
+  transform: translateX(1px);
+}
+
+.button:hover:not(:disabled) .icon:last-of-type {
+  transform: translate(2px, -2px);
+}
+
+/* ==========================================================
+   ACTIVE
+   ========================================================== */
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+
+  box-shadow:
+    0 5px 14px rgba(32, 37, 31, 0.08);
+}
+
+/* ==========================================================
+   FOCUS
+   ========================================================== */
+
+.button:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 3px rgba(125, 135, 104, 0.20),
+    0 10px 25px rgba(32, 37, 31, 0.08);
+}
+
+/* ==========================================================
+   DISABLED
+   ========================================================== */
+
+.button:disabled,
+.disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+.button[aria-disabled="true"] {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+  .lg {
+    --button-height: 46px;
+
+    padding-inline: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .md {
+    --button-height: 40px;
+
+    padding-inline: 14px;
+
+    font-size: 8px;
+  }
+
+  .sm {
+    --button-height: 37px;
+
+    padding-inline: 12px;
+
+    font-size: 7.5px;
+  }
+
+  .lg {
+    --button-height: 44px;
+
+    padding-inline: 16px;
+
+    font-size: 9px;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .text,
+  .icon,
+  .hoverGlow {
+    transition: none;
+  }
+
+  .button:hover:not(:disabled) {
+    transform: none;
+  }
+}
