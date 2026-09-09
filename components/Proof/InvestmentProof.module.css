@@ -1,1092 +1,2160 @@
 /* ==========================================================
-   SECTION
-========================================================== */
+   INVESTMENT PROOF — FULL WIDTH / EDITORIAL HERO
+   ========================================================== */
 
 .investorProof {
   position: relative;
-
   width: 100%;
-
-  /*
-    El Navbar está fixed.
-    El bloque comienza exactamente debajo.
-  */
-  margin-top: var(--moro-nav-height);
-
-  min-height:
-    calc(
-      100svh - var(--moro-nav-height)
-    );
+  height: 100svh;
+  min-height: 720px;
+  margin: 0;
+  padding: 0;
 
   overflow: hidden;
 
+  color: var(--moro-ivory);
+
   background:
-    var(--moro-forest-dark);
-
-  color:
-    var(--moro-ivory);
-}
-
-
-/* ==========================================================
-   CONTAINER
-========================================================== */
-
-.investorContainer {
-  position: relative;
-
-  width:
-    min(
-      calc(100% - 64px),
-      var(--moro-container)
+    radial-gradient(
+      ellipse 58% 92% at 68% 48%,
+      rgba(111, 126, 96, 0.16),
+      transparent 70%
+    ),
+    linear-gradient(
+      110deg,
+      #18211b 0%,
+      #202a22 46%,
+      #1b251f 100%
     );
-
-  height: 100%;
-
-  margin: 0 auto;
 }
 
 
 /* ==========================================================
-   GRID
-========================================================== */
+   GRID PRINCIPAL
+   ========================================================== */
 
 .investorProofGrid {
   position: relative;
 
-  min-height:
-    calc(
-      100svh - var(--moro-nav-height)
-    );
+  width: 100%;
+  height: 100%;
 
   display: grid;
 
-  grid-template-columns:
-    minmax(0, 0.88fr)
-    minmax(0, 1.12fr);
+  grid-template-columns: 38% 62%;
 
-  align-items: stretch;
-
-  gap: 20px;
+  overflow: hidden;
 }
 
 
 /* ==========================================================
-   CONTENT
-========================================================== */
+   COLUMNA IZQUIERDA
+   ========================================================== */
 
 .investorProofContent {
   position: relative;
 
-  z-index: 10;
-
-  align-self: center;
+  z-index: 100;
 
   width: 100%;
+  height: 100%;
 
-  max-width: 560px;
+  display: flex;
+  align-items: center;
 
-  padding:
-    20px 0;
+  min-width: 0;
+}
+
+
+.contentInner {
+  width: 100%;
+  max-width: 620px;
+
+  margin-left: clamp(44px, 8.3vw, 158px);
+
+  padding-right: 30px;
 }
 
 
 /* ==========================================================
    EYEBROW
-========================================================== */
+   ========================================================== */
 
 .investorEyebrow {
-  margin:
-    0 0 24px;
+  margin: 0 0 28px;
 
-  color:
-    var(--moro-olive);
+  color: var(--moro-olive);
 
-  font-family:
-    var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
 
-  font-size:
-    10px;
+  line-height: 1.2;
 
-  font-weight:
-    600;
-
-  line-height:
-    1.2;
-
-  letter-spacing:
-    0.15em;
-
-  text-transform:
-    uppercase;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 
 /* ==========================================================
-   TITLE
-========================================================== */
+   TITULO
+   ========================================================== */
 
 .investorProofTitle {
-  margin:
-    0;
+  margin: 0;
 
-  color:
-    var(--moro-ivory);
+  color: var(--moro-ivory);
 
-  font-family:
-    var(--font-body);
+  font-size: clamp(55px, 5.15vw, 84px);
 
-  font-size:
-    clamp(
-      50px,
-      5vw,
-      76px
-    );
+  font-weight: 300;
 
-  font-weight:
-    300;
+  line-height: 0.94;
 
-  line-height:
-    0.95;
-
-  letter-spacing:
-    -0.06em;
+  letter-spacing: -0.065em;
 }
 
 
 /* ==========================================================
-   LEAD
-========================================================== */
+   DESCRIPCIÓN
+   ========================================================== */
 
 .investorLead {
-  max-width:
-    500px;
+  max-width: 555px;
 
-  margin:
-    32px 0 0;
+  margin: 36px 0 0;
 
-  color:
-    rgba(
-      247,
-      245,
-      239,
-      0.62
-    );
+  color: rgba(247, 245, 239, 0.68);
 
-  font-family:
-    var(--font-body);
+  font-size: 13px;
 
-  font-size:
-    13px;
-
-  font-weight:
-    400;
-
-  line-height:
-    1.85;
-
-  letter-spacing:
-    -0.005em;
+  line-height: 1.78;
 }
 
 
 /* ==========================================================
-   ITEMS
-========================================================== */
+   BENEFICIOS
+   ========================================================== */
 
 .investorProofItems {
-  margin-top:
-    36px;
+  display: flex;
+  flex-direction: column;
 
-  display:
-    flex;
+  gap: 17px;
 
-  flex-direction:
-    column;
-
-  gap:
-    15px;
+  margin-top: 38px;
 }
 
-
-/* ==========================================================
-   ITEM
-========================================================== */
 
 .investorProofItem {
-  display:
-    flex;
+  display: flex;
+  align-items: center;
 
-  align-items:
-    center;
+  gap: 13px;
 
-  gap:
-    12px;
+  min-height: 25px;
 
-  min-height:
-    24px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 
-/* ==========================================================
-   ICON
-========================================================== */
+.investorProofItem:hover {
+  transform: translateX(4px);
+}
+
 
 .investorProofItemIcon {
-  flex:
-    0 0 21px;
+  flex: 0 0 25px;
 
-  width:
-    21px;
+  width: 25px;
+  height: 25px;
 
-  height:
-    21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  color:
-    var(--moro-olive);
-
-  opacity:
-    0.9;
+  color: var(--moro-olive);
 }
 
-
-/* ==========================================================
-   ITEM TEXT
-========================================================== */
 
 .investorProofItemText {
-  display:
-    flex;
+  display: flex;
+  align-items: baseline;
 
-  align-items:
-    baseline;
-
-  gap:
-    9px;
+  gap: 10px;
 }
+
 
 .investorProofItemText span {
-  color:
-    rgba(
-      247,
-      245,
-      239,
-      0.72
-    );
+  color: rgba(247, 245, 239, 0.9);
 
-  font-family:
-    var(--font-body);
-
-  font-size:
-    10px;
-
-  font-weight:
-    500;
-
-  line-height:
-    1.3;
+  font-size: 10px;
+  font-weight: 500;
 }
+
 
 .investorProofItemText small {
-  color:
-    rgba(
-      247,
-      245,
-      239,
-      0.38
-    );
+  color: rgba(247, 245, 239, 0.38);
 
-  font-family:
-    var(--font-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    400;
-
-  line-height:
-    1.3;
+  font-size: 8.5px;
 }
 
 
 /* ==========================================================
-   VISUAL
-========================================================== */
+   FRASE INFERIOR
+   ========================================================== */
+
+.futureStatement {
+  width: min(100%, 470px);
+
+  margin-top: 43px;
+  padding-top: 16px;
+
+  border-top:
+    1px solid
+    rgba(247, 245, 239, 0.13);
+
+  color:
+    rgba(247, 245, 239, 0.42);
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.3em;
+}
+
+
+/* ==========================================================
+   COLUMNA VISUAL
+   ========================================================== */
 
 .investorProofVisual {
-  position:
-    relative;
+  position: relative;
 
-  align-self:
-    stretch;
+  width: 100%;
+  height: 100%;
 
-  width:
-    100%;
+  min-width: 0;
 
-  min-width:
-    0;
+  overflow: hidden;
 
-  min-height:
-    calc(
-      100svh - var(--moro-nav-height)
-    );
-
-  height:
-    calc(
-      100svh - var(--moro-nav-height)
-    );
-
-  overflow:
-    visible;
+  isolation: isolate;
 }
 
 
 /* ==========================================================
-   GLOW
-========================================================== */
+   ATMÓSFERA
+   ========================================================== */
 
-.investorProofGlow {
-  position:
-    absolute;
+.sceneGlow {
+  position: absolute;
 
-  z-index:
-    0;
+  z-index: 0;
 
-  top:
-    5%;
+  left: 55%;
+  top: 47%;
 
-  right:
-    -15%;
+  width: min(900px, 90vw);
+  aspect-ratio: 1;
 
-  width:
-    105%;
+  transform:
+    translate(-50%, -50%);
 
-  height:
-    90%;
-
-  pointer-events:
-    none;
+  border-radius: 50%;
 
   background:
     radial-gradient(
-      ellipse 58% 58% at 48% 48%,
-      rgba(
-        174,
-        139,
-        101,
-        0.13
-      ) 0%,
-
-      rgba(
-        174,
-        139,
-        101,
-        0.055
-      ) 38%,
-
-      transparent 72%
+      circle,
+      rgba(157, 143, 94, 0.14) 0%,
+      rgba(117, 131, 101, 0.09) 28%,
+      rgba(73, 91, 70, 0.035) 58%,
+      transparent 73%
     );
 
-  filter:
-    blur(65px);
+  filter: blur(16px);
+
+  pointer-events: none;
 }
 
 
 /* ==========================================================
-   TOWER
-   IMPORTANTE:
-   La torre NO puede superar el 100% de altura.
-========================================================== */
+   ÓRBITAS
+   ========================================================== */
 
-.investorProofTower {
-  position:
-    absolute;
+.sceneOrbit {
+  position: absolute;
 
-  z-index:
-    2;
+  z-index: 1;
 
-  /*
-    Pegada al borde inferior.
-  */
-  right:
-    -8%;
+  left: 55%;
+  top: 47%;
 
-  bottom:
-    0;
+  width: min(900px, 92vw);
+  aspect-ratio: 1;
 
-  /*
-    Exactamente el alto disponible.
-    Esto evita que se meta detrás del Navbar.
-  */
-  width:
-    105%;
+  transform:
+    translate(-50%, -50%);
 
-  height:
-    100%;
+  border:
+    1px solid
+    rgba(177, 151, 99, 0.11);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.sceneOrbit::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 12%;
+
+  border:
+    1px solid
+    rgba(177, 151, 99, 0.08);
+
+  border-radius: 50%;
+}
+
+
+.sceneOrbit::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 25%;
+
+  border:
+    1px solid
+    rgba(177, 151, 99, 0.055);
+
+  border-radius: 50%;
+}
+
+
+/* ==========================================================
+   GRID
+   ========================================================== */
+
+.sceneGrid {
+  position: absolute;
+
+  z-index: 2;
+
+  inset: 0;
+
+  opacity: 0.055;
+
+  pointer-events: none;
 
   background-image:
-    url(
-      "/assets/inversionistas/projects/tower.png"
+    linear-gradient(
+      90deg,
+      rgba(247, 245, 239, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(247, 245, 239, 0.05) 1px,
+      transparent 1px
     );
 
-  background-position:
-    center bottom;
+  background-size: 110px 110px;
 
-  background-repeat:
-    no-repeat;
+  mask-image:
+    radial-gradient(
+      ellipse 72% 88% at 55% 50%,
+      black,
+      transparent 78%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse 72% 88% at 55% 50%,
+      black,
+      transparent 78%
+    );
+}
+
+
+/* ==========================================================
+   PORTFOLIO
+   ========================================================== */
+
+.portfolioLabel {
+  position: absolute;
+
+  z-index: 1900;
+
+  top: 5.5%;
+  right: 5%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+.portfolioLabel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 3px;
+}
+
+
+.portfolioLabel span {
+  color:
+    rgba(247, 245, 239, 0.28);
+
+  font-size: 6px;
+
+  letter-spacing: 0.2em;
+}
+
+
+.portfolioLabel strong {
+  color:
+    rgba(247, 245, 239, 0.65);
+
+  font-size: 8px;
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+}
+
+
+.portfolioLabel i {
+  width: 48px;
+  height: 1px;
+
+  display: block;
+
+  background:
+    rgba(247, 245, 239, 0.22);
+}
+
+
+/* ==========================================================
+   ESCENA
+   ========================================================== */
+
+.projectScene {
+  position: absolute;
+
+  z-index: 20;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  touch-action: pan-y;
+
+  user-select: none;
+
+  cursor: grab;
+}
+
+
+.projectScene:active {
+  cursor: grabbing;
+}
+
+
+/* ==========================================================
+   PROYECTO BASE
+   ========================================================== */
+
+.project {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 34%;
+  height: 67%;
+
+  transform:
+    translateX(
+      calc(
+        -50% +
+        var(--project-position, 0) * 47%
+      )
+    );
+
+  z-index: 100;
+
+  pointer-events: none;
+
+  transition:
+    transform 0.8s cubic-bezier(
+      0.22,
+      0.72,
+      0.18,
+      1
+    ),
+    width 0.8s cubic-bezier(
+      0.22,
+      0.72,
+      0.18,
+      1
+    ),
+    height 0.8s cubic-bezier(
+      0.22,
+      0.72,
+      0.18,
+      1
+    ),
+    opacity 0.55s ease,
+    filter 0.55s ease;
+}
+
+
+/* ==========================================================
+   POSICIONES
+   ========================================================== */
+
+.sanCarlos {
+  --project-position: -2.25;
+}
+
+
+.moro416 {
+  --project-position: 0;
+}
+
+
+.eterna {
+  --project-position: 2.05;
+}
+
+
+.rivera {
+  --project-position: 3.05;
+}
+
+
+/* ==========================================================
+   ACTIVO
+   ========================================================== */
+
+.projectActive {
+  left: 50%;
+  bottom: 0;
+
+  width: 61%;
+  height: 84%;
+
+  z-index: 1000;
+
+  opacity: 1;
+
+  filter: none;
+
+  transform:
+    translateX(-50%);
+}
+
+
+/* ==========================================================
+   INACTIVOS
+   ========================================================== */
+
+.projectInactive {
+  opacity: 0.18;
+
+  filter:
+    grayscale(1)
+    saturate(0)
+    brightness(0.45);
+
+  z-index: 100;
+}
+
+
+/* ==========================================================
+   BOTÓN
+   ========================================================== */
+
+.projectButton {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  overflow: visible;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  touch-action: manipulation;
+}
+
+
+.projectButton:focus {
+  outline: none;
+}
+
+
+.projectButton:focus-visible {
+  outline:
+    1px solid
+    rgba(177, 151, 99, 0.75);
+
+  outline-offset: 5px;
+}
+
+
+/* ==========================================================
+   IMAGEN
+   ========================================================== */
+
+.projectImage {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+
+.projectButton img,
+.projectReveal img {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-width: none !important;
+
+  display: block;
+
+  object-fit: contain !important;
+
+  object-position: center bottom !important;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  transition:
+    opacity 0.55s ease,
+    filter 0.55s ease,
+    transform 0.8s cubic-bezier(
+      0.22,
+      0.72,
+      0.18,
+      1
+    );
+}
+
+
+/* ==========================================================
+   INACTIVOS — CASI SILUETA
+   ========================================================== */
+
+.projectInactive .projectButton img {
+  opacity: 0.2;
+
+  filter:
+    grayscale(1)
+    saturate(0)
+    brightness(0.42);
+}
+
+
+/* ==========================================================
+   ACTIVO — ILUMINADO
+   ========================================================== */
+
+.projectActive .projectButton img,
+.projectActive .projectReveal img {
+  opacity: 1;
+
+  filter:
+    grayscale(0)
+    saturate(1)
+    brightness(1)
+    drop-shadow(
+      0 25px 42px
+      rgba(0, 0, 0, 0.45)
+    );
+
+  transform: scale(1);
+}
+
+
+/* ==========================================================
+   AJUSTES INDIVIDUALES
+   ========================================================== */
+
+.sanCarlos .projectImage {
+  transform: scale(1.02);
+}
+
+
+.moro416 .projectImage {
+  transform: scale(0.94);
+}
+
+
+.eterna .projectImage {
+  transform: scale(1);
+}
+
+
+.rivera .projectImage {
+  transform: scale(0.80);
+}
+
+
+/* ==========================================================
+   AJUSTES DEL ACTIVO
+   ========================================================== */
+
+.projectActive.sanCarlos .projectImage {
+  transform: scale(1.02);
+}
+
+
+.projectActive.moro416 .projectImage {
+  transform: scale(0.94);
+}
+
+
+.projectActive.eterna .projectImage {
+  transform: scale(1);
+}
+
+
+.projectActive.rivera .projectImage {
+  transform: scale(0.80);
+}
+
+
+/* ==========================================================
+   REVEAL
+   ========================================================== */
+
+.projectReveal {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+
+.projectActive .projectReveal {
+  animation:
+    projectRevealIn
+    0.75s
+    cubic-bezier(
+      0.22,
+      0.72,
+      0.18,
+      1
+    );
+}
+
+
+@keyframes projectRevealIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.94)
+      translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+  }
+}
+
+
+/* ==========================================================
+   NOMBRE DEL PROYECTO — LATERAL DERECHO
+   ========================================================== */
+
+.verticalProjectName {
+  position: absolute;
+
+  z-index: 5000;
 
   /*
-    La altura manda.
-    La imagen queda completa verticalmente.
-  */
-  background-size:
-    auto 100%;
+   * El nombre queda fuera de la torre activa,
+   * pero dentro del área visible de la sección.
+   */
+  top: 50%;
+  right: -42px;
 
-  pointer-events:
-    none;
+  width: auto;
+  height: max-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(-50%);
+
+  transition:
+    opacity 0.45s ease,
+    visibility 0.45s ease;
 }
 
 
 /* ==========================================================
-   CAPTION
-========================================================== */
+   NOMBRE ACTIVO
+   ========================================================== */
 
-.investorProofCaption {
-  position:
-    absolute;
-
-  z-index:
-    5;
-
-  left:
-    8px;
-
-  bottom:
-    28px;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  gap:
-    5px;
+.projectActive .verticalProjectName {
+  opacity: 1;
+  visibility: visible;
 }
 
-.investorProofCaption span {
+
+/* ==========================================================
+   NOMBRE VERTICAL
+   ========================================================== */
+
+.verticalProjectTitle {
+  display: block;
+
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
   color:
-    rgba(
-      247,
-      245,
-      239,
-      0.82
-    );
+    rgba(247, 245, 239, 0.98);
 
-  font-family:
-    var(--font-body);
+  font-size: 17px;
 
-  font-size:
-    11px;
+  font-weight: 500;
 
-  font-weight:
-    500;
+  line-height: 1;
 
-  line-height:
-    1.2;
+  letter-spacing: 0.14em;
 
-  letter-spacing:
-    0.10em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 2px 18px
+    rgba(0, 0, 0, 0.9);
 }
 
-.investorProofCaption small {
+
+/* ==========================================================
+   UBICACIÓN
+   ========================================================== */
+
+.verticalProjectLocation {
+  display: block;
+
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
   color:
-    rgba(
-      247,
-      245,
-      239,
-      0.42
+    rgba(247, 245, 239, 0.56);
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 2px 12px
+    rgba(0, 0, 0, 0.8);
+}
+
+
+/* ==========================================================
+   LÍNEA EDITORIAL SUTIL
+   ========================================================== */
+
+.verticalProjectName::before {
+  content: "";
+
+  width: 1px;
+  height: 52px;
+
+  flex: 0 0 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(177, 151, 99, 0.72),
+      transparent
     );
-
-  font-family:
-    var(--font-body);
-
-  font-size:
-    7px;
-
-  font-weight:
-    400;
-
-  line-height:
-    1.2;
-
-  letter-spacing:
-    0.14em;
 }
 
 
 /* ==========================================================
-   LARGE DESKTOP
-   1440px+
-========================================================== */
+   DESACTIVAR PIN Y CAPTION ANTIGUOS
+   ========================================================== */
 
-@media (min-width: 1440px) {
+.projectConnector,
+.projectConnector span,
+.mainProjectCaption {
+  display: none !important;
+}
 
-  .investorProofTitle {
-    font-size:
-      clamp(
-        64px,
-        5vw,
-        82px
-      );
+
+/* ==========================================================
+   AJUSTE DESKTOP GRANDE
+   ========================================================== */
+
+@media (min-width: 1600px) {
+
+  .verticalProjectName {
+    right: -48px;
+
+    gap: 16px;
   }
 
-  .investorProofContent {
-    max-width:
-      590px;
+  .verticalProjectTitle {
+    font-size: 19px;
   }
 
-  .investorLead {
-    font-size:
-      14px;
-  }
-
-  .investorProofTower {
-    right:
-      -8%;
-
-    width:
-      108%;
-
-    height:
-      100%;
-
-    background-size:
-      auto 100%;
+  .verticalProjectLocation {
+    font-size: 8px;
   }
 }
 
 
 /* ==========================================================
-   DESKTOP
-   1200px – 1439px
-========================================================== */
+   LAPTOP
+   ========================================================== */
 
-@media (max-width: 1439px) {
+@media (max-width: 1399px) {
 
-  .investorProofTower {
-    right:
-      -7%;
+  .verticalProjectName {
+    right: -42px;
 
-    width:
-      106%;
+    gap: 14px;
+  }
 
-    height:
-      100%;
+  .verticalProjectTitle {
+    font-size: 16px;
+  }
 
-    background-size:
-      auto 100%;
+  .verticalProjectLocation {
+    font-size: 7px;
   }
 }
 
 
 /* ==========================================================
-   TABLET GRANDE
-   1199px
-========================================================== */
+   1200
+   ========================================================== */
 
-@media (max-width: 1199px) {
+@media (max-width: 1200px) {
 
-  .investorContainer {
-    width:
-      min(
-        calc(100% - 48px),
-        var(--moro-container)
-      );
+  .verticalProjectName {
+    right: -37px;
+
+    gap: 12px;
   }
 
-  .investorProofTitle {
-    font-size:
-      clamp(
-        46px,
-        5.3vw,
-        64px
-      );
+  .verticalProjectTitle {
+    font-size: 14px;
   }
 
-  .investorLead {
-    max-width:
-      450px;
-
-    font-size:
-      12px;
-  }
-
-  .investorProofTower {
-    right:
-      -8%;
-
-    width:
-      110%;
-
-    height:
-      100%;
-
-    background-size:
-      auto 100%;
+  .verticalProjectLocation {
+    font-size: 6.5px;
   }
 }
 
 
 /* ==========================================================
    TABLET
-   960px
-========================================================== */
+   ========================================================== */
 
 @media (max-width: 960px) {
 
-  .investorProof {
-    min-height:
-      auto;
+  .verticalProjectName {
+    right: -31px;
+
+    gap: 10px;
   }
 
-  .investorContainer {
-    min-height:
-      auto;
+  .verticalProjectTitle {
+    font-size: 12px;
   }
 
-  .investorProofGrid {
-    min-height:
-      auto;
-
-    grid-template-columns:
-      1fr;
-
-    align-items:
-      stretch;
-
-    gap:
-      0;
-
-    padding-top:
-      85px;
+  .verticalProjectLocation {
+    font-size: 5.5px;
   }
 
-  .investorProofContent {
-    max-width:
-      680px;
-
-    padding:
-      0;
-  }
-
-  .investorProofTitle {
-    font-size:
-      clamp(
-        46px,
-        7vw,
-        64px
-      );
-  }
-
-  .investorLead {
-    max-width:
-      590px;
-
-    font-size:
-      13px;
-  }
-
-  .investorProofVisual {
-    width:
-      100%;
-
-    height:
-      560px;
-
-    min-height:
-      560px;
-
-    margin-top:
-      15px;
-  }
-
-  .investorProofTower {
-    right:
-      0;
-
-    width:
-      100%;
-
-    height:
-      100%;
-
-    background-size:
-      auto 100%;
-
-    background-position:
-      center bottom;
+  .verticalProjectName::before {
+    height: 40px;
   }
 }
 
 
 /* ==========================================================
    TABLET PEQUEÑA
-   768px
-========================================================== */
+   ========================================================== */
 
 @media (max-width: 768px) {
 
-  .investorContainer {
-    width:
-      calc(
-        100% - 40px
-      );
+  .verticalProjectName {
+    right: -27px;
+
+    gap: 9px;
   }
 
-  .investorProofGrid {
-    padding-top:
-      72px;
+  .verticalProjectTitle {
+    font-size: 11px;
+
+    letter-spacing: 0.11em;
   }
 
-  .investorEyebrow {
-    margin-bottom:
-      18px;
+  .verticalProjectLocation {
+    font-size: 5px;
 
-    font-size:
-      9px;
+    letter-spacing: 0.12em;
   }
 
-  .investorProofTitle {
-    font-size:
-      clamp(
-        40px,
-        9vw,
-        56px
-      );
-
-    line-height:
-      0.97;
-  }
-
-  .investorLead {
-    margin-top:
-      24px;
-
-    font-size:
-      12.5px;
-
-    line-height:
-      1.75;
-  }
-
-  .investorProofItems {
-    margin-top:
-      30px;
-  }
-
-  .investorProofVisual {
-    height:
-      500px;
-
-    min-height:
-      500px;
-  }
-
-  .investorProofTower {
-    right:
-      -5%;
-
-    width:
-      108%;
-
-    height:
-      100%;
-
-    background-size:
-      auto 100%;
+  .verticalProjectName::before {
+    height: 34px;
   }
 }
 
 
 /* ==========================================================
    MOBILE
-   640px
-========================================================== */
+   ========================================================== */
 
 @media (max-width: 640px) {
 
-  .investorContainer {
-    width:
-      calc(
-        100% - 32px
-      );
+  .verticalProjectName {
+    top: 50%;
+    right: -23px;
+
+    gap: 8px;
+
+    transform:
+      translateY(-50%);
   }
 
-  .investorProofGrid {
-    padding-top:
-      62px;
+  .verticalProjectTitle {
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.09em;
   }
 
-  .investorProofTitle {
-    font-size:
-      clamp(
-        36px,
-        10vw,
-        48px
-      );
+  .verticalProjectLocation {
+    font-size: 4.5px;
+
+    letter-spacing: 0.1em;
   }
 
-  .investorLead {
-    max-width:
-      100%;
-
-    margin-top:
-      21px;
-
-    font-size:
-      12px;
-
-    line-height:
-      1.7;
-  }
-
-  .investorProofItems {
-    margin-top:
-      27px;
-
-    gap:
-      12px;
-  }
-
-  .investorProofItem {
-    gap:
-      9px;
-  }
-
-  .investorProofItemText {
-    gap:
-      7px;
-  }
-
-  .investorProofItemText span {
-    font-size:
-      9px;
-  }
-
-  .investorProofItemText small {
-    font-size:
-      8px;
-  }
-
-  .investorProofVisual {
-    height:
-      430px;
-
-    min-height:
-      430px;
-  }
-
-  .investorProofTower {
-    right:
-      -12%;
-
-    width:
-      125%;
-
-    height:
-      100%;
-
-    background-size:
-      auto 100%;
-
-    background-position:
-      center bottom;
-  }
-
-  .investorProofCaption {
-    left:
-      4px;
-
-    bottom:
-      18px;
-  }
-
-  .investorProofCaption span {
-    font-size:
-      10px;
-  }
-
-  .investorProofCaption small {
-    font-size:
-      6px;
+  .verticalProjectName::before {
+    height: 29px;
   }
 }
 
 
 /* ==========================================================
    MOBILE PEQUEÑO
-   480px
-========================================================== */
+   ========================================================== */
 
 @media (max-width: 480px) {
 
-  .investorContainer {
-    width:
-      calc(
-        100% - 28px
-      );
+  .verticalProjectName {
+    right: -20px;
+
+    gap: 7px;
   }
 
-  .investorProofGrid {
-    padding-top:
-      54px;
+  .verticalProjectTitle {
+    font-size: 9px;
+
+    letter-spacing: 0.08em;
   }
 
-  .investorEyebrow {
-    margin-bottom:
-      15px;
+  .verticalProjectLocation {
+    font-size: 4px;
 
-    font-size:
-      8px;
+    letter-spacing: 0.09em;
   }
 
-  .investorProofTitle {
-    font-size:
-      clamp(
-        33px,
-        10.5vw,
-        43px
-      );
-  }
-
-  .investorLead {
-    font-size:
-      11.5px;
-  }
-
-  .investorProofItems {
-    margin-top:
-      24px;
-  }
-
-  .investorProofItemText {
-    flex-direction:
-      column;
-
-    align-items:
-      flex-start;
-
-    gap:
-      2px;
-  }
-
-  .investorProofItemText span {
-    font-size:
-      9px;
-  }
-
-  .investorProofItemText small {
-    font-size:
-      7.5px;
-  }
-
-  .investorProofVisual {
-    height:
-      370px;
-
-    min-height:
-      370px;
-  }
-
-  .investorProofTower {
-    right:
-      -20%;
-
-    width:
-      145%;
-
-    height:
-      100%;
-
-    background-size:
-      auto 100%;
+  .verticalProjectName::before {
+    height: 25px;
   }
 }
 
 
 /* ==========================================================
-   EXTRA SMALL
-   380px
-========================================================== */
+   MOBILE MUY PEQUEÑO
+   ========================================================== */
 
 @media (max-width: 380px) {
 
-  .investorContainer {
-    width:
-      calc(
-        100% - 24px
-      );
+  .verticalProjectName {
+    right: -18px;
+
+    gap: 6px;
   }
 
-  .investorProofGrid {
-    padding-top:
-      48px;
+  .verticalProjectTitle {
+    font-size: 8px;
+
+    letter-spacing: 0.07em;
   }
 
-  .investorProofTitle {
-    font-size:
-      31px;
+  .verticalProjectLocation {
+    font-size: 3.5px;
+
+    letter-spacing: 0.08em;
   }
 
-  .investorLead {
-    font-size:
-      11px;
-  }
-
-  .investorProofVisual {
-    height:
-      330px;
-
-    min-height:
-      330px;
-  }
-
-  .investorProofTower {
-    right:
-      -25%;
-
-    width:
-      160%;
-
-    height:
-      100%;
-
-    background-size:
-      auto 100%;
+  .verticalProjectName::before {
+    height: 21px;
   }
 }
 
 
 /* ==========================================================
-   REDUCED MOTION
-========================================================== */
+   CONTROLES
+   ========================================================== */
+
+.sliderControls {
+  position: absolute;
+
+  z-index: 2200;
+
+  left: 50%;
+  bottom: 3%;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.sliderArrow {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border:
+    1px solid
+    rgba(247, 245, 239, 0.16);
+
+  border-radius: 50%;
+
+  background:
+    rgba(17, 24, 20, 0.52);
+
+  color:
+    rgba(247, 245, 239, 0.7);
+
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.sliderArrow:hover {
+  transform: translateY(-2px);
+
+  color: var(--moro-ivory);
+
+  background:
+    rgba(125, 135, 104, 0.28);
+}
+
+
+/* ==========================================================
+   PROGRESO
+   ========================================================== */
+
+.sliderProgress {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.sliderProgress span,
+.sliderProgress small {
+  color:
+    rgba(247, 245, 239, 0.55);
+
+  font-size: 6px;
+
+  letter-spacing: 0.12em;
+}
+
+
+.sliderProgress small {
+  color:
+    rgba(247, 245, 239, 0.27);
+}
+
+
+.sliderProgress > div {
+  position: relative;
+
+  width: 55px;
+  height: 1px;
+
+  overflow: hidden;
+
+  background:
+    rgba(247, 245, 239, 0.14);
+}
+
+
+.sliderProgress i {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  height: 100%;
+
+  background:
+    var(--moro-olive);
+
+  transition:
+    width 0.45s ease;
+}
+
+
+/* ==========================================================
+   DOTS
+   ========================================================== */
+
+.sliderDots {
+  position: absolute;
+
+  z-index: 2200;
+
+  right: 5%;
+  bottom: 3.5%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+
+.sliderDot {
+  width: 5px;
+  height: 5px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background:
+    rgba(247, 245, 239, 0.2);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.sliderDotActive {
+  width: 20px;
+
+  border-radius: 8px;
+
+  background:
+    var(--moro-olive);
+}
+
+
+/* ==========================================================
+   DESKTOP GRANDE
+   ========================================================== */
+
+@media (min-width: 1600px) {
+
+  .contentInner {
+    margin-left:
+      clamp(70px, 8.3vw, 175px);
+  }
+
+
+  .investorProofTitle {
+    font-size:
+      clamp(66px, 5vw, 86px);
+  }
+
+
+  .investorLead {
+    font-size: 14px;
+  }
+
+
+  .project {
+    width: 34%;
+    height: 68%;
+  }
+
+
+  .projectActive {
+    width: 60%;
+    height: 86%;
+  }
+
+
+  .projectMarker {
+    right: -125px;
+  }
+
+
+  .projectLabel strong {
+    font-size: 15px;
+  }
+
+
+  .projectLabel span {
+    font-size: 7px;
+  }
+}
+
+
+/* ==========================================================
+   LAPTOP
+   ========================================================== */
+
+@media (max-width: 1399px) {
+
+  .investorProofGrid {
+    grid-template-columns: 39% 61%;
+  }
+
+
+  .contentInner {
+    margin-left:
+      clamp(38px, 6vw, 105px);
+  }
+
+
+  .investorProofTitle {
+    font-size:
+      clamp(52px, 5.1vw, 76px);
+  }
+
+
+  .project {
+    width: 34%;
+    height: 65%;
+  }
+
+
+  .projectActive {
+    width: 61%;
+    height: 83%;
+  }
+
+
+  .projectMarker {
+    right: -100px;
+  }
+
+
+  .projectLabel strong {
+    font-size: 12px;
+  }
+}
+
+
+/* ==========================================================
+   1200
+   ========================================================== */
+
+@media (max-width: 1200px) {
+
+  .investorProofGrid {
+    grid-template-columns: 40% 60%;
+  }
+
+
+  .contentInner {
+    margin-left: 42px;
+  }
+
+
+  .investorProofTitle {
+    font-size:
+      clamp(48px, 5.4vw, 68px);
+  }
+
+
+  .investorLead {
+    max-width: 450px;
+
+    font-size: 12px;
+  }
+
+
+  .sceneOrbit,
+  .sceneGlow {
+    width: 720px;
+  }
+
+
+  .project {
+    width: 33%;
+    height: 64%;
+  }
+
+
+  .projectActive {
+    width: 62%;
+    height: 81%;
+  }
+
+
+  .projectMarker {
+    right: -88px;
+  }
+
+
+  .projectLabel strong {
+    font-size: 10px;
+  }
+
+
+  .projectLabel span {
+    font-size: 5.5px;
+  }
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 960px) {
+
+  .investorProof {
+    height: auto;
+    min-height: 100svh;
+  }
+
+
+  .investorProofGrid {
+    min-height: 100svh;
+
+    height: auto;
+
+    grid-template-columns: 1fr;
+  }
+
+
+  .investorProofContent {
+    height: auto;
+
+    display: block;
+  }
+
+
+  .contentInner {
+    max-width: 720px;
+
+    margin: 0;
+
+    padding:
+      100px 40px 30px;
+  }
+
+
+  .investorProofTitle {
+    font-size:
+      clamp(48px, 8vw, 68px);
+  }
+
+
+  .investorLead {
+    max-width: 620px;
+
+    font-size: 13px;
+  }
+
+
+  .investorProofVisual {
+    height: 650px;
+    min-height: 650px;
+  }
+
+
+  .sceneOrbit {
+    left: 50%;
+
+    width: 660px;
+  }
+
+
+  .sceneGlow {
+    left: 50%;
+
+    width: 670px;
+  }
+
+
+  .project {
+    width: 34%;
+    height: 62%;
+
+    transform:
+      translateX(
+        calc(
+          -50% +
+          var(--project-position, 0) * 51%
+        )
+      );
+  }
+
+
+  .projectActive {
+    width: 63%;
+    height: 82%;
+
+    transform:
+      translateX(-50%);
+  }
+
+
+  .projectMarker {
+    right: -78px;
+
+    top: 47%;
+  }
+
+
+  .projectLabel strong {
+    font-size: 9px;
+  }
+
+
+  .projectLabel span {
+    font-size: 5px;
+  }
+
+
+  .mainProjectCaption {
+    bottom: 3%;
+  }
+}
+
+
+/* ==========================================================
+   TABLET PEQUEÑA
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+  .contentInner {
+    padding:
+      88px 30px 22px;
+  }
+
+
+  .investorProofTitle {
+    font-size:
+      clamp(42px, 9vw, 58px);
+  }
+
+
+  .investorLead {
+    margin-top: 25px;
+
+    font-size: 12.5px;
+  }
+
+
+  .investorProofItems {
+    margin-top: 30px;
+  }
+
+
+  .futureStatement {
+    margin-top: 34px;
+  }
+
+
+  .investorProofVisual {
+    height: 570px;
+    min-height: 570px;
+  }
+
+
+  .sceneOrbit {
+    width: 560px;
+  }
+
+
+  .sceneGlow {
+    width: 580px;
+  }
+
+
+  .project {
+    width: 34%;
+    height: 59%;
+
+    transform:
+      translateX(
+        calc(
+          -50% +
+          var(--project-position, 0) * 55%
+        )
+      );
+  }
+
+
+  .projectActive {
+    width: 67%;
+    height: 81%;
+
+    transform:
+      translateX(-50%);
+  }
+
+
+  .projectInactive {
+    opacity: 0.15;
+  }
+
+
+  .projectMarker {
+    right: -68px;
+
+    top: 46%;
+  }
+
+
+  .projectLabel strong {
+    font-size: 8px;
+  }
+
+
+  .projectLabel span {
+    font-size: 4.5px;
+  }
+
+
+  .mainProjectCaption {
+    bottom: 3.2%;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+
+  .verticalProjectName,
+  .projectMarker {
+    overflow: visible;
+  }
+
+  .contentInner {
+    padding:
+      78px 20px 16px;
+  }
+
+
+  .investorEyebrow {
+    margin-bottom: 18px;
+
+    font-size: 8px;
+  }
+
+
+  .investorProofTitle {
+    font-size:
+      clamp(37px, 10.5vw, 50px);
+  }
+
+
+  .investorLead {
+    margin-top: 21px;
+
+    font-size: 11.7px;
+
+    line-height: 1.72;
+  }
+
+
+  .investorProofItems {
+    margin-top: 27px;
+
+    gap: 12px;
+  }
+
+
+  .investorProofItem {
+    gap: 9px;
+  }
+
+
+  .investorProofItemText {
+    gap: 7px;
+  }
+
+
+  .investorProofItemText span {
+    font-size: 9px;
+  }
+
+
+  .investorProofItemText small {
+    font-size: 7.5px;
+  }
+
+
+  .futureStatement {
+    display: none;
+  }
+
+
+  .investorProofVisual {
+    height: 500px;
+    min-height: 500px;
+  }
+
+
+  .sceneOrbit {
+    width: 430px;
+  }
+
+
+  .sceneGlow {
+    width: 460px;
+  }
+
+
+  /* ------------------------------------------
+     EDIFICIOS
+     ------------------------------------------ */
+
+  .project {
+    width: 32%;
+    height: 55%;
+
+    transform:
+      translateX(
+        calc(
+          -50% +
+          var(--project-position, 0) * 59%
+        )
+      );
+  }
+
+
+  .projectActive {
+    width: 78%;
+    height: 79%;
+
+    transform:
+      translateX(-50%);
+  }
+
+
+  .projectInactive {
+    opacity: 0.13;
+  }
+
+
+  /* ------------------------------------------
+     NOMBRE LATERAL
+     ------------------------------------------ */
+
+  .projectMarker {
+    right: -58px;
+
+    top: 45%;
+
+    width: 26px;
+  }
+
+
+  .projectLabel {
+    gap: 6px;
+  }
+
+
+  .projectLabel strong {
+    font-size: 8px;
+
+    letter-spacing: 0.10em;
+  }
+
+
+  .projectLabel span {
+    font-size: 4px;
+
+    letter-spacing: 0.10em;
+  }
+
+
+  /* ------------------------------------------
+     RIVERA
+     ------------------------------------------ */
+
+  .rivera .projectImage,
+  .projectActive.rivera .projectImage {
+    transform: scale(0.74);
+  }
+
+
+  /* ------------------------------------------
+     CAPTION
+     ------------------------------------------ */
+
+  .mainProjectCaption {
+    bottom: 4%;
+  }
+
+
+  .mainProjectCaption span {
+    font-size: 6px;
+  }
+
+
+  .mainProjectCaption small {
+    font-size: 3.5px;
+  }
+
+
+  /* ------------------------------------------
+     CONTROLES
+     ------------------------------------------ */
+
+  .sliderControls {
+    display: none !important;
+
+    bottom: 2%;
+
+    gap: 8px;
+  }
+
+
+  .sliderArrow {
+    width: 29px;
+    height: 29px;
+  }
+
+
+  .sliderProgress > div {
+    width: 45px;
+  }
+
+
+  .sliderDots {
+    display: none;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE PEQUEÑO
+   ========================================================== */
+
+@media (max-width: 480px) {
+
+  .contentInner {
+    padding:
+      72px 16px 12px;
+  }
+
+
+  .investorProofTitle {
+    font-size:
+      clamp(33px, 10.7vw, 44px);
+  }
+
+
+  .investorLead {
+    font-size: 11.2px;
+  }
+
+
+  .investorProofVisual {
+    height: 450px;
+    min-height: 450px;
+  }
+
+
+  .sceneOrbit {
+    width: 380px;
+  }
+
+
+  .sceneGlow {
+    width: 400px;
+  }
+
+
+  .project {
+    width: 31%;
+    height: 52%;
+
+    transform:
+      translateX(
+        calc(
+          -50% +
+          var(--project-position, 0) * 62%
+        )
+      );
+  }
+
+
+  .projectActive {
+    width: 83%;
+    height: 77%;
+
+    transform:
+      translateX(-50%);
+  }
+
+
+  .projectMarker {
+    right: -50px;
+
+    top: 43%;
+
+    width: 22px;
+  }
+
+
+  .projectLabel strong {
+    font-size: 7px;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  .projectLabel span {
+    font-size: 3.5px;
+  }
+
+
+  .rivera .projectImage,
+  .projectActive.rivera .projectImage {
+    transform: scale(0.69);
+  }
+
+
+  .sliderControls {
+    display: none !important;
+
+    bottom: 1.8%;
+  }
+
+
+  .sliderArrow {
+    width: 27px;
+    height: 27px;
+  }
+
+
+  .sliderProgress span,
+  .sliderProgress small {
+    font-size: 6px;
+  }
+
+
+  .sliderProgress > div {
+    width: 38px;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE MUY PEQUEÑO
+   ========================================================== */
+
+@media (max-width: 380px) {
+
+  .projectMarker {
+    right: -23px;
+  }
+
+  .contentInner {
+    padding:
+      68px 14px 8px;
+  }
+
+
+  .investorProofTitle {
+    font-size: 31px;
+  }
+
+
+  .investorLead {
+    font-size: 10.8px;
+  }
+
+
+  .investorProofVisual {
+    height: 415px;
+    min-height: 415px;
+  }
+
+
+  .sceneOrbit {
+    width: 350px;
+  }
+
+
+  .sceneGlow {
+    width: 365px;
+  }
+
+
+  .project {
+    width: 30%;
+    height: 49%;
+
+    transform:
+      translateX(
+        calc(
+          -50% +
+          var(--project-position, 0) * 65%
+        )
+      );
+  }
+
+
+  .projectActive {
+    width: 86%;
+    height: 75%;
+
+    transform:
+      translateX(-50%);
+  }
+
+
+  .projectMarker {
+    right: -45px;
+
+    top: 42%;
+  }
+
+
+  .projectLabel strong {
+    font-size: 6px;
+  }
+
+
+  .projectLabel span {
+    font-size: 2.8px;
+  }
+
+
+  .rivera .projectImage,
+  .projectActive.rivera .projectImage {
+    transform: scale(0.66);
+  }
+}
+
+
+/* ==========================================================
+   REDUCIR MOVIMIENTO
+   ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-  .investorProofTower,
-  .investorProofItem {
-    transition:
-      none;
+  .project,
+  .projectButton img,
+  .projectReveal img,
+  .verticalProjectName,
+  .projectMarker,
+  .mainProjectCaption,
+  .investorProofItem,
+  .sliderArrow,
+  .sliderDot,
+  .sliderProgress i {
+    transition: none;
+    animation: none;
   }
 }

@@ -1,20 +1,22 @@
-import InvestmentCalculator from "@/components/Calculator/InvestmentCalculator";
-import InvestmentPillars from "@/components/InvestmentPillars/InvestmentPillars";
-import InvestmentPlans from "@/components/InvestmentPlans/InvestmentPlans";
-import InvestmentSecurity from "@/components/InvestmentSecurity/InvestmentSecurity";
-import InvestmentModel from "@/components/InvestModel/InvestmentModel";
-import InvestorEcosystem from "@/components/InvestorEcosystem/InvestorEcosystem";
-import InvestorFaq from "@/components/InvestorFaq/InvestorFaq";
-import InvestorFooter from "@/components/InvestorFooter/InvestorFooter";
-import InvestorLeadForm from "@/components/InvestorLeadForm/InvestorLeadForm";
-import Moro416 from "@/components/Moro416/Moro416";
-import InvestmentProof from "@/components/Proof/InvestmentProof";
-import InvestorStats from "@/components/Status/InvestorStats";
-import TrackRecord from "@/components/TrackRecord/TrackRecord";
 import type { Metadata } from "next";
 
+import InvestmentProof from "@/components/Proof/InvestmentProof";
+import InvestorStats from "@/components/Status/InvestorStats";
 
+import InvestmentModel from "@/components/InvestModel/InvestmentModel";
 
+import TrackRecord from "@/components/TrackRecord/TrackRecord";
+
+import Moro416 from "@/components/Moro416/Moro416";
+
+import InvestmentPlans from "@/components/InvestmentPlans/InvestmentPlans";
+import InvestmentCalculator from "@/components/Calculator/InvestmentCalculator";
+
+import InvestmentPillars from "@/components/InvestmentPillars/InvestmentPillars";
+import InvestmentSecurity from "@/components/InvestmentSecurity/InvestmentSecurity";
+
+import InvestorFaq from "@/components/InvestorFaq/InvestorFaq";
+import InvestorLeadForm from "@/components/InvestorLeadForm/InvestorLeadForm";
 
 export const metadata: Metadata = {
   title: "Inversionistas | Moro Capital",
@@ -25,33 +27,43 @@ export const metadata: Metadata = {
 export default function InversionistasPage() {
   return (
     <main className="investorPage">
+      {/* OPORTUNIDAD */}
 
       <InvestmentProof />
 
-     <InvestorStats />
+      <InvestorStats />
+
+      {/* CÓMO FUNCIONA */}
 
       <InvestmentModel />
+
+      {/* TRAYECTORIA */}
+
+      <TrackRecord />
+
+      {/* MORO 416 */}
+
+      <Moro416 />
+
+      {/* ALTERNATIVAS */}
 
       <InvestmentPlans />
 
       <InvestmentCalculator />
 
+      {/* SEGURIDAD */}
+
       <InvestmentPillars />
-
-      <TrackRecord />
-
-      <Moro416 />
 
       <InvestmentSecurity />
 
-      <InvestorEcosystem />
+      {/* FAQ */}
 
       <InvestorFaq />
 
-      <InvestorLeadForm />
+      {/* CONTACTO */}
 
-      <InvestorFooter />
-      
+      <InvestorLeadForm />
     </main>
   );
 }

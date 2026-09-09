@@ -1,99 +1,467 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import {
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa6";
+  ChevronUp,
+} from "lucide-react";
+import {
+  useEffect,
+  useState,
+  type MouseEvent,
+} from "react";
+import { usePathname } from "next/navigation";
 
 import styles from "./InvestorFooter.module.css";
 
+const footerNavigation = [
+  {
+    title: "Moro Capital",
+    links: [
+      {
+        label: "Cómo funciona",
+        href: "#modelo",
+      },
+      {
+        label: "Trayectoria",
+        href: "#trayectoria",
+      },
+      {
+        label: "Moro 416",
+        href: "#moro416",
+      },
+      {
+        label: "Contacto",
+        href: "#formulario",
+      },
+    ],
+  },
+  {
+    title: "Inversionistas",
+    links: [
+      {
+        label: "Cómo funciona",
+        href: "#modelo",
+      },
+      {
+        label: "Alternativas",
+        href: "#planes",
+      },
+      {
+        label: "Transparencia y seguridad",
+        href: "#seguridad",
+      },
+      {
+        label: "Preguntas frecuentes",
+        href: "#faq",
+      },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      {
+        label: "Política de privacidad",
+        href: "/legal/politica-de-privacidad",
+      },
+      {
+        label: "Tratamiento de datos",
+        href: "/legal/tratamiento-de-datos",
+      },
+      {
+        label: "Términos y condiciones",
+        href: "/legal/terminos-y-condiciones",
+      },
+    ],
+  },
+];
+
+const trackedSections = [
+  "#oportunidad",
+  "#modelo",
+  "#trayectoria",
+  "#moro416",
+  "#planes",
+  "#seguridad",
+  "#faq",
+  "#formulario",
+];
+
 export default function InvestorFooter() {
+  const pathname = usePathname();
+
+  const [activeSection, setActiveSection] =
+    useState("#oportunidad");
+
+  const isHomePage = pathname === "/";
+
+  useEffect(() => {
+    if (!isHomePage) {
+      setActiveSection("");
+      return;
+    }
+
+    const updateActiveSection = () => {
+      const scrollPosition = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const documentHeight =
+        document.documentElement.scrollHeight;
+
+      /*
+       * Priorizar el formulario cuando
+       * estamos llegando al final.
+       */
+      if (
+        scrollPosition + viewportHeight >=
+        documentHeight - 80
+      ) {
+        const formulario =
+          document.getElementById("formulario");
+
+        if (formulario) {
+          const formularioTop =
+            formulario.getBoundingClientRect().top +
+            window.scrollY;
+
+          if (
+            scrollPosition >=
+            formularioTop - 180
+          ) {
+            setActiveSection("#formulario");
+            return;
+          }
+        }
+
+        setActiveSection("#faq");
+        return;
+      }
+
+      const navbarHeight =
+        window.innerWidth <= 900
+          ? 72
+          : 82;
+
+      const offset =
+        navbarHeight + 100;
+
+      let current =
+        "#oportunidad";
+
+      for (const href of trackedSections) {
+        const id =
+          href.substring(1);
+
+        const section =
+          document.getElementById(id);
+
+        if (!section) continue;
+
+        const sectionTop =
+          section.getBoundingClientRect()
+            .top +
+          window.scrollY;
+
+        if (
+          scrollPosition >=
+          sectionTop - offset
+        ) {
+          current = href;
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    updateActiveSection();
+
+    window.addEventListener(
+      "scroll",
+      updateActiveSection,
+      {
+        passive: true,
+      }
+    );
+
+    window.addEventListener(
+      "resize",
+      updateActiveSection
+    );
+
+    return () => {
+      window.removeEventListener(
+        "scroll",
+        updateActiveSection
+      );
+
+      window.removeEventListener(
+        "resize",
+        updateActiveSection
+      );
+    };
+  }, [isHomePage]);
+
+  const handleLinkClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (!href.startsWith("#")) {
+      return;
+    }
+
+    const id =
+      href.substring(1);
+
+    if (!isHomePage) {
+      event.preventDefault();
+
+      window.location.href =
+        `/${href}`;
+
+      return;
+    }
+
+    const target =
+      document.getElementById(id);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+
+    setActiveSection(href);
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    window.history.replaceState(
+      null,
+      "",
+      href
+    );
+  };
+
+  const handleBackToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    if (window.location.hash) {
+      window.history.replaceState(
+        null,
+        "",
+        window.location.pathname
+      );
+    }
+
+    setActiveSection("#oportunidad");
+  };
+
+  const isLinkActive = (
+    href: string
+  ) => {
+    if (href === "/nosotros") {
+      return (
+        pathname === "/nosotros" ||
+        pathname.startsWith(
+          "/nosotros/"
+        )
+      );
+    }
+
+    if (href.startsWith("/legal")) {
+      return pathname === href;
+    }
+
+    if (href.startsWith("#")) {
+      return (
+        isHomePage &&
+        activeSection === href
+      );
+    }
+
+    return false;
+  };
+
   return (
     <footer className={styles.footer}>
-      <div className={`container ${styles.footerTop}`}>
+      {/* BOTÓN SUBIR */}
+
+      <button
+        type="button"
+        className={styles.backToTop}
+        onClick={handleBackToTop}
+        aria-label="Volver al inicio"
+        title="Volver al inicio"
+      >
+        <ChevronUp
+          size={18}
+          strokeWidth={1.7}
+        />
+      </button>
+
+      <div
+        className={`container ${styles.footerTop}`}
+      >
+        {/* BRAND */}
+
         <div className={styles.brand}>
-          <a href="/" className={styles.logo} aria-label="Moro Capital - Inicio">
+          <Link
+            href="/"
+            className={styles.logo}
+            aria-label="Moro Capital - Inicio"
+            onClick={() => {
+              setActiveSection(
+                "#oportunidad"
+              );
+            }}
+          >
             <Image
-              src="/assets/inversionistas/logos/moro-capital.svg"
+              src="/assets/inversionistas/logos/moro-capital_ligth.svg"
               alt="Moro Capital"
               width={154}
               height={42}
             />
-          </a>
+          </Link>
 
-          <p className={styles.brandDescription}>
-            Capital orientado al desarrollo de oportunidades
-            inmobiliarias privadas.
+          <p
+            className={
+              styles.brandDescription
+            }
+          >
+            Capital orientado al desarrollo
+            de oportunidades inmobiliarias
+            privadas.
           </p>
 
-          <div className={styles.socials}>
+          <div
+            className={
+              styles.contactInfo
+            }
+          >
             <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram de Moro Capital"
+              href="mailto:info@ancosur.com"
+              className={
+                styles.contactItem
+              }
             >
-              <FaInstagram size={17} />
+              <span
+                className={
+                  styles.contactLabel
+                }
+              >
+                Correo
+              </span>
+
+              <span>
+                info@ancosur.com
+              </span>
             </a>
 
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn de Moro Capital"
+            <div
+              className={
+                styles.contactItem
+              }
             >
-              <FaLinkedinIn size={16} />
-            </a>
+              <span
+                className={
+                  styles.contactLabel
+                }
+              >
+                Oficina
+              </span>
+
+              <span>
+                Av. San Carlos Nro. 1481,
+                <br />
+                Urb. San Antonio, Huancayo
+              </span>
+            </div>
           </div>
         </div>
 
-        <nav className={styles.column} aria-label="Moro Capital">
-          <strong>Moro Capital</strong>
+        {/* NAVEGACIÓN */}
 
-          <a href="#oportunidad">Oportunidad</a>
-          <a href="#trayectoria">Trayectoria</a>
-          <a href="#moro416">Moro 416</a>
-          <a href="#formulario">Contacto</a>
-        </nav>
+        {footerNavigation.map(
+          (group) => (
+            <nav
+              key={group.title}
+              className={styles.column}
+              aria-label={group.title}
+            >
+              <strong
+                className={
+                  styles.columnTitle
+                }
+              >
+                {group.title}
+              </strong>
 
-        <nav className={styles.column} aria-label="Inversionistas">
-          <strong>Inversionistas</strong>
+              <div
+                className={
+                  styles.columnLinks
+                }
+              >
+                {group.links.map(
+                  (link) => {
+                    const active =
+                      isLinkActive(
+                        link.href
+                      );
 
-          <a href="#modelo">Cómo funciona</a>
-          <a href="#planes">Alternativas</a>
-          <a href="#seguridad">Seguridad</a>
-          <a href="#faq">Preguntas frecuentes</a>
-        </nav>
+                    return (
+                      <Link
+                        key={link.label}
+                        href={
+                          link.href.startsWith(
+                            "#"
+                          ) &&
+                          !isHomePage
+                            ? `/${link.href}`
+                            : link.href
+                        }
+                        className={`${styles.footerLink} ${
+                          active
+                            ? styles.footerLinkActive
+                            : ""
+                        }`}
+                        aria-current={
+                          active
+                            ? "page"
+                            : undefined
+                        }
+                        onClick={(
+                          event
+                        ) =>
+                          handleLinkClick(
+                            event,
+                            link.href
+                          )
+                        }
+                      >
+                        <span>
+                          {link.label}
+                        </span>
 
-        <nav className={styles.column} aria-label="Legal">
-          <strong>Legal</strong>
-
-          <a href="#">Política de privacidad</a>
-          <a href="#">Tratamiento de datos</a>
-          <a href="#">Términos y condiciones</a>
-        </nav>
-      </div>
-
-      <div className={`container ${styles.legal}`}>
-        <div className={styles.legalText}>
-          <p>
-            La información contenida en este sitio es de carácter
-            informativo y no constituye asesoría financiera,
-            recomendación personalizada ni oferta pública de valores.
-            Las condiciones finales de cada inversión se establecen en
-            la documentación contractual correspondiente.
-          </p>
-
-          <p>
-            Moro Capital no está supervisada por la Superintendencia
-            del Mercado de Valores (SMV), de acuerdo con la información
-            corporativa suministrada.
-          </p>
-        </div>
-
-        <div className={styles.bottom}>
-          <span>© 2026 Moro Capital</span>
-          <span>Todos los derechos reservados.</span>
-        </div>
+                        {active && (
+                          <span
+                            className={
+                              styles.activeIndicator
+                            }
+                            aria-hidden="true"
+                          />
+                        )}
+                      </Link>
+                    );
+                  }
+                )}
+              </div>
+            </nav>
+          )
+        )}
       </div>
     </footer>
   );

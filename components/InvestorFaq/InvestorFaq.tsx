@@ -42,18 +42,6 @@ export default function InvestorFaq() {
               con un asesor.
             </p>
 
-            <Link
-              href="/faq"
-              className={styles.cta}
-            >
-              <span>Ver todas las preguntas</span>
-
-              <ArrowUpRight
-                size={18}
-                strokeWidth={1.5}
-                aria-hidden="true"
-              />
-            </Link>
           </Reveal>
 
           <Reveal

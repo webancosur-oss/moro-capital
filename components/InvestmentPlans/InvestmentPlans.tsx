@@ -9,14 +9,10 @@ import styles from "./InvestmentPlans.module.css";
 
 export default function InvestmentPlans() {
   return (
-    <section
-      id="planes"
-      className={styles.plansSection}
-    >
-      <div className={styles.container}>
+    <section id="planes" className={styles.plansSection}>
+      <div className="container">
         <Reveal className={styles.header}>
           <div className={styles.headerMain}>
-
             <h2>
               Una alternativa para
               <br />
@@ -68,9 +64,7 @@ export default function InvestmentPlans() {
               <Reveal
                 key={plan.id}
                 className={`${styles.planCard} ${
-                  featured
-                    ? styles.planCardFeatured
-                    : ""
+                  featured ? styles.planCardFeatured : ""
                 }`}
                 delay={index * 0.08}
               >
@@ -122,9 +116,7 @@ export default function InvestmentPlans() {
                   <div className={styles.detail}>
                     <span>TICKET MÍNIMO</span>
 
-                    <strong>
-                      S/ 10,000
-                    </strong>
+                    <strong>S/ 10,000</strong>
                   </div>
                 </div>
 
@@ -136,9 +128,7 @@ export default function InvestmentPlans() {
 
                   <div className={styles.infoRow}>
                     <span>PAGO DE UTILIDAD</span>
-                    <strong>
-                      Al cumplimiento del plazo
-                    </strong>
+                    <strong>Al cumplimiento del plazo</strong>
                   </div>
 
                   <div className={styles.infoRow}>
@@ -152,20 +142,14 @@ export default function InvestmentPlans() {
                 <div className={styles.cardBottom}>
                   <div className={styles.bottomLabel}>
                     <span>CONDICIONES CONTRACTUALES</span>
-                    <small>
-                      Consulta disponibilidad
-                    </small>
+                    <small>Consulta disponibilidad</small>
                   </div>
 
                   <Button
                     href="#formulario"
                     text="Consultar inversión"
                     suffixIcon="arrow-up-right"
-                    variant={
-                      featured
-                        ? "light"
-                        : "outline"
-                    }
+                    variant={featured ? "light" : "outline"}
                     size="sm"
                     className={styles.planButton}
                     ariaLabel={`Consultar inversión ${plan.name}`}

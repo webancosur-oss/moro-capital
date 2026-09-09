@@ -6,6 +6,7 @@ import "./globals.css";
 
 import FloatingActions from "@/components/FloatingActions";
 import InvestorNavbar from "@/components/Navbar/InvestorNavbar";
+import InvestorFooter from "@/components/InvestorFooter/InvestorFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,8 @@ export default function RootLayout({
       <body>
 
         {children}
-              <InvestorNavbar />
+      <InvestorNavbar />
+      <InvestorFooter />
 
         <FloatingActions />
       </body>

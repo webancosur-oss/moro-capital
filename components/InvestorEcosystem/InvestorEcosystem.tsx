@@ -41,9 +41,6 @@ export default function InvestorEcosystem() {
         <div className={styles.flow}>
           {holding && (
             <Reveal className={styles.holding}>
-              <div className={styles.holdingLabel}>
-                HOLDING
-              </div>
 
               <div className={styles.holdingMain}>
                 <div className={styles.holdingBrand}>
@@ -85,9 +82,6 @@ export default function InvestorEcosystem() {
 
                 <div className={styles.brandCard}>
                   <div className={styles.brandTop}>
-                    <span className={styles.brandNumber}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
 
                     <span className={styles.brandLine} />
                   </div>

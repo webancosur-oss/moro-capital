@@ -1,9 +1,4 @@
-/* =========================================================
-   INVESTOR NAVBAR
-   Desktop / Tablet / Mobile
-   ========================================================= */
-
-.investorNavbar {
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,641 +7,517 @@
   width: 100%;
   height: var(--moro-nav-height);
 
-  background: rgba(247, 245, 239, 0.96);
+  background: rgba(247, 245, 239, 0.97);
+  color: var(--moro-text);
+
   border-bottom: 1px solid transparent;
+
+  transition:
+    background 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease,
+    backdrop-filter 280ms ease;
+}
+
+.navbarScrolled {
+  background: rgba(247, 245, 239, 0.9);
+  border-bottom-color: var(--moro-line-light);
+
+  box-shadow: 0 8px 30px rgba(32, 37, 31, 0.07);
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-
-  transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    height 0.3s ease;
 }
 
-/* =========================================================
-   NAVBAR SCROLLED
-   ========================================================= */
+.navbarInner {
+  position: relative;
 
-.investorNavbarScrolled {
-  background: rgba(247, 245, 239, 0.94);
-  border-bottom-color: var(--moro-line);
-
-  box-shadow:
-    0 8px 30px rgba(32, 37, 31, 0.06);
-}
-
-/* =========================================================
-   CONTAINER
-   ========================================================= */
-
-.investorContainer {
-  width: min(
-    calc(100% - 64px),
-    var(--moro-container)
-  );
-
-  margin: 0 auto;
-}
-
-/* =========================================================
-   INNER
-   ========================================================= */
-
-.investorNavbarInner {
   height: 100%;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
-  gap: 40px;
+  gap: 28px;
 }
 
-/* =========================================================
-   LOGO
-   ========================================================= */
-
-.investorNavbarLogo {
-  flex: 0 0 auto;
+.logo {
+  position: relative;
 
   display: inline-flex;
   align-items: center;
 
+  flex: 0 0 auto;
+
   text-decoration: none;
-
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
 }
 
-.investorNavbarLogo:hover {
-  opacity: 0.82;
-}
-
-.investorNavbarLogo:focus-visible {
-  outline: 2px solid var(--moro-olive);
-  outline-offset: 5px;
-}
-
-.investorNavbarLogo img {
+.logo img {
   display: block;
 
   width: 150px;
   height: auto;
-
-  object-fit: contain;
 }
 
-/* =========================================================
+/* =========================
    DESKTOP NAVIGATION
-   ========================================================= */
+========================= */
 
-.investorNavbarLinks {
-  flex: 1;
-
+.navigation {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: clamp(22px, 2.2vw, 38px);
+  gap: clamp(14px, 1.45vw, 26px);
+
+  min-width: 0;
+  margin-left: auto;
 }
 
-.investorNavbarLinks a {
+.navigation a {
   position: relative;
 
   display: inline-flex;
   align-items: center;
 
-  height: 82px;
+  height: var(--moro-nav-height);
 
   color: var(--moro-text-secondary);
 
-  font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 0.78rem;
   font-weight: 500;
   line-height: 1;
-
-  letter-spacing: 0.01em;
 
   text-decoration: none;
   white-space: nowrap;
 
   transition:
-    color 0.25s ease;
+    color 200ms ease,
+    transform 200ms ease;
 }
 
-.investorNavbarLinks a::after {
+.navigation a::after {
   content: "";
 
   position: absolute;
-  left: 0;
-  bottom: 24px;
 
-  width: 100%;
-  height: 1px;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+
+  width: 0;
+  height: 2px;
+
+  margin: auto;
+
+  border-radius: 999px;
 
   background: var(--moro-olive);
 
-  transform: scaleX(0);
-  transform-origin: right;
+  opacity: 0;
+
+  transform-origin: center;
 
   transition:
-    transform 0.3s ease;
+    width 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease;
 }
 
-.investorNavbarLinks a:hover {
+.navigation a:hover {
   color: var(--moro-text);
 }
 
-.investorNavbarLinks a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+.navigation a:hover::after {
+  width: 100%;
+  opacity: 0.7;
 }
 
-.investorNavbarLinks a:focus-visible {
-  outline: 2px solid var(--moro-olive);
-  outline-offset: 5px;
+/* ACTIVO */
+
+.navigation a.active {
+  color: var(--moro-forest);
+
+  font-weight: 650;
 }
 
-/* =========================================================
-   ACTIONS
-   ========================================================= */
+.navigation a.active::after {
+  width: 100%;
+  opacity: 1;
 
-.investorNavbarActions {
+  background: var(--moro-olive);
+
+  box-shadow:
+    0 0 0 1px rgba(125, 135, 104, 0.08),
+    0 0 10px rgba(125, 135, 104, 0.28);
+}
+
+/* =========================
+   DESKTOP CTA
+========================= */
+
+.desktopCta {
   flex: 0 0 auto;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* =========================================================
-   PRIMARY BUTTON
-   ========================================================= */
-
-.investorButton {
-  min-height: 42px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 9px;
 
-  padding: 0 20px;
-
-  border: 1px solid var(--moro-forest);
-  border-radius: var(--radius-small);
+  min-height: 42px;
+  padding: 0 17px;
 
   background: var(--moro-forest);
   color: var(--moro-ivory);
 
-  font-family: var(--font-body);
-  font-size: 12px;
+  border: 1px solid var(--moro-forest);
+
+  border-radius: var(--radius-small);
+
+  font-size: 0.74rem;
   font-weight: 600;
   line-height: 1;
-
-  letter-spacing: 0.02em;
 
   text-decoration: none;
   white-space: nowrap;
 
   transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    background 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
-.investorButton:hover {
-  background: var(--moro-olive-dark);
-  border-color: var(--moro-olive-dark);
+.desktopCta:hover {
+  background: var(--moro-forest-dark);
+  border-color: var(--moro-forest-dark);
 
-  color: var(--moro-white);
+  transform: translateY(-2px);
 
-  transform: translateY(-1px);
-
-  box-shadow:
-    0 8px 22px rgba(32, 37, 31, 0.12);
+  box-shadow: 0 10px 24px rgba(32, 37, 31, 0.13);
 }
 
-.investorButton:active {
-  transform: translateY(0);
+.desktopCta svg {
+  transition: transform 220ms ease;
 }
 
-.investorButton:focus-visible {
-  outline: 2px solid var(--moro-olive);
-  outline-offset: 4px;
+.desktopCta:hover svg {
+  transform: translate(2px, -2px);
 }
 
-/* =========================================================
-   MOBILE MENU BUTTON
-   ========================================================= */
+/* =========================
+   MENU BUTTON
+========================= */
 
-.investorMenuButton {
+.menuButton {
   display: none;
 
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
 
   align-items: center;
   justify-content: center;
 
-  padding: 0;
-
-  border: 1px solid var(--moro-line);
-  border-radius: 50%;
+  margin-left: auto;
 
   background: transparent;
-  color: var(--moro-text);
+  color: var(--moro-forest);
+
+  border: 1px solid var(--moro-line);
+
+  border-radius: var(--radius-small);
 
   cursor: pointer;
 
   transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
+    background 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
 }
 
-.investorMenuButton:hover {
-  background: var(--moro-forest);
-  border-color: var(--moro-forest);
-  color: var(--moro-ivory);
-}
-
-.investorMenuButton:active {
-  transform: scale(0.96);
-}
-
-.investorMenuButton:focus-visible {
-  outline: 2px solid var(--moro-olive);
-  outline-offset: 4px;
-}
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-.investorMobileMenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  width: 100%;
-
-  overflow: hidden;
-
-  background: rgba(247, 245, 239, 0.98);
-  border-top: 1px solid var(--moro-line);
-  border-bottom: 1px solid var(--moro-line);
-
-  opacity: 0;
-  visibility: hidden;
-
-  transform: translateY(-10px);
-
-  pointer-events: none;
-
-  transition:
-    opacity 0.25s ease,
-    visibility 0.25s ease,
-    transform 0.25s ease;
-}
-
-.investorMobileMenuOpen {
-  opacity: 1;
-  visibility: visible;
-
-  transform: translateY(0);
-
-  pointer-events: auto;
-}
-
-/* =========================================================
-   MOBILE MENU INNER
-   ========================================================= */
-
-.investorMobileMenuInner {
-  display: flex;
-  flex-direction: column;
-
-  padding-top: 12px;
-  padding-bottom: 20px;
-}
-
-.investorMobileMenuInner a {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-
-  min-height: 52px;
-
-  padding: 0 4px;
-
-  color: var(--moro-text-secondary);
-
-  border-bottom: 1px solid var(--moro-line-light);
-
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-
-  text-decoration: none;
-
-  transition:
-    color 0.2s ease,
-    padding-left 0.25s ease;
-}
-
-.investorMobileMenuInner a:hover {
-  color: var(--moro-text);
-
-  padding-left: 8px;
-}
-
-.investorMobileMenuInner a:last-child {
-  border-bottom: 0;
-}
-
-/* =========================================================
-   MOBILE CONTACT
-   ========================================================= */
-
-.investorMobileMenuContact {
-  justify-content: center;
-
-  margin-top: 14px;
-
-  min-height: 48px !important;
-
-  padding: 0 18px !important;
-
-  border: 1px solid var(--moro-forest) !important;
-  border-radius: var(--radius-small);
-
-  background: var(--moro-forest);
-
-  color: var(--moro-ivory) !important;
-
-  font-size: 12px !important;
-  font-weight: 600 !important;
-
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease !important;
-}
-
-.investorMobileMenuContact:hover {
-  padding-left: 18px !important;
-
-  background: var(--moro-olive-dark);
-
-  border-color: var(--moro-olive-dark) !important;
-
-  color: var(--moro-white) !important;
+.menuButton:hover {
+  background: var(--moro-sand);
+  border-color: var(--moro-olive);
 
   transform: translateY(-1px);
 }
 
-/* =========================================================
-   FOCUS
-   ========================================================= */
+/* =========================
+   MOBILE MENU
+========================= */
 
-.investorMobileMenuInner a:focus-visible {
-  outline: 2px solid var(--moro-olive);
-  outline-offset: 3px;
+.mobileMenu {
+  position: fixed;
+
+  top: var(--moro-nav-height);
+  left: 0;
+
+  width: 100%;
+  height: calc(100dvh - var(--moro-nav-height));
+
+  background: var(--moro-ivory);
+
+  border-top: 1px solid var(--moro-line);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(-10px);
+
+  transition:
+    opacity 220ms ease,
+    visibility 220ms ease,
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* =========================================================
-   TABLET
-   1199px
-   ========================================================= */
+.mobileMenuOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 
-@media (max-width: 1199px) {
-  .investorContainer {
-    width: min(
-      calc(100% - 48px),
-      var(--moro-container)
-    );
+  transform: translateY(0);
+}
+
+.mobileMenuInner {
+  width: 100%;
+  max-height: 100%;
+
+  padding: 22px 20px 30px;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.mobileNavigation {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.mobileNavigation a {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 8px;
+
+  align-items: center;
+
+  min-height: 56px;
+
+  padding: 0 15px;
+
+  color: var(--moro-text-secondary);
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+
+  text-decoration: none;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.mobileNavigation a:hover {
+  background: rgba(221, 215, 200, 0.42);
+
+  color: var(--moro-text);
+
+  transform: translateX(3px);
+}
+
+.mobileNumber {
+  color: var(--moro-taupe);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+
+  transition: color 180ms ease;
+}
+
+.mobileLabel {
+  font-size: 0.92rem;
+  font-weight: 500;
+
+  transition: color 180ms ease;
+}
+
+.mobileIndicator {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+/* ACTIVO MOBILE */
+
+.mobileNavigation a.mobileActive {
+  background: var(--moro-forest);
+  color: var(--moro-ivory);
+
+  border-color: var(--moro-forest);
+
+  transform: translateX(0);
+
+  box-shadow: 0 8px 22px rgba(32, 37, 31, 0.1);
+}
+
+.mobileNavigation a.mobileActive .mobileNumber {
+  color: var(--moro-olive);
+  font-weight: 600;
+}
+
+.mobileNavigation a.mobileActive .mobileLabel {
+  color: var(--moro-ivory);
+  font-weight: 600;
+}
+
+.mobileNavigation a.mobileActive .mobileIndicator {
+  background: var(--moro-olive);
+
+  box-shadow: 0 0 8px rgba(125, 135, 104, 0.5);
+
+  transform: scale(1.15);
+}
+
+/* =========================
+   MOBILE CTA
+========================= */
+
+.mobileCta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  min-height: 54px;
+
+  margin-top: 20px;
+  padding: 0 17px;
+
+  background: var(--moro-forest-dark);
+  color: var(--moro-ivory);
+
+  border-radius: var(--radius-small);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.mobileCta:hover {
+  background: var(--moro-forest);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+
+@media (max-width: 1100px) {
+  .navbarInner {
+    gap: 18px;
   }
 
-  .investorNavbarInner {
-    gap: 24px;
+  .navigation {
+    gap: 12px;
   }
 
-  .investorNavbarLinks {
-    gap: 20px;
+  .navigation a {
+    font-size: 0.72rem;
   }
 
-  .investorNavbarLinks a {
-    font-size: 12px;
-  }
+  .desktopCta {
+    padding: 0 13px;
 
-  .investorNavbarLogo img {
-    width: 138px;
-  }
-
-  .investorButton {
-    padding: 0 17px;
-
-    font-size: 11px;
+    font-size: 0.7rem;
   }
 }
 
-/* =========================================================
-   TABLET
-   960px
-   ========================================================= */
-
-@media (max-width: 960px) {
-  .investorNavbar {
-    height: 74px;
+@media (max-width: 900px) {
+  .navbar {
+    height: 72px;
   }
 
-  .investorNavbarInner {
-    gap: 20px;
+  .navbarScrolled {
+    background: rgba(247, 245, 239, 0.94);
   }
 
-  .investorNavbarLinks {
-    gap: 15px;
+  .navbarInner {
+    height: 72px;
   }
 
-  .investorNavbarLinks a {
-    font-size: 11px;
+  .logo img {
+    width: 135px;
   }
 
-  .investorNavbarLinks a::after {
-    bottom: 21px;
-  }
-
-  .investorNavbarLogo img {
-    width: 128px;
-  }
-
-  .investorButton {
-    min-height: 40px;
-
-    padding: 0 15px;
-
-    font-size: 10.5px;
-  }
-}
-
-/* =========================================================
-   MOBILE
-   768px
-   ========================================================= */
-
-@media (max-width: 768px) {
-  .investorNavbar {
-    height: 70px;
-  }
-
-  .investorContainer {
-    width: calc(100% - 40px);
-  }
-
-  .investorNavbarInner {
-    gap: 0;
-  }
-
-  .investorNavbarLogo img {
-    width: 128px;
-  }
-
-  /* Ocultar navegación desktop */
-  .investorNavbarLinks {
+  .navigation,
+  .desktopCta {
     display: none;
   }
 
-  /* Ocultar CTA desktop */
-  .investorNavbarActions {
-    display: none;
-  }
-
-  /* Mostrar menú */
-  .investorMenuButton {
+  .menuButton {
     display: inline-flex;
   }
-}
 
-/* =========================================================
-   MOBILE
-   640px
-   ========================================================= */
-
-@media (max-width: 640px) {
-  .investorNavbar {
-    height: 68px;
-  }
-
-  .investorContainer {
-    width: calc(100% - 32px);
-  }
-
-  .investorNavbarLogo img {
-    width: 122px;
-  }
-
-  .investorMenuButton {
-    width: 42px;
-    height: 42px;
-  }
-
-  .investorMobileMenuInner {
-    padding-top: 8px;
-    padding-bottom: 18px;
-  }
-
-  .investorMobileMenuInner a {
-    min-height: 50px;
-
-    font-size: 13px;
+  .mobileMenu {
+    top: 72px;
+    height: calc(100dvh - 72px);
   }
 }
 
-/* =========================================================
-   SMALL MOBILE
-   480px
-   ========================================================= */
-
-@media (max-width: 480px) {
-  .investorNavbar {
-    height: 64px;
+@media (max-width: 560px) {
+  .navbarInner {
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
-  .investorContainer {
-    width: calc(100% - 28px);
+  .logo img {
+    width: 128px;
   }
 
-  .investorNavbarLogo img {
-    width: 112px;
+  .mobileMenuInner {
+    padding: 16px 16px 24px;
   }
 
-  .investorMenuButton {
-    width: 40px;
-    height: 40px;
+  .mobileNavigation a {
+    min-height: 54px;
+    padding: 0 13px;
   }
 
-  .investorMobileMenuInner {
-    padding-bottom: 16px;
-  }
-
-  .investorMobileMenuInner a {
-    min-height: 48px;
-
-    font-size: 13px;
-  }
-
-  .investorMobileMenuContact {
-    min-height: 46px !important;
+  .mobileLabel {
+    font-size: 0.88rem;
   }
 }
-
-/* =========================================================
-   EXTRA SMALL MOBILE
-   360px
-   ========================================================= */
-
-@media (max-width: 360px) {
-  .investorContainer {
-    width: calc(100% - 24px);
-  }
-
-  .investorNavbarLogo img {
-    width: 104px;
-  }
-
-  .investorMenuButton {
-    width: 38px;
-    height: 38px;
-  }
-
-  .investorMobileMenuInner a {
-    min-height: 46px;
-
-    font-size: 12px;
-  }
-}
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .investorNavbar,
-  .investorNavbarLogo,
-  .investorNavbarLinks a,
-  .investorNavbarLinks a::after,
-  .investorButton,
-  .investorMenuButton,
-  .investorMobileMenu,
-  .investorMobileMenuInner a,
-  .investorMobileMenuContact {
+  .navbar,
+  .navigation a,
+  .navigation a::after,
+  .desktopCta,
+  .desktopCta svg,
+  .menuButton,
+  .mobileMenu,
+  .mobileNavigation a,
+  .mobileNumber,
+  .mobileLabel,
+  .mobileIndicator,
+  .mobileCta {
     transition: none;
   }
 }
