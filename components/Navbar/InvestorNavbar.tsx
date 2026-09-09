@@ -337,8 +337,7 @@ export default function InvestorNavbar() {
         {/* CTA DESKTOP */}
 
         <a
-          href={`https://wa.me/${CONTACT.whatsappMessage}`}
-          target="_blank"
+          href="#formulario"
           rel="noopener noreferrer"
           className={
             styles.desktopCta

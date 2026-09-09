@@ -31,6 +31,8 @@ type Project = {
   image: string;
 };
 
+const AUTOPLAY_INTERVAL = 3000;
+
 const projects: Project[] = [
   {
     id: "sanCarlos",
@@ -42,21 +44,21 @@ const projects: Project[] = [
   {
     id: "moro416",
     name: "MORO 416",
-    location: "TAMBO",
+    location: "HUANCAYO",
     image:
       "/assets/inversionistas/projects/moro416_tower.webp",
   },
   {
     id: "eterna",
     name: "NEO ETERNA",
-    location: "HUANCAYO",
+    location: "SAN ANTONIO",
     image:
       "/assets/inversionistas/projects/neo_eterna_tower.webp",
   },
   {
     id: "rivera",
     name: "NEO RIVERA",
-    location: "RIBERA",
+    location: "LA RIBERA",
     image:
       "/assets/inversionistas/projects/neo_rivera_tower.webp",
   },
@@ -70,6 +72,9 @@ export default function InvestmentProof() {
     useState<ProjectId>("moro416");
 
   const [isDragging, setIsDragging] =
+    useState(false);
+
+  const [isHovered, setIsHovered] =
     useState(false);
 
   const dragStartX = useRef<number | null>(null);
@@ -142,6 +147,26 @@ export default function InvestmentProof() {
       );
     };
   }, [goNext, goPrevious]);
+
+  /*
+   * ========================================================
+   * AUTOPLAY
+   * ========================================================
+   */
+
+  useEffect(() => {
+    if (isHovered || isDragging) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      goNext();
+    }, AUTOPLAY_INTERVAL);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [goNext, isDragging, isHovered]);
 
   /*
    * ========================================================
@@ -275,15 +300,6 @@ export default function InvestmentProof() {
               styles.contentInner
             }
           >
-
-            <p
-              className={
-                styles.investorEyebrow
-              }
-            >
-              INVERSIÓN INMOBILIARIA
-            </p>
-
             <h2
               className={
                 styles.investorProofTitle
@@ -477,6 +493,8 @@ export default function InvestmentProof() {
                   : ""
               }
             `}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
 
             {projects.map(
