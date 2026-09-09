@@ -467,19 +467,6 @@ export default function InvestmentProof() {
           />
 
 
-          <div
-            className={styles.portfolioLabel}
-          >
-            <span>PORTAFOLIO</span>
-
-            <strong>
-              REAL ESTATE
-            </strong>
-
-            <i aria-hidden="true" />
-          </div>
-
-
           {/* ==================================================
               SLIDER
           ================================================== */}
