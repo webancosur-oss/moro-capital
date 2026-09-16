@@ -1,0 +1,777 @@
+.market {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #092328;
+
+  padding: 145px 0 150px;
+}
+
+
+/* =========================================
+   INTRODUCCIÓN
+========================================= */
+
+.introduction {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(300px, 0.65fr);
+
+  gap: 90px;
+
+  align-items: end;
+
+  margin-bottom: 75px;
+}
+
+.introContent {
+  max-width: 900px;
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.title {
+  margin: 0;
+
+  color: #ffffff;
+
+font-size:
+    clamp(58px, 6.8vw, 100px);
+
+  font-weight: 400;
+
+  letter-spacing: -0.065em;
+
+  line-height: 0.91;
+}
+
+.title strong {
+  font-weight: 700;
+}
+
+
+/* =========================================
+   ACENTO
+========================================= */
+
+.accent {
+  width: 65px;
+  height: 5px;
+
+  margin-top: 30px;
+
+  background: #8bbb92;
+}
+
+
+/* =========================================
+   COPY
+========================================= */
+
+.copy {
+  max-width: 430px;
+
+  margin-left: auto;
+}
+
+.copy p {
+  margin: 0 0 17px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+font-size: 15px;
+
+  line-height: 1.8;
+}
+
+.copy p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   MARKET VISUAL
+========================================= */
+
+.marketVisual {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.65fr)
+    minmax(280px, 0.35fr);
+
+  min-height: 520px;
+
+  margin-bottom: 75px;
+}
+
+
+/* =========================================
+   IMAGEN
+========================================= */
+
+.visualImage {
+  position: relative;
+
+  min-height: 520px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+.visualImage img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  z-index: 1;
+
+  transform: scale(1.01);
+
+  transition:
+    transform 1.2s
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visualImage:hover img {
+  transform: scale(1.045);
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.visualOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(9, 35, 40, 0.04) 15%,
+      rgba(9, 35, 40, 0.18) 55%,
+      rgba(9, 35, 40, 0.82) 100%
+    );
+}
+
+
+/* =========================================
+   TEXTO IMAGEN
+========================================= */
+
+.visualContent {
+  position: absolute;
+
+  left: 48px;
+  bottom: 45px;
+
+  z-index: 4;
+}
+
+.visualContent span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.visualContent h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+font-size:
+    clamp(36px, 4vw, 58px);
+
+  font-weight: 400;
+
+  letter-spacing: -0.05em;
+
+  line-height: 0.98;
+}
+
+
+/* =========================================
+   DATO DESTACADO
+========================================= */
+
+.visualData {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 45px 40px;
+
+  background: #2a835f;
+
+  color: #ffffff;
+}
+
+.dataNumber {
+  margin-bottom: 13px;
+
+font-size:
+    clamp(38px, 4vw, 58px);
+
+  font-weight: 400;
+
+  letter-spacing: -0.05em;
+
+  line-height: 1;
+}
+
+.dataText strong {
+  display: block;
+
+  margin-bottom: 15px;
+
+font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+.dataText p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+
+font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   INSIGHTS
+========================================= */
+
+.insights {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  margin-bottom: 90px;
+
+  background:
+    rgba(255, 255, 255, 0.13);
+}
+
+.insightReveal {
+  height: 100%;
+}
+
+.insight {
+  position: relative;
+
+  min-height: 330px;
+
+  padding: 30px;
+
+  background: #092328;
+
+  transition:
+    background 0.4s ease;
+}
+
+.insight:hover {
+  background: #12544f;
+}
+
+
+/* =========================================
+   TOP
+========================================= */
+
+.insightTop {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 35px;
+}
+
+.icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+
+  color: #8bbb92;
+
+  border:
+    1px solid
+    rgba(139, 187, 146, 0.35);
+
+  border-radius: 50%;
+}
+
+.index {
+  color:
+    rgba(255, 255, 255, 0.35);
+
+font-size: 10px;
+
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================================
+   NÚMERO
+========================================= */
+
+.insightNumber {
+  margin-bottom: 5px;
+
+  color: #ffffff;
+
+font-size: 42px;
+
+  font-weight: 400;
+
+  letter-spacing: -0.045em;
+
+  line-height: 1;
+}
+
+.insightLabel {
+  display: block;
+
+  margin-bottom: 28px;
+
+  color: #8bbb92;
+
+font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   INSIGHT TITLE
+========================================= */
+
+.insight h3 {
+  margin: 0 0 10px;
+
+  color: #ffffff;
+
+font-size: 23px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.025em;
+
+  line-height: 1.05;
+}
+
+.insight p {
+  max-width: 350px;
+
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.58);
+
+font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.cta {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 50px;
+
+  padding-top: 60px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+}
+
+.ctaText h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+font-size:
+    clamp(35px, 4vw, 56px);
+
+  font-weight: 400;
+
+  letter-spacing: -0.05em;
+
+  line-height: 0.98;
+}
+
+.ctaText strong {
+  font-weight: 700;
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+.button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  flex-shrink: 0;
+
+  padding:
+    7px 7px
+    7px 20px;
+
+  color: #ffffff;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.25);
+
+  border-radius: 100px;
+
+  background: transparent;
+
+font-size: 12px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.button:hover {
+  color: #092328;
+
+  background: #8bbb92;
+
+  border-color: #8bbb92;
+}
+
+.buttonIcon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: #2a835f;
+
+  color: #ffffff;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.button:hover .buttonIcon {
+  color: #092328;
+
+  background: #ffffff;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .market {
+    padding:
+      110px 0
+      130px;
+  }
+
+  .introduction {
+    gap: 55px;
+
+    margin-bottom: 65px;
+  }
+
+  .marketVisual {
+    grid-template-columns:
+      minmax(0, 1.4fr)
+      minmax(260px, 0.6fr);
+
+    min-height: 470px;
+  }
+
+  .visualImage {
+    min-height: 470px;
+  }
+
+  .insights {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================
+   TABLET SMALL
+========================================= */
+
+@media (max-width: 850px) {
+
+  .market {
+    padding:
+      90px 0
+      110px;
+  }
+
+  .introduction {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+
+    margin-bottom: 55px;
+  }
+
+  .copy {
+    margin-left: 0;
+
+    max-width: 650px;
+  }
+
+  .marketVisual {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .visualImage {
+    min-height: 450px;
+  }
+
+  .visualData {
+    min-height: 230px;
+
+    padding: 40px;
+  }
+
+  .insights {
+    grid-template-columns: 1fr;
+  }
+
+  .insight {
+    min-height: auto;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .market {
+    padding:
+      70px 0
+      80px;
+  }
+
+  .introduction {
+    gap: 25px;
+
+    margin-bottom: 42px;
+  }
+
+  .title {
+    font-size:
+      clamp(46px, 13vw, 64px);
+
+    line-height: 0.94;
+  }
+
+  .accent {
+    width: 50px;
+    height: 5px;
+
+    margin-top: 25px;
+  }
+
+  .copy p {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+
+  /* VISUAL */
+
+  .marketVisual {
+    margin-bottom: 55px;
+  }
+
+  .visualImage {
+    min-height: 390px;
+  }
+
+  .visualContent {
+    left: 22px;
+    right: 20px;
+    bottom: 25px;
+  }
+
+  .visualContent span {
+    margin-bottom: 10px;
+
+    font-size: 8px;
+  }
+
+  .visualContent h3 {
+    font-size: 32px;
+  }
+
+  .visualData {
+    min-height: 220px;
+
+    padding: 30px 24px;
+  }
+
+  .dataNumber {
+    font-size: 43px;
+  }
+
+
+  /* INSIGHTS */
+
+  .insights {
+    margin-bottom: 60px;
+  }
+
+  .insight {
+    padding: 27px 23px;
+  }
+
+  .insightTop {
+    margin-bottom: 28px;
+  }
+
+  .insightNumber {
+    font-size: 38px;
+  }
+
+  .insightLabel {
+    margin-bottom: 23px;
+  }
+
+
+  /* CTA */
+
+  .cta {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 30px;
+
+    padding-top: 45px;
+  }
+
+  .ctaText h3 {
+    font-size: 34px;
+  }
+
+  .button {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================
+   MOBILE SMALL
+========================================= */
+
+@media (max-width: 400px) {
+
+  .market {
+    padding:
+      65px 0
+      75px;
+  }
+
+  .title {
+    font-size: 43px;
+  }
+
+  .visualImage {
+    min-height: 365px;
+  }
+
+  .visualContent h3 {
+    font-size: 29px;
+  }
+
+  .dataNumber {
+    font-size: 39px;
+  }
+}

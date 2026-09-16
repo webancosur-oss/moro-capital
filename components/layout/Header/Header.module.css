@@ -1,0 +1,745 @@
+/* =========================================================
+   MORO CAPITAL — HEADER
+========================================================= */
+
+.header {
+  position: fixed;
+
+  top: 14px;
+  left: 0;
+  right: 0;
+
+  z-index: 1000;
+
+  width: calc(100% - 110px);
+  max-width: 1790px;
+
+  margin-inline: auto;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+  position: relative;
+
+  z-index: 30;
+
+  display: flex;
+
+  align-items: center;
+
+  min-height: 104px;
+
+  padding: 0 62px;
+
+  border-radius: 22px;
+
+  background: #1b1b1b;
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.18);
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+  display: flex;
+
+  align-items: center;
+
+  flex-shrink: 0;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.25s ease;
+}
+
+.logo:hover {
+  opacity: 0.78;
+}
+
+.logoImage {
+  display: block;
+
+  width: 160px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.navigation {
+  display: flex;
+
+  align-items: center;
+
+  gap: 32px;
+
+  margin-left: auto;
+}
+
+.navLink {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 0;
+
+  color: rgba(255, 255, 255, 0.48);
+
+font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease;
+}
+
+.navLink:hover {
+  color: #ffffff;
+}
+
+.navLinkActive {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   ACTIVE DOT
+========================================================= */
+
+.activeDot {
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #8bbb92;
+
+  box-shadow:
+    0 0 0 3px rgba(139, 187, 146, 0.08);
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
+
+.menuButton {
+  display: none;
+
+  position: relative;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+
+  margin-left: auto;
+
+  padding: 0;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.13);
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.menuButton:hover {
+  background: rgba(255, 255, 255, 0.06);
+
+  border-color:
+    rgba(139, 187, 146, 0.35);
+}
+
+.menuButtonOpen {
+  background: rgba(255, 255, 255, 0.06);
+
+  border-color:
+    rgba(139, 187, 146, 0.35);
+}
+
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.menuLines {
+  position: relative;
+
+  display: block;
+
+  width: 20px;
+  height: 14px;
+}
+
+.menuLines > span {
+  position: absolute;
+
+  left: 0;
+
+  width: 20px;
+  height: 1px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.menuLines > span:first-child {
+  top: 3px;
+}
+
+.menuLines > span:last-child {
+  bottom: 3px;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobileMenu {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 20;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.mobileMenuOpen {
+  visibility: visible;
+
+  pointer-events: auto;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MOBILE BACKDROP
+========================================================= */
+
+.mobileBackdrop {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  border: 0;
+
+  background:
+    rgba(0, 0, 0, 0.58);
+
+  cursor: default;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease;
+}
+
+.mobileMenuOpen .mobileBackdrop {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MOBILE PANEL
+========================================================= */
+
+.mobilePanel {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 25;
+
+  width: min(440px, 88vw);
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding:
+    105px
+    38px
+    35px;
+
+  background: #092328;
+
+  box-shadow:
+    -15px 0 50px rgba(0, 0, 0, 0.2);
+
+  transform: translateX(100%);
+
+  transition:
+    transform 0.4s cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+.mobileMenuOpen .mobilePanel {
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   MOBILE PANEL TOP
+========================================================= */
+
+.mobilePanelTop {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  margin-bottom: 45px;
+}
+
+.mobilePanelTop > span {
+  color: rgba(255, 255, 255, 0.45);
+
+font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+.mobileNavigation {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.mobileNavLink {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  min-height: 66px;
+
+  border-bottom: 1px solid
+    rgba(255, 255, 255, 0.1);
+
+  color: rgba(255, 255, 255, 0.57);
+
+font-size: 19px;
+
+  font-weight: 400;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    padding 0.25s ease;
+}
+
+.mobileNavLink:first-child {
+  border-top: 1px solid
+    rgba(255, 255, 255, 0.1);
+}
+
+.mobileNavLink:hover {
+  padding-left: 8px;
+
+  color: #ffffff;
+}
+
+.mobileNavLinkActive {
+  color: #ffffff;
+}
+
+.mobileNavLinkActive > span:first-child {
+  color: #8bbb92;
+}
+
+
+/* =========================================================
+   MOBILE ARROW
+========================================================= */
+
+.mobileNavArrow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 33px;
+  height: 33px;
+
+  border: 1px solid
+    rgba(139, 187, 146, 0.2);
+
+  border-radius: 50%;
+
+  color: #8bbb92;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.mobileNavLink:hover .mobileNavArrow {
+  background: #2a835f;
+
+  color: #ffffff;
+
+  transform:
+    translate(2px, -2px);
+}
+
+
+/* =========================================================
+   MOBILE BOTTOM
+========================================================= */
+
+.mobileBottom {
+  margin-top: auto;
+}
+
+.mobileBottom > p {
+  margin: 0 0 25px;
+
+  color: rgba(255, 255, 255, 0.38);
+
+font-size: 15px;
+
+  font-style: italic;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   MOBILE CTA
+========================================================= */
+
+.mobileCta {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  min-height: 56px;
+
+  padding:
+    0
+    9px
+    0
+    21px;
+
+  border-radius: 999px;
+
+  background: #2a835f;
+
+  color: #ffffff;
+
+font-size: 11px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.mobileCta:hover {
+  background: #347e62;
+
+  transform: translateY(-2px);
+}
+
+.mobileCtaIcon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (max-width: 1500px) {
+  .header {
+    width: calc(100% - 70px);
+  }
+
+  .container {
+    padding-inline: 48px;
+  }
+
+  .navigation {
+    gap: 25px;
+  }
+
+  .navLink {
+    font-size: 12px;
+  }
+
+  .logoImage {
+    width: 150px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .header {
+    width: calc(100% - 40px);
+
+    top: 10px;
+  }
+
+  .container {
+    min-height: 88px;
+
+    padding-inline: 35px;
+
+    border-radius: 19px;
+  }
+
+  .logoImage {
+    width: 145px;
+  }
+
+  .navigation {
+    gap: 19px;
+  }
+
+  .navLink {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+  .header {
+    width: calc(100% - 28px);
+
+    top: 10px;
+  }
+
+  .container {
+    min-height: 76px;
+
+    padding-inline: 25px;
+
+    border-radius: 17px;
+  }
+
+  .logoImage {
+    width: 140px;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .header {
+    width: calc(100% - 20px);
+
+    top: 8px;
+  }
+
+  .container {
+    min-height: 70px;
+
+    padding-inline: 19px;
+
+    border-radius: 16px;
+  }
+
+  .logoImage {
+    width: 125px;
+  }
+
+  .menuButton {
+    width: 42px;
+    height: 42px;
+  }
+
+  .mobilePanel {
+    width: 100%;
+
+    padding:
+      95px
+      24px
+      25px;
+  }
+
+  .mobilePanelTop {
+    margin-bottom: 32px;
+  }
+
+  .mobileNavLink {
+    min-height: 61px;
+
+    font-size: 18px;
+  }
+
+  .mobileBottom > p {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .container {
+    min-height: 66px;
+
+    padding-inline: 16px;
+  }
+
+  .logoImage {
+    width: 116px;
+  }
+
+  .menuButton {
+    width: 39px;
+    height: 39px;
+  }
+
+  .mobilePanel {
+    padding:
+      88px
+      20px
+      20px;
+  }
+
+  .mobileNavLink {
+    min-height: 56px;
+
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .navLink,
+  .mobileMenu,
+  .mobileBackdrop,
+  .mobilePanel,
+  .mobileNavLink,
+  .mobileNavArrow,
+  .mobileCta,
+  .menuButton {
+    transition: none;
+  }
+}

@@ -1,0 +1,1214 @@
+.page {
+  --dark: #092328;
+  --teal: #12544f;
+  --green: #2a835f;
+  --light-green: #8bbb92;
+  --soft: #f3f6f3;
+  --line: #dce5e0;
+  --gray: #657477;
+
+  width: 100%;
+  overflow: hidden;
+
+  background: #ffffff;
+  color: var(--dark);
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 790px;
+
+  display: flex;
+  align-items: center;
+
+  background: #ffffff;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+
+  align-items: center;
+
+  gap: 90px;
+
+  padding: 110px 0 120px;
+}
+
+.heroText {
+  position: relative;
+  z-index: 2;
+}
+
+.heroText h1 {
+  margin: 0;
+
+  color: var(--dark);
+
+font-size: clamp(72px, 8vw, 125px);
+  font-weight: 400;
+
+  line-height: 0.84;
+
+  letter-spacing: -0.07em;
+}
+
+.heroText h1 strong {
+  font-weight: 700;
+}
+
+.heroLine {
+  width: 68px;
+  height: 6px;
+
+  margin-top: 40px;
+
+  background: var(--green);
+}
+
+.heroText > p {
+  max-width: 500px;
+
+  margin: 55px 0 0;
+
+  color: var(--gray);
+
+font-size: 15px;
+
+  line-height: 1.8;
+}
+
+.heroVisual {
+  position: relative;
+
+  height: 600px;
+
+  overflow: hidden;
+}
+
+.heroVisual::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(9, 35, 40, 0.02),
+      rgba(9, 35, 40, 0.22)
+    );
+}
+
+.heroVisual img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heroVisual:hover img {
+  transform: scale(1.035);
+}
+
+.heroVisualText {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 30px;
+  bottom: 28px;
+}
+
+.heroVisualText span {
+  color: #ffffff;
+
+font-size: 21px;
+}
+
+.heroVisualText p {
+  margin: 5px 0 0;
+
+  color: rgba(255, 255, 255, 0.75);
+
+font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   WHO
+========================================================= */
+
+.who {
+  padding: 150px 0 135px;
+
+  background: var(--dark);
+  color: #ffffff;
+}
+
+.whoGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.whoTitle h2 {
+  margin: 0;
+
+font-size: clamp(58px, 6vw, 88px);
+  font-weight: 400;
+
+  line-height: 0.88;
+
+  letter-spacing: -0.065em;
+}
+
+.whoTitle h2 em {
+  color: var(--light-green);
+
+  font-style: italic;
+}
+
+.whoCopy {
+  max-width: 670px;
+}
+
+.whoCopy p {
+  margin: 0 0 25px;
+
+  color: rgba(255, 255, 255, 0.58);
+
+font-size: 14px;
+
+  line-height: 1.8;
+}
+
+.whoCopy .whoLead {
+  margin-bottom: 32px;
+
+  color: #ffffff;
+
+font-size: 24px;
+
+  line-height: 1.5;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 115px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.stat {
+  min-height: 170px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 25px 30px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.stat:last-child {
+  border-right: 0;
+}
+
+.stat strong {
+  color: var(--light-green);
+
+font-size: clamp(38px, 4vw, 56px);
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.stat span {
+  margin-top: 12px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.trust {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+
+  align-items: center;
+
+  gap: 40px;
+
+  margin-top: 50px;
+}
+
+.trustText {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.trustText span {
+  color: rgba(255, 255, 255, 0.45);
+
+font-size: 9px;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.trustText strong {
+  color: #ffffff;
+
+font-size: 22px;
+  font-weight: 400;
+}
+
+.trustDivider {
+  width: 1px;
+  height: 45px;
+
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.trust > p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.5);
+
+font-size: 12px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   MISSION / VISION
+========================================================= */
+
+.purpose {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  min-height: 850px;
+
+  background: var(--soft);
+}
+
+.purposeImage {
+  position: relative;
+
+  min-height: 850px;
+}
+
+.purposeImage::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(9, 35, 40, 0.1),
+      rgba(9, 35, 40, 0)
+    );
+}
+
+.purposeImage img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.purposeContent {
+  display: flex;
+  align-items: center;
+
+  padding: 100px 9vw 100px 8vw;
+}
+
+.purposeBlock {
+  max-width: 660px;
+}
+
+.purposeBlock h2 {
+  margin: 0 0 30px;
+
+  color: var(--dark);
+
+font-size: clamp(45px, 4.8vw, 68px);
+  font-weight: 400;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.06em;
+}
+
+.purposeBlock:first-child h2 {
+  color: var(--green);
+}
+
+.purposeMain {
+  margin: 0;
+
+  color: var(--dark);
+
+font-size: 22px;
+
+  line-height: 1.55;
+}
+
+.purposeSecondary {
+  max-width: 570px;
+
+  margin: 28px 0 0;
+
+  color: var(--gray);
+
+font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.purposeSeparator {
+  width: 100%;
+  height: 1px;
+
+  margin: 65px 0;
+
+  background: #d5dfda;
+}
+
+.visionWords {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px 35px;
+
+  margin-top: 35px;
+  padding-top: 25px;
+
+  border-top: 1px solid #d5dfda;
+}
+
+.visionWords span {
+  color: var(--green);
+
+font-size: 19px;
+}
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.values {
+  padding: 150px 0;
+
+  background: #ffffff;
+}
+
+.valuesHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 370px;
+
+  align-items: end;
+
+  gap: 90px;
+
+  margin-bottom: 80px;
+}
+
+.valuesHeader h2,
+.valuesHeader h3 {
+  margin: 0;
+
+font-weight: 400;
+  line-height: 0.87;
+
+  letter-spacing: -0.06em;
+}
+
+.valuesHeader h2 {
+  color: var(--dark);
+
+  font-size: clamp(53px, 5.8vw, 82px);
+}
+
+.valuesHeader h3 {
+  color: var(--dark);
+
+  font-size: clamp(53px, 5.8vw, 82px);
+}
+
+.valuesHeader h3 em {
+  color: var(--green);
+
+  font-style: italic;
+}
+
+.valuesHeader > p {
+  margin: 0;
+
+  color: var(--gray);
+
+font-size: 14px;
+
+  line-height: 1.8;
+}
+
+.valuesList {
+  border-top: 1px solid var(--line);
+}
+
+.valueRow {
+  display: grid;
+  grid-template-columns: 65px 260px minmax(0, 1fr) 30px;
+
+  align-items: center;
+
+  gap: 25px;
+
+  min-height: 135px;
+
+  padding: 22px 15px;
+
+  border-bottom: 1px solid var(--line);
+
+  transition:
+    background 0.35s ease,
+    padding 0.35s ease;
+}
+
+.valueRow:hover {
+  padding-left: 28px;
+  padding-right: 28px;
+
+  background: var(--soft);
+}
+
+.valueIcon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #edf4ef;
+  color: var(--teal);
+}
+
+.valueTitle h3 {
+  margin: 0;
+
+  color: var(--dark);
+
+font-size: 25px;
+
+  font-weight: 400;
+}
+
+.valueText p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: var(--gray);
+
+font-size: 12px;
+
+  line-height: 1.65;
+}
+
+.valueText span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--green);
+
+font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.valueArrow {
+  color: var(--green);
+
+  transition: transform 0.35s ease;
+}
+
+.valueRow:hover .valueArrow {
+  transform: rotate(45deg);
+}
+
+/* =========================================================
+   CULTURE
+========================================================= */
+
+.culture {
+  padding: 145px 0;
+
+  background: var(--soft);
+}
+
+.cultureGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 100px;
+}
+
+.cultureVisual {
+  height: 610px;
+
+  overflow: hidden;
+}
+
+.cultureVisual img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cultureVisual:hover img {
+  transform: scale(1.035);
+}
+
+.cultureText h2 {
+  margin: 0 0 40px;
+
+  color: var(--dark);
+
+font-size: clamp(58px, 6vw, 88px);
+
+  font-weight: 400;
+
+  line-height: 0.85;
+
+  letter-spacing: -0.065em;
+}
+
+.cultureText h2 em {
+  color: var(--green);
+
+  font-style: italic;
+}
+
+.cultureText p {
+  max-width: 570px;
+
+  margin: 0 0 20px;
+
+  color: var(--gray);
+
+font-size: 14px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   GROUP
+========================================================= */
+
+.group {
+  padding: 145px 0;
+
+  background: #ffffff;
+}
+
+.groupHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+
+  align-items: end;
+
+  gap: 80px;
+
+  margin-bottom: 75px;
+}
+
+.groupHeader h2 {
+  margin: 0;
+
+  color: var(--dark);
+
+font-size: clamp(58px, 6vw, 88px);
+
+  font-weight: 400;
+
+  line-height: 0.86;
+
+  letter-spacing: -0.065em;
+}
+
+.groupHeader h2 em {
+  color: var(--green);
+
+  font-style: italic;
+}
+
+.groupHeader > p {
+  margin: 0;
+
+  color: var(--gray);
+
+font-size: 14px;
+
+  line-height: 1.8;
+}
+
+.groupGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+}
+
+.groupCard {
+  min-height: 230px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 28px;
+
+  border: 1px solid var(--line);
+
+  background: #ffffff;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.groupCard:last-child {
+  grid-column: span 2;
+
+  min-height: 190px;
+}
+
+.groupCard:hover {
+  transform: translateY(-5px);
+
+  background: var(--soft);
+
+  box-shadow: 0 20px 50px rgba(9, 35, 40, 0.06);
+}
+
+.groupCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.groupIcon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #edf4ef;
+  color: var(--teal);
+}
+
+.groupCardTop > svg {
+  color: var(--green);
+}
+
+.groupCard h3 {
+  margin: 35px 0 9px;
+
+  color: var(--dark);
+
+font-size: 25px;
+
+  font-weight: 400;
+}
+
+.groupCard p {
+  max-width: 520px;
+
+  margin: 0;
+
+  color: var(--gray);
+
+font-size: 12px;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final {
+  min-height: 560px;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(9, 35, 40, 0.97),
+      rgba(18, 84, 79, 0.94)
+    );
+}
+
+.finalContent {
+  max-width: 900px;
+}
+
+.finalContent > p {
+  margin: 0 0 28px;
+
+  color: var(--light-green);
+
+font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.finalContent h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+font-size: clamp(65px, 7vw, 105px);
+
+  font-weight: 400;
+
+  line-height: 0.84;
+
+  letter-spacing: -0.065em;
+}
+
+.finalContent h2 em {
+  color: var(--light-green);
+
+  font-style: italic;
+}
+
+.finalButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 45px;
+
+  padding: 7px 7px 7px 22px;
+
+  border-radius: 50px;
+
+  background: #ffffff;
+  color: var(--dark);
+
+font-size: 11px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.finalButton span {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--green);
+  color: #ffffff;
+}
+
+.finalButton:hover {
+  transform: translateY(-3px);
+
+  background: var(--light-green);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .heroGrid {
+    gap: 50px;
+  }
+
+  .whoGrid {
+    gap: 60px;
+  }
+
+  .purpose {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .purposeContent {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+
+  .valueRow {
+    grid-template-columns: 55px 200px minmax(0, 1fr) 25px;
+  }
+}
+
+/* =========================================================
+   850
+========================================================= */
+
+@media (max-width: 850px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+
+    padding-top: 90px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .heroVisual {
+    height: 520px;
+  }
+
+  .whoGrid,
+  .cultureGrid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat:nth-child(2) {
+    border-right: 0;
+  }
+
+  .stat:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .purpose {
+    grid-template-columns: 1fr;
+  }
+
+  .purposeImage {
+    min-height: 500px;
+  }
+
+  .purposeContent {
+    padding: 90px 7vw;
+  }
+
+  .valuesHeader,
+  .groupHeader {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .valueRow {
+    grid-template-columns: 55px 1fr 25px;
+  }
+
+  .valueText {
+    grid-column: 2 / 4;
+  }
+
+  .valueTitle {
+    grid-column: 2;
+  }
+
+  .groupGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .groupCard:last-child {
+    grid-column: auto;
+  }
+
+  .cultureVisual {
+    height: 500px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .heroGrid {
+    padding: 80px 0 90px;
+  }
+
+  .heroText h1 {
+    font-size: 56px;
+  }
+
+  .heroText > p {
+    margin-top: 40px;
+
+    font-size: 14px;
+  }
+
+  .heroVisual {
+    height: 390px;
+  }
+
+  .who,
+  .purpose,
+  .values,
+  .culture,
+  .group {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .whoTitle h2,
+  .valuesHeader h2,
+  .valuesHeader h3,
+  .cultureText h2,
+  .groupHeader h2 {
+    font-size: 48px;
+  }
+
+  .whoCopy .whoLead {
+    font-size: 20px;
+  }
+
+  .stats {
+    margin-top: 70px;
+  }
+
+  .stat {
+    min-height: 135px;
+
+    padding: 20px;
+  }
+
+  .stat strong {
+    font-size: 38px;
+  }
+
+  .trust {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .trustDivider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .purposeImage {
+    min-height: 370px;
+  }
+
+  .purposeContent {
+    padding: 75px 25px;
+  }
+
+  .purposeBlock h2 {
+    font-size: 48px;
+  }
+
+  .purposeMain {
+    font-size: 20px;
+  }
+
+  .purposeSeparator {
+    margin: 50px 0;
+  }
+
+  .visionWords {
+    gap: 10px 22px;
+  }
+
+  .valueRow {
+    grid-template-columns: 50px 1fr 20px;
+
+    gap: 15px;
+
+    padding: 25px 0;
+  }
+
+  .valueIcon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .valueTitle h3 {
+    font-size: 22px;
+  }
+
+  .valueText {
+    grid-column: 2 / 4;
+  }
+
+  .valueText p {
+    font-size: 12px;
+  }
+
+  .valueArrow {
+    align-self: center;
+  }
+
+  .valueRow:hover {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .cultureVisual {
+    height: 370px;
+  }
+
+  .groupCard {
+    min-height: 210px;
+  }
+
+  .final {
+    min-height: 500px;
+  }
+
+  .finalContent h2 {
+    font-size: 55px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+  .heroText h1 {
+    font-size: 47px;
+  }
+
+  .heroVisual {
+    height: 320px;
+  }
+
+  .whoTitle h2,
+  .valuesHeader h2,
+  .valuesHeader h3,
+  .cultureText h2,
+  .groupHeader h2 {
+    font-size: 41px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .stat:last-child {
+    border-bottom: 0;
+  }
+
+  .purposeImage {
+    min-height: 300px;
+  }
+
+  .purposeBlock h2 {
+    font-size: 42px;
+  }
+
+  .finalContent h2 {
+    font-size: 47px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .heroVisual img,
+  .cultureVisual img,
+  .valueRow,
+  .valueArrow,
+  .groupCard,
+  .finalButton {
+    transition: none;
+  }
+
+  .heroVisual:hover img,
+  .cultureVisual:hover img,
+  .finalButton:hover {
+    transform: none;
+  }
+}

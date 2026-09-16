@@ -1,0 +1,297 @@
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.scrollIndicator {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: max-content;
+  min-width: 58px;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: var(--color-white);
+
+  transform: translateX(-50%);
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  transition:
+    opacity var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.scrollIndicator:hover {
+  opacity: 0.85;
+}
+
+.scrollIndicator:focus-visible {
+  outline: 2px solid var(--color-soft);
+  outline-offset: 8px;
+  border-radius: var(--radius-full);
+}
+
+
+/* =========================================================
+   CIRCLE
+   ========================================================= */
+
+.circle {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+
+  transition:
+    border-color var(--transition-normal),
+    transform var(--transition-normal),
+    background-color var(--transition-normal);
+}
+
+.scrollIndicator:hover .circle {
+  border-color: var(--color-soft);
+  background: rgba(255, 255, 255, 0.04);
+
+  transform: translateY(4px);
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.arrow {
+  display: block;
+
+  width: 12px;
+  height: 12px;
+
+  margin-top: -5px;
+
+  border-right: 1px solid var(--color-white);
+  border-bottom: 1px solid var(--color-white);
+
+  transform: rotate(45deg);
+
+  transition:
+    border-color var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.scrollIndicator:hover .arrow {
+  border-color: var(--color-soft);
+
+  transform:
+    rotate(45deg)
+    translate(2px, 2px);
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.label {
+  display: block;
+
+  margin-top: 13px;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 9px;
+  font-weight: var(--weight-medium);
+
+  letter-spacing: 0.28em;
+  line-height: 1;
+
+  white-space: nowrap;
+
+  text-indent: 0.28em;
+}
+
+
+/* =========================================================
+   LINE
+   ========================================================= */
+
+.line {
+  display: block;
+
+  width: 1px;
+  height: 42px;
+
+  margin-top: 13px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+
+/* =========================================================
+   TARGET OFFSET
+   ========================================================= */
+
+/*
+  Permite que cualquier sección utilizada como target
+  respete el Header fijo.
+
+  Ejemplo:
+
+  <section id="proyectos">
+    ...
+  </section>
+
+  El scroll llegará al inicio de la sección dejando
+  espacio para el Header.
+*/
+
+:global([id]) {
+  scroll-margin-top: 90px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .scrollIndicator {
+    bottom: 26px;
+  }
+
+  .circle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .arrow {
+    width: 11px;
+    height: 11px;
+  }
+
+  .label {
+    margin-top: 11px;
+  }
+
+  .line {
+    height: 34px;
+    margin-top: 11px;
+  }
+
+  :global([id]) {
+    scroll-margin-top: 80px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .scrollIndicator {
+    bottom: 20px;
+  }
+
+  .circle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrow {
+    width: 10px;
+    height: 10px;
+  }
+
+  .label {
+    margin-top: 10px;
+
+    font-size: 8px;
+    letter-spacing: 0.25em;
+  }
+
+  .line {
+    height: 26px;
+    margin-top: 10px;
+  }
+
+  :global([id]) {
+    scroll-margin-top: 72px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .scrollIndicator {
+    bottom: 16px;
+  }
+
+  .circle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .arrow {
+    width: 9px;
+    height: 9px;
+  }
+
+  .label {
+    margin-top: 9px;
+    font-size: 7px;
+  }
+
+  .line {
+    height: 20px;
+    margin-top: 9px;
+  }
+
+  :global([id]) {
+    scroll-margin-top: 68px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollIndicator,
+  .circle,
+  .arrow {
+    transition: none;
+  }
+}

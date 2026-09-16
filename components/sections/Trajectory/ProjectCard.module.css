@@ -1,0 +1,179 @@
+.card {
+  position: relative;
+
+  overflow: hidden;
+
+  color: #092328;
+}
+
+.imageWrap {
+  position: relative;
+
+  aspect-ratio: 1.22 / 1;
+
+  overflow: hidden;
+
+  background: #cbd2ce;
+}
+
+.image {
+  object-fit: cover;
+
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .image {
+  transform: scale(1.045);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(9, 35, 40, 0.02) 25%,
+      rgba(9, 35, 40, 0.78) 100%
+    );
+}
+
+.status {
+  position: absolute;
+
+  top: 18px;
+  left: 18px;
+
+  padding: 8px 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+
+  background: rgba(9, 35, 40, 0.65);
+
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+
+font-size: 10px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.imageBottom {
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color: #ffffff;
+
+font-size: 11px;
+}
+
+.imageBottom > span {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.card:hover .icon {
+  background: #2a835f;
+
+  border-color: #2a835f;
+
+  transform: rotate(4deg);
+}
+
+.content {
+  padding: 25px 2px 0;
+
+  background: transparent;
+
+  color: #092328;
+}
+
+.content h3 {
+  margin: 0;
+
+  color: #092328;
+
+font-size: 20px;
+  font-weight: 700;
+
+  letter-spacing: -0.025em;
+}
+
+.content span {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #536562;
+
+font-size: 11px;
+  font-weight: 500;
+}
+
+.content p {
+  max-width: 390px;
+
+  margin: 17px 0 0;
+
+  color: #52615e;
+
+font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .imageWrap {
+    aspect-ratio: 1.08 / 1;
+  }
+
+  .content {
+    padding-top: 20px;
+  }
+
+  .content h3 {
+    font-size: 18px;
+  }
+
+  .content span {
+    color: #52615e;
+  }
+
+  .content p {
+    font-size: 12px;
+  }
+}

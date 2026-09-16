@@ -1,28 +1,91 @@
-import type { Metadata } from "next";
+import type {
+  Metadata,
+  Viewport,
+} from "next";
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Caveat } from "next/font/google";
+
+import Header from "@/components/layout/Header/Header";
+import Footer from "@/components/layout/Footer/Footer";
 
 import "./globals.css";
 
-import FloatingActions from "@/components/FloatingActions";
-import InvestorNavbar from "@/components/Navbar/InvestorNavbar";
-import InvestorFooter from "@/components/InvestorFooter/InvestorFooter";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/* =========================================================
+   TIPOGRAFÍA PRINCIPAL
+   BRUSH / SCRIPT
+   ========================================================= */
+
+const script = Caveat({
+  variable: "--font-script",
   subsets: ["latin"],
+  display: "swap",
+  weight: [
+    "400",
+    "500",
+    "600",
+    "700",
+  ],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
+/* =========================================================
+   METADATA
+========================================================= */
 
 export const metadata: Metadata = {
-  title: "Moro Capital",
+  title: {
+    default: "Moro Capital",
+    template: "%s | Moro Capital",
+  },
+
   description:
+    "Moro Capital es un holding inmobiliario dedicado a la creación y desarrollo de proyectos innovadores y oportunidades de inversión.",
+
+  keywords: [
     "Moro Capital",
+    "inversiones inmobiliarias",
+    "inversión inmobiliaria",
+    "fondo de inversión",
+    "renta fija",
+    "Huancayo",
+    "Moro 416",
+  ],
+
+  authors: [
+    {
+      name: "Moro Capital",
+    },
+  ],
+
+  creator: "Moro Capital",
+  publisher: "Moro Capital",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
+
+
+/* =========================================================
+   VIEWPORT
+========================================================= */
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
+
+/* =========================================================
+   ROOT LAYOUT
+========================================================= */
 
 export default function RootLayout({
   children,
@@ -30,17 +93,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${geistSans.variable} ${geistMono.variable}`}
-    >
-      <body>
+    <html lang="es">
+      <body className={script.variable}>
+        <Header />
 
         {children}
-      <InvestorNavbar />
-      <InvestorFooter />
 
-        <FloatingActions />
+        <Footer />
       </body>
     </html>
   );

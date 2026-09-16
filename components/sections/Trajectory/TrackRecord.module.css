@@ -1,0 +1,163 @@
+.section {
+  background: #101414;
+  color: #ffffff;
+
+  padding: 125px 0 0;
+}
+
+.container {
+  width: min(100% - 120px, 1790px);
+  margin: 0 auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
+
+  align-items: end;
+
+  gap: 80px;
+
+  padding-bottom: 62px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+font-size: clamp(48px, 5vw, 78px);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.header h2 strong {
+  color: #8bbb92;
+  font-weight: 400;
+}
+
+.header > p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+font-size: 14px;
+  line-height: 1.75;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.stat {
+  min-height: 220px;
+
+  padding: 45px 38px 45px 0;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.stat:not(:first-child) {
+  padding-left: 38px;
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.stat strong {
+  display: block;
+
+  color: #ffffff;
+
+font-size: clamp(48px, 5vw, 76px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.stat p {
+  max-width: 270px;
+
+  margin: 18px 0 0;
+
+  color: rgba(255, 255, 255, 0.62);
+
+font-size: 12px;
+  line-height: 1.65;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: min(100% - 70px, 1000px);
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 90px;
+  }
+
+  .container {
+    width: min(100% - 48px, 700px);
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat,
+  .stat:not(:first-child) {
+    min-height: auto;
+
+    padding: 38px 0;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .stat:last-child {
+    border-bottom: none;
+  }
+
+  .stat p {
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 36px);
+  }
+
+  .section {
+    padding-top: 75px;
+  }
+
+  .header h2 {
+    font-size: 46px;
+  }
+
+  .header > p {
+    font-size: 13px;
+  }
+
+  .stat strong {
+    font-size: 52px;
+  }
+
+  .stat p {
+    font-size: 12px;
+  }
+}

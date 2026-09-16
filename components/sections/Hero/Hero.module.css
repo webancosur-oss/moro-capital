@@ -1,0 +1,450 @@
+/* =========================================================
+   MORO CAPITAL — HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  height: 100svh;
+  min-height: 680px;
+
+  overflow: hidden;
+
+  background: var(--color-primary);
+
+  isolation: isolate;
+
+  /*
+   * Permite swipe horizontal sin impedir
+   * el scroll vertical de la página.
+   */
+  touch-action: pan-y;
+
+  cursor: grab;
+
+  user-select: none;
+}
+
+.hero:active {
+  cursor: grabbing;
+}
+
+
+/* =========================================================
+   SLIDES
+   ========================================================= */
+
+.slides {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -3;
+
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 1.2s ease,
+    visibility 1.2s ease;
+}
+
+.slideActive {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* =========================================================
+   BACKGROUND IMAGE
+   ========================================================= */
+
+.backgroundImage {
+  object-fit: cover;
+
+  object-position: center center;
+
+  transform: scale(1.04);
+
+  pointer-events: none;
+
+  transition:
+    transform 7s cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+.slideActive .backgroundImage {
+  transform: scale(1);
+}
+
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(9, 35, 40, 0.86) 0%,
+      rgba(9, 35, 40, 0.67) 30%,
+      rgba(9, 35, 40, 0.38) 62%,
+      rgba(9, 35, 40, 0.48) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BOTTOM GRADIENT
+   ========================================================= */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(0, 0, 0, 0.48) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  height: 100%;
+
+  padding-top: 80px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.content {
+  width: 100%;
+
+  max-width: 900px;
+
+  padding-left: 5%;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.titleWrapper {
+  display: flex;
+
+  align-items: center;
+
+  gap: 36px;
+}
+
+
+/* =========================================================
+   ACCENT LINE
+   ========================================================= */
+
+.titleLine {
+  display: block;
+
+  flex-shrink: 0;
+
+  width: 5px;
+  height: 88px;
+
+  background: var(--color-accent);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.title {
+  margin: 0;
+
+  color: var(--color-white);
+
+  font-size:
+    clamp(
+      4rem,
+      6vw,
+      6.5rem
+    );
+
+  font-weight: var(--weight-light);
+
+  letter-spacing: -0.045em;
+
+  line-height: 0.95;
+
+  text-transform: uppercase;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.description {
+  max-width: 680px;
+
+  margin-top: 38px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.92
+    );
+
+  font-size:
+    clamp(
+      1.05rem,
+      1.45vw,
+      1.4rem
+    );
+
+  font-weight: var(--weight-regular);
+
+  line-height: 1.55;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (max-width: 1440px) {
+  .content {
+    padding-left: 3%;
+  }
+
+  .titleWrapper {
+    gap: 30px;
+  }
+
+  .titleLine {
+    height: 78px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 620px;
+  }
+
+  .container {
+    padding-top: 80px;
+  }
+
+  .content {
+    max-width: 720px;
+
+    padding-left: 2%;
+  }
+
+  .titleWrapper {
+    gap: 26px;
+  }
+
+  .titleLine {
+    width: 5px;
+    height: 68px;
+  }
+
+  .title {
+    font-size:
+      clamp(
+        3.4rem,
+        8vw,
+        5rem
+      );
+  }
+
+  .description {
+    max-width: 560px;
+
+    margin-top: 30px;
+
+    font-size: 1.08rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 620px;
+
+    cursor: default;
+  }
+
+  .backgroundImage {
+    object-position: 60% center;
+  }
+
+  .overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(9, 35, 40, 0.88) 0%,
+        rgba(9, 35, 40, 0.68) 65%,
+        rgba(9, 35, 40, 0.52) 100%
+      );
+  }
+
+  .container {
+    align-items: center;
+
+    padding-top: 70px;
+  }
+
+  .content {
+    max-width: 100%;
+
+    padding-left: 0;
+  }
+
+  .titleWrapper {
+    gap: 18px;
+  }
+
+  .titleLine {
+    width: 4px;
+    height: 58px;
+  }
+
+  .title {
+    font-size:
+      clamp(
+        2.8rem,
+        12vw,
+        4.5rem
+      );
+
+    letter-spacing:
+      -0.035em;
+  }
+
+  .description {
+    max-width: 90%;
+
+    margin-top: 26px;
+
+    font-size: 1rem;
+
+    line-height: 1.55;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 580px;
+  }
+
+  .backgroundImage {
+    object-position: 62% center;
+  }
+
+  .container {
+    padding-top: 60px;
+  }
+
+  .titleWrapper {
+    gap: 14px;
+  }
+
+  .titleLine {
+    width: 3px;
+    height: 48px;
+  }
+
+  .title {
+    font-size: 2.65rem;
+  }
+
+  .description {
+    max-width: 94%;
+
+    margin-top: 22px;
+
+    font-size: 0.93rem;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .backgroundImage {
+    transition: none;
+  }
+}

@@ -1,0 +1,562 @@
+.page {
+  --dark: #092328;
+  --dark-soft: #12544f;
+  --green: #2a835f;
+  --light-green: #8bbb92;
+
+  --cream: #f2f0eb;
+  --white: #ffffff;
+  --text: #092328;
+  --muted: #66716f;
+
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MARKET SECTION
+========================================================= */
+
+.marketSection {
+  position: relative;
+  width: 100%;
+  padding: 145px 0 120px;
+  background: var(--cream);
+  color: var(--text);
+}
+
+.marketContainer {
+  width: min(1200px, calc(100% - 80px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(400px, 0.95fr);
+  gap: 90px;
+  align-items: center;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.marketContent {
+  min-width: 0;
+}
+
+.marketTitle {
+  margin-bottom: 32px;
+}
+
+.marketKicker {
+  display: block;
+  margin-bottom: 16px;
+
+  color: var(--green);
+
+font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.marketTitle h1 {
+  max-width: 690px;
+
+  margin: 0;
+
+font-size: clamp(3.4rem, 5.2vw, 5.8rem);
+  font-weight: 400;
+
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+}
+
+.marketText {
+  max-width: 600px;
+}
+
+.marketText p {
+  margin: 0 0 20px;
+
+  color: #596563;
+
+font-size: 15px;
+  line-height: 1.75;
+}
+
+.marketText p:last-child {
+  margin-bottom: 0;
+}
+
+.marketText strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.highlightText {
+  max-width: 560px;
+
+  padding-left: 20px;
+
+  border-left: 2px solid var(--green);
+
+  color: var(--text) !important;
+}
+
+
+/* =========================================================
+   DATA CARD
+========================================================= */
+
+.marketData {
+  position: relative;
+
+  padding: 42px;
+
+  border: 1px solid rgba(9, 35, 40, 0.13);
+
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.mainData {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mainData strong {
+  color: #20a05a;
+
+font-size: clamp(4.2rem, 6vw, 6.5rem);
+  font-weight: 400;
+
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+}
+
+.mainData span {
+  max-width: 360px;
+
+  color: #69726f;
+
+font-size: 12px;
+  line-height: 1.5;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 28px 0 20px;
+
+  background: rgba(9, 35, 40, 0.12);
+}
+
+
+/* =========================================================
+   DATA ROWS
+========================================================= */
+
+.dataRows {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.dataRow {
+  display: grid;
+  grid-template-columns: 92px minmax(100px, 1fr) 65px;
+
+  align-items: center;
+  gap: 14px;
+}
+
+.dataLabel {
+  min-width: 0;
+}
+
+.dataLabel span {
+  color: #68716e;
+
+font-size: 11px;
+  line-height: 1.35;
+}
+
+.dataBar {
+  width: 100%;
+  height: 10px;
+
+  overflow: hidden;
+
+  background: #deddd6;
+}
+
+.dataBar span {
+  display: block;
+  height: 100%;
+
+  background: #5c6864;
+}
+
+.dataBarLarge {
+  width: 100%;
+}
+
+.dataBarMedium {
+  width: 53%;
+}
+
+.dataBarSmall {
+  width: 9%;
+}
+
+.dataRow > strong {
+  color: var(--text);
+
+font-size: 11px;
+  font-weight: 600;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   DATA FOOTER
+========================================================= */
+
+.dataFooter {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-top: 30px;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(9, 35, 40, 0.1);
+}
+
+.dataFooter span {
+  color: #7a817e;
+
+font-size: 9px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dataFooter span:last-child {
+  color: var(--green);
+}
+
+
+/* =========================================================
+   INSIGHTS
+========================================================= */
+
+.insightsContainer {
+  width: min(1200px, calc(100% - 80px));
+
+  margin: 90px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid rgba(9, 35, 40, 0.14);
+}
+
+.insight {
+  min-height: 130px;
+
+  padding: 28px 35px;
+
+  border-right: 1px solid rgba(9, 35, 40, 0.14);
+}
+
+.insight:first-child {
+  padding-left: 0;
+}
+
+.insight:last-child {
+  border-right: 0;
+}
+
+.insight strong {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: var(--green);
+
+font-size: 36px;
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.insight span {
+  display: block;
+
+  max-width: 210px;
+
+  color: #68716f;
+
+font-size: 11px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .marketSection {
+    padding: 120px 0 100px;
+  }
+
+  .marketContainer {
+    width: min(100% - 60px, 1000px);
+
+    grid-template-columns: 1fr 0.85fr;
+    gap: 55px;
+  }
+
+  .marketTitle h1 {
+    font-size: clamp(3.2rem, 5.5vw, 5rem);
+  }
+
+  .marketData {
+    padding: 32px;
+  }
+
+  .mainData strong {
+    font-size: clamp(4rem, 6vw, 5.5rem);
+  }
+
+  .insightsContainer {
+    width: min(100% - 60px, 1000px);
+  }
+}
+
+
+/* =========================================================
+   TABLET SMALL
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .marketSection {
+    padding: 100px 0 85px;
+  }
+
+  .marketContainer {
+    width: min(100% - 48px, 680px);
+
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .marketTitle h1 {
+    max-width: 650px;
+
+    font-size: clamp(3.5rem, 9vw, 5rem);
+  }
+
+  .marketText {
+    max-width: 680px;
+  }
+
+  .marketData {
+    width: 100%;
+    max-width: 680px;
+  }
+
+  .insightsContainer {
+    width: min(100% - 48px, 680px);
+
+    margin-top: 65px;
+  }
+
+  .insight {
+    padding: 25px 22px;
+  }
+
+  .insight:first-child {
+    padding-left: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .marketSection {
+    padding: 80px 0 70px;
+  }
+
+  .marketContainer {
+    width: calc(100% - 32px);
+
+    gap: 45px;
+  }
+
+  .marketKicker {
+    margin-bottom: 13px;
+
+    font-size: 10px;
+  }
+
+  .marketTitle {
+    margin-bottom: 27px;
+  }
+
+  .marketTitle h1 {
+    font-size: clamp(2.9rem, 13vw, 4rem);
+
+    line-height: 0.94;
+  }
+
+  .marketText p {
+    margin-bottom: 18px;
+
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .highlightText {
+    padding-left: 15px;
+  }
+
+  .marketData {
+    padding: 27px 22px;
+  }
+
+  .mainData strong {
+    font-size: clamp(3.8rem, 16vw, 5rem);
+  }
+
+  .mainData span {
+    font-size: 11px;
+  }
+
+  .divider {
+    margin: 25px 0 18px;
+  }
+
+  .dataRows {
+    gap: 20px;
+  }
+
+  .dataRow {
+    grid-template-columns: 76px minmax(80px, 1fr) 58px;
+    gap: 9px;
+  }
+
+  .dataLabel span {
+    font-size: 9px;
+  }
+
+  .dataBar {
+    height: 8px;
+  }
+
+  .dataRow > strong {
+    font-size: 9px;
+  }
+
+  .dataFooter {
+    flex-direction: column;
+    gap: 5px;
+
+    margin-top: 25px;
+  }
+
+  .insightsContainer {
+    width: calc(100% - 32px);
+
+    margin-top: 50px;
+
+    grid-template-columns: 1fr;
+  }
+
+  .insight,
+  .insight:first-child {
+    min-height: auto;
+
+    padding: 22px 0;
+
+    border-right: 0;
+    border-bottom: 1px solid rgba(9, 35, 40, 0.14);
+  }
+
+  .insight:last-child {
+    border-bottom: 0;
+  }
+
+  .insight strong {
+    font-size: 32px;
+  }
+
+  .insight span {
+    max-width: 280px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE SMALL
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .marketContainer,
+  .insightsContainer {
+    width: calc(100% - 28px);
+  }
+
+  .marketSection {
+    padding-top: 70px;
+  }
+
+  .marketTitle h1 {
+    font-size: 2.75rem;
+  }
+
+  .marketText p {
+    font-size: 13px;
+  }
+
+  .marketData {
+    padding: 24px 18px;
+  }
+
+  .mainData strong {
+    font-size: 3.7rem;
+  }
+
+  .dataRow {
+    grid-template-columns: 70px minmax(70px, 1fr) 53px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .marketSection *,
+  .marketSection *::before,
+  .marketSection *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
