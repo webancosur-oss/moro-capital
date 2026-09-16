@@ -1,706 +1,745 @@
+/* =========================================================
+   GROUP
+   ========================================================= */
+
 .group {
   position: relative;
+
+  padding: 120px 0;
+
+  background: #101413;
+  color: #f5f5f1;
+
   overflow: hidden;
-
-  width: 100%;
-
-  background: #ffffff;
-
-  padding: 120px 0 150px;
 }
 
 
-/* =========================================
-   INTRODUCCIÓN
-========================================= */
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
 
 .introduction {
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.35fr)
-    minmax(300px, 0.65fr);
+    minmax(0, 1.2fr)
+    minmax(320px, 0.8fr);
 
-  gap: 80px;
+  gap: 100px;
 
   align-items: end;
 
-  margin-bottom: 70px;
+  margin-bottom: 64px;
 }
 
-.introContent {
-  max-width: 850px;
+.introductionMain {
+  max-width: 760px;
 }
 
-
-/* =========================================
-   TÍTULO
-========================================= */
-
-.title {
-  margin: 0;
-
-  color: #092328;
-
-font-size:
-    clamp(58px, 6.8vw, 100px);
-
-  font-weight: 400;
-
-  letter-spacing: -0.065em;
-
-  line-height: 0.91;
-}
-
-.title strong {
-  font-weight: 700;
-}
-
-
-/* =========================================
-   ACENTO
-========================================= */
-
-.accent {
-  width: 65px;
-  height: 5px;
-
-  margin-top: 30px;
-
-  background: #2a835f;
-}
-
-
-/* =========================================
-   TEXTO
-========================================= */
-
-.copy {
-  max-width: 430px;
-
-  margin-left: auto;
-}
-
-.copy p {
-  margin: 0 0 16px;
-
-  color: #627273;
-
-font-size: 15px;
-
-  line-height: 1.75;
-}
-
-.copy p:last-child {
-  margin-bottom: 0;
-}
-
-
-/* =========================================
-   IMAGEN PRINCIPAL
-========================================= */
-
-.mainImage {
-  position: relative;
-
-  width: 100%;
-  height: 570px;
-
-  overflow: hidden;
-
-  margin-bottom: 85px;
-
-  isolation: isolate;
-}
-
-.mainImage > img {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
+.kicker {
   display: block;
 
-  object-fit: cover;
+  margin-bottom: 18px;
 
-  z-index: 1;
+  color: #8bbb92;
 
-  transform: scale(1.01);
+  font-size: 12px;
+  font-weight: var(--weight-medium);
 
-  transition:
-    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  line-height: 1.2;
+
+  letter-spacing: 0.03em;
 }
 
-.mainImage:hover > img {
-  transform: scale(1.04);
-}
-
-
-/* =========================================
-   OVERLAY
-========================================= */
-
-.mainOverlay {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 2;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(9, 35, 40, 0.02) 20%,
-      rgba(9, 35, 40, 0.12) 55%,
-      rgba(9, 35, 40, 0.78) 100%
-    );
-}
-
-
-/* =========================================
-   TEXTO SOBRE IMAGEN
-========================================= */
-
-.mainCaption {
-  position: absolute;
-
-  left: 50px;
-  bottom: 48px;
-
-  z-index: 5;
-
-  max-width: 700px;
-}
-
-.mainCaption h3 {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: flex-start;
-
-  gap: 3px;
-
+.introductionMain h2 {
   margin: 0;
 
-  color: #ffffff;
+  color: #f5f5f1;
 
-font-size:
-    clamp(40px, 4.4vw, 64px);
+  font-size: clamp(3.3rem, 5.4vw, 5.8rem);
 
-  font-weight: 400;
-
-  letter-spacing: -0.055em;
+  font-weight: var(--weight-medium);
 
   line-height: 0.94;
-}
-
-.mainCaption h3 span {
-  display: inline-block;
-
-  padding:
-    4px 10px
-    7px;
-
-  color: #ffffff;
-
-  background: rgba(42, 131, 95, 0.95);
-
-  text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.18);
-}
-
-
-/* =========================================
-   TÍTULO DE LÍNEAS
-========================================= */
-
-.sectionHeader {
-  margin-bottom: 40px;
-}
-
-.sectionHeader h3 {
-  margin: 0;
-
-  color: #092328;
-
-font-size:
-    clamp(42px, 4.5vw, 64px);
-
-  font-weight: 400;
-
-  letter-spacing: -0.05em;
-
-  line-height: 0.95;
-}
-
-.sectionHeader strong {
-  font-weight: 700;
-}
-
-
-/* =========================================
-   GRID
-========================================= */
-
-.grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 24px;
-}
-
-.cardReveal {
-  height: 100%;
-}
-
-
-/* =========================================
-   CARD
-========================================= */
-
-.card {
-  height: 100%;
-
-  overflow: hidden;
-
-  background: #f3f6f5;
-
-  border-radius: 4px;
-
-  transition:
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.5s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-
-  box-shadow:
-    0 20px 45px rgba(9, 35, 40, 0.1);
-}
-
-
-/* =========================================
-   IMAGEN CARD
-========================================= */
-
-.cardImage {
-  position: relative;
-
-  width: 100%;
-  height: 270px;
-
-  overflow: hidden;
-
-  isolation: isolate;
-}
-
-.cardImage img {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  z-index: 1;
-
-  transition:
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card:hover .cardImage img {
-  transform: scale(1.06);
-}
-
-
-/* =========================================
-   OVERLAY CARD
-========================================= */
-
-.cardImageOverlay {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 2;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(9, 35, 40, 0.02),
-      rgba(9, 35, 40, 0.48)
-    );
-}
-
-
-/* =========================================
-   ICONO
-========================================= */
-
-.icon {
-  position: absolute;
-
-  left: 22px;
-  bottom: 20px;
-
-  z-index: 4;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 44px;
-  height: 44px;
-
-  color: #ffffff;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.5);
-
-  border-radius: 50%;
-
-  background:
-    rgba(9, 35, 40, 0.4);
-
-  backdrop-filter: blur(8px);
-}
-
-
-/* =========================================
-   NÚMERO
-========================================= */
-
-.index {
-  position: absolute;
-
-  top: 20px;
-  right: 21px;
-
-  z-index: 4;
-
-  color:
-    rgba(255, 255, 255, 0.85);
-
-font-size: 10px;
-
-  font-weight: 500;
-
-  letter-spacing: 0.1em;
-}
-
-
-/* =========================================
-   CARD BODY
-========================================= */
-
-.cardBody {
-  padding: 27px 26px 30px;
-}
-
-.cardTitle {
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 18px;
-
-  margin-bottom: 14px;
-}
-
-.cardTitle h4 {
-  margin: 0;
-
-  color: #092328;
-
-font-size: 27px;
-
-  font-weight: 700;
 
   letter-spacing: -0.04em;
 
-  line-height: 1.05;
+  text-transform: uppercase;
 }
 
-.cardBody p {
-  margin: 0;
+.introductionMain h2 strong {
+  color: #8bbb92;
 
-  color: #687879;
-
-font-size: 14px;
-
-  line-height: 1.7;
+  font-weight: var(--weight-medium);
 }
 
 
-/* =========================================
-   BOTÓN CIRCULAR
-========================================= */
+/* =========================================================
+   INTRODUCTION COPY
+   ========================================================= */
 
-.arrow {
+.introductionCopy {
+  max-width: 490px;
+
+  padding-bottom: 5px;
+}
+
+.introductionCopy p {
+  margin: 0 0 18px;
+
+  color: rgba(245, 245, 241, 0.62);
+
+  font-size: 15px;
+
+  line-height: 1.65;
+}
+
+.introductionCopy p:last-of-type {
+  margin-bottom: 24px;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+   ========================================================= */
+
+.certifications {
   display: flex;
+  align-items: center;
 
+  gap: 8px;
+}
+
+.certifications span {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  flex-shrink: 0;
+  min-height: 29px;
 
-  width: 40px;
-  height: 40px;
+  padding: 0 13px;
 
-  color: #092328;
+  border: 1px solid rgba(139, 187, 146, 0.28);
 
-  border:
-    1px solid
-    rgba(9, 35, 40, 0.16);
+  border-radius: 999px;
 
-  border-radius: 50%;
+  color: #8bbb92;
+
+  font-size: 9px;
+
+  font-weight: var(--weight-medium);
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   COMPANIES
+   ========================================================= */
+
+.companies {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: rgba(255, 255, 255, 0.018);
+}
+
+
+/* =========================================================
+   COMPANY
+   ========================================================= */
+
+.companyReveal {
+  min-width: 0;
+}
+
+.company {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 405px;
+
+  padding: 30px 23px 25px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.11);
 
   background: transparent;
 
   transition:
-    color 0.35s ease,
-    background 0.35s ease,
-    border-color 0.35s ease,
-    transform 0.35s ease;
+    background-color 320ms ease,
+    border-color 320ms ease,
+    transform 320ms ease;
 }
 
-.card:hover .arrow {
-  color: #ffffff;
+.companyReveal:last-child .company {
+  border-right: 0;
+}
 
-  background: #2a835f;
+.company:hover {
+  background: rgba(139, 187, 146, 0.045);
 
-  border-color: #2a835f;
+  border-color: rgba(139, 187, 146, 0.22);
 
-  transform:
-    translate(3px, -3px);
+  transform: translateY(-3px);
 }
 
 
-/* =========================================
-   TABLET
-========================================= */
+/* =========================================================
+   LOGO
+   ========================================================= */
 
-@media (max-width: 1100px) {
+.logoArea {
+  display: flex;
+  align-items: center;
 
+  height: 76px;
+
+  margin-bottom: 21px;
+}
+
+.logo {
+  display: block;
+
+  width: auto;
+
+  max-width: 175px;
+  max-height: 62px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  /*
+    IMPORTANTE:
+    No se aplica filter.
+    Los logos mantienen sus colores originales.
+  */
+
+  transition:
+    transform 320ms ease,
+    opacity 320ms ease;
+}
+
+.company:hover .logo {
+  transform: scale(1.025);
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.companyCategory {
+  min-height: 32px;
+
+  color: #2a835f;
+
+  font-size: 10px;
+
+  font-weight: var(--weight-medium);
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.companyDescription {
+  flex: 1;
+
+  padding-top: 23px;
+}
+
+.companyDescription p {
+  margin: 0;
+
+  color: rgba(245, 245, 241, 0.59);
+
+  font-size: 13px;
+
+  line-height: 1.62;
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+
+  min-height: 69px;
+
+  padding-top: 19px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.stat strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #f5f5f1;
+
+  font-size: 16px;
+
+  font-weight: var(--weight-semibold);
+
+  line-height: 1.05;
+}
+
+.stat span {
+  display: block;
+
+  color: rgba(245, 245, 241, 0.39);
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   ANCOSUR
+   ========================================================= */
+
+.ancosur {
+  margin-top: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  background: rgba(255, 255, 255, 0.012);
+}
+
+
+/* =========================================================
+   ANCOSUR HEADER
+   ========================================================= */
+
+.ancosurHeader {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(280px, 0.7fr);
+
+  gap: 70px;
+
+  align-items: end;
+
+  padding: 29px 30px 27px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.ancosurKicker {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: rgba(245, 245, 241, 0.38);
+
+  font-size: 10px;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.04em;
+}
+
+.ancosurHeader h3 {
+  margin: 0;
+
+  color: #f5f5f1;
+
+  font-size: 25px;
+
+  font-weight: var(--weight-medium);
+
+  line-height: 1.12;
+
+  letter-spacing: -0.025em;
+}
+
+.ancosurHeader h3 strong {
+  color: #8bbb92;
+
+  font-weight: var(--weight-medium);
+}
+
+.ancosurHeader > p {
+  margin: 0;
+
+  color: rgba(245, 245, 241, 0.48);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ANCOSUR LINES
+   ========================================================= */
+
+.ancosurLines {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+.ancosurLine {
+  min-height: 115px;
+
+  padding: 23px 26px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition:
+    background-color 320ms ease;
+}
+
+.ancosurLine:last-child {
+  border-right: 0;
+}
+
+.ancosurLine:hover {
+  background: rgba(139, 187, 146, 0.035);
+}
+
+.ancosurLine h4 {
+  margin: 0 0 9px;
+
+  color: #f5f5f1;
+
+  font-size: 12px;
+
+  font-weight: var(--weight-semibold);
+
+  line-height: 1.25;
+}
+
+.ancosurLine p {
+  margin: 0;
+
+  color: rgba(245, 245, 241, 0.44);
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   CLOSING
+   ========================================================= */
+
+.closing {
+  display: flex;
+  justify-content: flex-end;
+
+  padding-top: 30px;
+}
+
+.closing p {
+  max-width: 580px;
+
+  margin: 0;
+
+  color: rgba(245, 245, 241, 0.38);
+
+  font-size: 13px;
+
+  line-height: 1.65;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1150px) {
   .group {
-    padding:
-      110px 0
-      130px;
+    padding: 100px 0;
   }
 
   .introduction {
     gap: 55px;
-
-    margin-bottom: 65px;
   }
 
-  .mainImage {
-    height: 500px;
-
-    margin-bottom: 75px;
+  .introductionMain h2 {
+    font-size: clamp(3rem, 6vw, 4.7rem);
   }
 
-  .grid {
+  .companies {
     grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .company:nth-child(3) {
+    border-right: 0;
+  }
+
+  .company:nth-child(-n + 3) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .company:nth-child(4) {
+    border-bottom: 0;
+  }
+
+  .company:nth-child(5) {
+    border-bottom: 0;
   }
 }
 
 
-/* =========================================
-   TABLET PEQUEÑA
-========================================= */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 850px) {
-
   .group {
-    padding:
-      90px 0
-      110px;
+    padding: 85px 0;
   }
 
   .introduction {
     grid-template-columns: 1fr;
 
-    gap: 28px;
+    gap: 34px;
 
-    margin-bottom: 55px;
+    margin-bottom: 48px;
   }
 
-  .copy {
-    margin-left: 0;
-
-    max-width: 650px;
+  .introductionCopy {
+    max-width: 620px;
   }
 
-  .mainImage {
-    height: 440px;
-
-    margin-bottom: 60px;
+  .companies {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
-  .mainCaption {
-    left: 32px;
-    bottom: 32px;
+  .company {
+    min-height: 365px;
   }
 
-  .mainCaption h3 {
-    font-size: 48px;
-  }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-  .group {
-    padding:
-      70px 0
-      80px;
+  .company:nth-child(3) {
+    border-right: 1px solid rgba(255, 255, 255, 0.11);
   }
 
-  .introduction {
-    gap: 25px;
-
-    margin-bottom: 42px;
+  .company:nth-child(even) {
+    border-right: 0;
   }
 
-  .title {
-    font-size:
-      clamp(46px, 13vw, 64px);
-
-    line-height: 0.94;
+  .company:nth-child(-n + 3) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11);
   }
 
-  .accent {
-    width: 50px;
-    height: 5px;
-
-    margin-top: 25px;
+  .company:nth-child(4),
+  .company:nth-child(5) {
+    border-bottom: 0;
   }
 
-  .copy p {
-    font-size: 14px;
-
-    line-height: 1.7;
-  }
-
-
-  /* IMAGEN */
-
-  .mainImage {
-    height: 390px;
-
-    margin-bottom: 50px;
-  }
-
-  .mainCaption {
-    left: 18px;
-    right: 18px;
-    bottom: 22px;
-  }
-
-  .mainCaption h3 {
-    gap: 2px;
-
-    font-size: 32px;
-
-    line-height: 0.96;
-  }
-
-  .mainCaption h3 span {
-    padding:
-      4px 7px
-      6px;
-  }
-
-
-  /* TÍTULO */
-
-  .sectionHeader {
-    margin-bottom: 30px;
-  }
-
-  .sectionHeader h3 {
-    font-size: 41px;
-  }
-
-
-  /* GRID */
-
-  .grid {
+  .ancosurHeader {
     grid-template-columns: 1fr;
 
     gap: 18px;
   }
 
-  .cardImage {
-    height: 230px;
+  .ancosurLines {
+    grid-template-columns: 1fr;
   }
 
-  .cardBody {
-    padding:
-      24px 22px
-      27px;
+  .ancosurLine {
+    border-right: 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .cardTitle h4 {
-    font-size: 25px;
-  }
-
-  .cardBody p {
-    font-size: 13.5px;
-  }
-
-  .arrow {
-    width: 39px;
-    height: 39px;
+  .ancosurLine:last-child {
+    border-bottom: 0;
   }
 }
 
 
-/* =========================================
-   MOBILE PEQUEÑO
-========================================= */
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .group {
+    padding: 70px 0;
+  }
+
+  .introduction {
+    gap: 27px;
+
+    margin-bottom: 38px;
+  }
+
+  .kicker {
+    margin-bottom: 14px;
+
+    font-size: 10px;
+  }
+
+  .introductionMain h2 {
+    font-size: clamp(2.55rem, 13vw, 4rem);
+
+    line-height: 0.96;
+  }
+
+  .introductionCopy p {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+  .companies {
+    grid-template-columns: 1fr;
+  }
+
+  .company,
+  .company:nth-child(3),
+  .company:nth-child(even) {
+    min-height: auto;
+
+    padding: 27px 21px 25px;
+
+    border-right: 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .company:last-child {
+    border-bottom: 0;
+  }
+
+  .logoArea {
+    height: 65px;
+
+    margin-bottom: 18px;
+  }
+
+  .logo {
+    max-width: 160px;
+    max-height: 55px;
+  }
+
+  .companyDescription {
+    padding-top: 18px;
+
+    padding-bottom: 25px;
+  }
+
+  .companyDescription p {
+    max-width: 480px;
+
+    font-size: 12px;
+  }
+
+  .stats {
+    max-width: 360px;
+  }
+
+  .ancosur {
+    margin-top: 12px;
+  }
+
+  .ancosurHeader {
+    padding: 24px 21px;
+  }
+
+  .ancosurHeader h3 {
+    font-size: 21px;
+  }
+
+  .ancosurHeader > p {
+    font-size: 11px;
+  }
+
+  .ancosurLine {
+    min-height: auto;
+
+    padding: 21px;
+  }
+
+  .closing {
+    justify-content: flex-start;
+
+    padding-top: 25px;
+  }
+
+  .closing p {
+    text-align: left;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 400px) {
-
   .group {
-    padding:
-      65px 0
-      75px;
+    padding: 60px 0;
   }
 
-  .title {
-    font-size: 43px;
+  .introductionMain h2 {
+    font-size: 2.45rem;
   }
 
-  .mainImage {
-    height: 365px;
+  .company {
+    padding: 24px 18px;
   }
 
-  .mainCaption h3 {
-    font-size: 29px;
+  .logo {
+    max-width: 145px;
   }
 
-  .icon {
-    width: 41px;
-    height: 41px;
+  .ancosurHeader {
+    padding: 22px 18px;
+  }
+
+  .ancosurLine {
+    padding: 19px 18px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .company,
+  .logo,
+  .ancosurLine {
+    transition: none;
   }
 }

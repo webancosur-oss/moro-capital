@@ -153,7 +153,7 @@ export default function Footer() {
 
             {/* TELÉFONO */}
             <a
-              href="tel:+51971069763"
+              href="tel:+51904239657"
               className={`${styles.contactCard} ${styles.contactLink}`}
             >
               <div className={styles.iconWrapper}>

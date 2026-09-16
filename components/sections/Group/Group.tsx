@@ -1,76 +1,110 @@
 "use client";
 
-import {
-  Palmtree,
-  Landmark,
-  Building2,
-  Map,
-  HardHat,
-  Factory,
-  Sprout,
-  ArrowUpRight,
-} from "lucide-react";
+import Image from "next/image";
 
 import Container from "@/components/layout/Container/Container";
 import Reveal from "@/components/ui/Reveal/Reveal";
 import styles from "./Group.module.css";
 
-const groupLines = [
+const companies = [
   {
-    icon: Palmtree,
-    title: "Resort Club",
+    name: "Moro Capital",
+    category: "Holding y captación",
+    logo: "/logos/moro-capital-logo.svg",
     description:
-      "Un moderno Resort Club en la Selva Central, con un modelo de comercialización por suscriptores.",
-    image:
-      "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1600&q=85",
+      "Holding inmobiliario dedicado a la creación y desarrollo de proyectos, y a la captación de capital privado.",
+    stats: [
+      {
+        value: "+10 MM",
+        label: "de inversión captada",
+      },
+      {
+        value: "+50",
+        label: "inversionistas",
+      },
+    ],
   },
   {
-    icon: Landmark,
-    title: "Proyectos exclusivos",
+    name: "Straton",
+    category: "Constructora · Lean Construction",
+    logo: "/logos/straton_logo.svg",
     description:
-      "Proyectos exclusivos con alto valor arquitectónico.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+      "Más de 10 años desarrollando y ejecutando obras en la ciudad. Es quien construye los proyectos del grupo.",
+    stats: [
+      {
+        value: "+60 mil",
+        label: "m² de construcción",
+      },
+      {
+        value: "+500",
+        label: "hogares entregados",
+      },
+    ],
   },
   {
-    icon: Building2,
-    title: "Departamentos",
+    name: "Ancosur",
+    category: "Inmobiliaria · Administra el fondo",
+    logo: "/logos/ancosur-logo.svg",
     description:
-      "Departamentos accesibles ubicados estratégicamente.",
-    image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=85",
+      "Más de 10 años en el sector, especializada en proyectos innovadores y sostenibles.",
+    stats: [
+      {
+        value: "+50 mil",
+        label: "m² desarrollados",
+      },
+      {
+        value: "+200 MM",
+        label: "en ventas",
+      },
+    ],
   },
   {
-    icon: Map,
-    title: "Lotes",
+    name: "Zagari",
+    category: "Resort Club",
+    logo: "/logos/zagari_logo.svg",
     description:
-      "Lotes residenciales y de inversión en zonas de alto crecimiento.",
-    image:
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85",
+      "Resort Club en la Selva Central con un modelo de comercialización por suscriptores. Proyectos en San Ramón y Oxapampa.",
+    stats: [
+      {
+        value: "San Ramón",
+        label: "2023",
+      },
+      {
+        value: "Oxapampa",
+        label: "2025",
+      },
+    ],
   },
   {
-    icon: HardHat,
-    title: "Constructora",
-    description:
-      "Más de 10 años de experiencia desarrollando y ejecutando proyectos en la ciudad.",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=85",
-  },
-  {
-    icon: Factory,
-    title: "Ancosur",
-    description:
-      "Más de 10 años de experiencia en el sector inmobiliario, desarrollando proyectos innovadores y sostenibles.",
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=85",
-  },
-  {
-    icon: Sprout,
-    title: "Sulpaa",
+    name: "Sulppa",
+    category: "Agroindustrial",
+    logo: "/logos/sulpaa_logo.svg",
     description:
       "Marca dedicada a la venta de productos agroindustriales naturales.",
-    image:
-      "https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=1600&q=85",
+    stats: [
+      {
+        value: "Diversificación",
+        label: "del grupo",
+      },
+    ],
+  },
+];
+
+const ancosurLines = [
+  {
+    name: "Ancosur Premium",
+    description:
+      "Proyectos exclusivos con alto valor arquitectónico.",
+  },
+  {
+    name: "Ancosur Urban",
+    description:
+      "Departamentos accesibles en ubicaciones estratégicas.",
+  },
+  {
+    name: "Ancosur Terra",
+    description:
+      "Lotes residenciales y de inversión en zonas de alto crecimiento.",
   },
 ];
 
@@ -79,41 +113,46 @@ export default function Group() {
     <section id="grupo" className={styles.group}>
       <Container>
 
-        {/* =====================================
+        {/* =====================================================
             INTRODUCCIÓN
-        ===================================== */}
+        ====================================================== */}
 
         <div className={styles.introduction}>
 
           <Reveal>
-            <div className={styles.introContent}>
+            <div className={styles.introductionMain}>
 
-              <h2 className={styles.title}>
-                Creamos.
+              <h2>
+                Un grupo de cinco
                 <br />
-                <strong>Desarrollamos.</strong>
+                empresas, cuatro
                 <br />
-                Transformamos.
+                <strong>socios directores.</strong>
               </h2>
-
-              <div className={styles.accent} />
 
             </div>
           </Reveal>
 
+
           <Reveal>
-            <div className={styles.copy}>
+            <div className={styles.introductionCopy}>
 
               <p>
-                Moro Capital es un holding inmobiliario dedicado a la
-                creación y desarrollo de proyectos innovadores que
-                transforman el mercado.
+                Moro Capital no invierte en terceros: financia
+                los proyectos de sus propias empresas, que
+                construyen, desarrollan y venden.
               </p>
 
               <p>
-                A través de sus diferentes marcas, desarrolla propuestas
-                que combinan calidad, rentabilidad y modernidad.
+                Un sistema integrado de gestión que articula
+                distintas especialidades dentro de un mismo
+                grupo empresarial.
               </p>
+
+              <div className={styles.certifications}>
+                <span>ISO 14001</span>
+                <span>ISO 9001</span>
+              </div>
 
             </div>
           </Reveal>
@@ -121,26 +160,94 @@ export default function Group() {
         </div>
 
 
-        {/* =====================================
-            IMAGEN PRINCIPAL
-        ===================================== */}
+        {/* =====================================================
+            EMPRESAS
+        ====================================================== */}
+
+        <div className={styles.companies}>
+
+          {companies.map((company) => (
+            <Reveal
+              key={company.name}
+              className={styles.companyReveal}
+            >
+              <article className={styles.company}>
+
+                <div className={styles.logoArea}>
+                  <Image
+                    src={company.logo}
+                    alt={`Logo de ${company.name}`}
+                    width={220}
+                    height={80}
+                    className={styles.logo}
+                  />
+                </div>
+
+
+                <div className={styles.companyCategory}>
+                  {company.category}
+                </div>
+
+
+                <div className={styles.companyDescription}>
+                  <p>
+                    {company.description}
+                  </p>
+                </div>
+
+
+                <div className={styles.stats}>
+
+                  {company.stats.map((stat) => (
+                    <div
+                      key={`${company.name}-${stat.value}`}
+                      className={styles.stat}
+                    >
+                      <strong>
+                        {stat.value}
+                      </strong>
+
+                      <span>
+                        {stat.label}
+                      </span>
+                    </div>
+                  ))}
+
+                </div>
+
+              </article>
+            </Reveal>
+          ))}
+
+        </div>
+
+
+        {/* =====================================================
+            LÍNEAS ANCOSUR
+        ====================================================== */}
 
         <Reveal>
-          <div className={styles.mainImage}>
+          <div className={styles.ancosur}>
 
-            <img
-              src={groupLines[1].image}
-              alt="Grupo Moro Capital"
-            />
+        
 
-            <div className={styles.mainOverlay} />
 
-            <div className={styles.mainCaption}>
+            <div className={styles.ancosurLines}>
 
-              <h3>
-                <span>Diferentes líneas.</span>
-                <span>Una misma visión.</span>
-              </h3>
+              {ancosurLines.map((line) => (
+                <article
+                  key={line.name}
+                  className={styles.ancosurLine}
+                >
+                  <h4>
+                    {line.name}
+                  </h4>
+
+                  <p>
+                    {line.description}
+                  </p>
+                </article>
+              ))}
 
             </div>
 
@@ -148,95 +255,21 @@ export default function Group() {
         </Reveal>
 
 
-        {/* =====================================
-            LÍNEAS DE NEGOCIO
-        ===================================== */}
+        {/* =====================================================
+            CIERRE
+        ====================================================== */}
 
-        <div className={styles.sectionHeader}>
+        <Reveal>
+          <div className={styles.closing}>
 
-          <Reveal>
-            <h3>
-              Las diferentes
-              <br />
-              <strong>líneas del grupo</strong>
-            </h3>
-          </Reveal>
+            <p>
+              Una estructura integrada para desarrollar,
+              construir, comercializar y administrar
+              oportunidades inmobiliarias.
+            </p>
 
-        </div>
-
-
-        {/* =====================================
-            GRID
-        ===================================== */}
-
-        <div className={styles.grid}>
-
-          {groupLines.map((item, index) => {
-
-            const Icon = item.icon;
-
-            return (
-              <Reveal
-                key={item.title}
-                className={styles.cardReveal}
-              >
-
-                <article className={styles.card}>
-
-                  <div className={styles.cardImage}>
-
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      loading="lazy"
-                    />
-
-                    <div className={styles.cardImageOverlay} />
-
-                    <div className={styles.icon}>
-                      <Icon
-                        size={19}
-                        strokeWidth={1.5}
-                      />
-                    </div>
-
-                    <span className={styles.index}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-
-                  </div>
-
-
-                  <div className={styles.cardBody}>
-
-                    <div className={styles.cardTitle}>
-
-                      <h4>
-                        {item.title}
-                      </h4>
-
-                      <span className={styles.arrow}>
-                        <ArrowUpRight
-                          size={17}
-                          strokeWidth={1.6}
-                        />
-                      </span>
-
-                    </div>
-
-                    <p>
-                      {item.description}
-                    </p>
-
-                  </div>
-
-                </article>
-
-              </Reveal>
-            );
-          })}
-
-        </div>
+          </div>
+        </Reveal>
 
       </Container>
     </section>
