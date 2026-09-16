@@ -14,7 +14,7 @@
   inset: 0;
 
   background-image:
-    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=90");
+    url("/images/projects/zagari-resort.webp");
 
   background-size: cover;
   background-position: center;
@@ -29,16 +29,16 @@
   background:
     linear-gradient(
       90deg,
-      rgba(9, 35, 40, 0.97) 0%,
-      rgba(9, 35, 40, 0.84) 38%,
-      rgba(9, 35, 40, 0.42) 72%,
-      rgba(9, 35, 40, 0.18) 100%
+      rgba(9, 35, 40, 0.72) 0%,
+      rgba(9, 35, 40, 0.52) 32%,
+      rgba(9, 35, 40, 0.22) 65%,
+      rgba(9, 35, 40, 0.05) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(9, 35, 40, 0.94) 0%,
-      rgba(9, 35, 40, 0.16) 65%,
-      rgba(9, 35, 40, 0.08) 100%
+      rgba(9, 35, 40, 0.48) 0%,
+      rgba(9, 35, 40, 0.14) 55%,
+      rgba(9, 35, 40, 0.02) 100%
     );
 }
 
